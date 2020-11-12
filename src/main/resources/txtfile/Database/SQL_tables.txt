@@ -1,0 +1,120 @@
+CREATE TABLE users (
+    	id serial PRIMARY KEY, 
+    	id_type INT NOT NULL, 
+    	login VARCHAR(30) NOT NULL,
+    	password VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE personel (
+    	id serial PRIMARY KEY, 
+    	id_users BIGINT UNSIGNED NOT NULL,
+	first_name VARCHAR(30) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,
+	profession VARCHAR(30) NOT NULL, 
+	FOREIGN KEY (id_users) REFERENCES users(id)
+);
+
+
+CREATE TABLE patients (
+    	id serial PRIMARY KEY, 
+    	id_users BIGINT UNSIGNED NOT NULL,
+	first_name VARCHAR(30) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,
+	birth_date DATE NOT NULL,
+	sex CHAR NOT NULL,
+    	health TEXT(65535),
+	FOREIGN KEY (id_users) REFERENCES users(id)
+);
+
+CREATE TABLE visits (
+	id serial PRIMARY KEY,
+	id_patients BIGINT UNSIGNED NOT NULL,
+	visit_data DATE NOT NULL,
+	paid BOOLEAN,
+	FOREIGN KEY (id_patients) REFERENCES patients(id)
+);
+
+CREATE TABLE notes (
+	id serial PRIMARY KEY,
+	id_users BIGINT UNSIGNED NOT NULL,
+	comments TEXT(65535) NOT NULL,
+	FOREIGN KEY (id_users) REFERENCES users(id)
+);
+
+CREATE TABLE medicines (
+	id serial PRIMARY KEY,
+	name VARCHAR(30) NOT NULL,
+	price float(8) NOT NULL,
+	alternative BIGINT UNSIGNED,
+	package_picture LONGBLOB,
+	quantity INT NOT NULL,
+	FOREIGN KEY (alternative) REFERENCES medicines(id)
+);
+
+CREATE TABLE prescriptions (
+	id serial PRIMARY KEY,
+	id_patients BIGINT UNSIGNED NOT NULL,
+	id_personel BIGINT UNSIGNED NOT NULL,
+	used BOOLEAN NOT NULL,
+	content TEXT(65535) NOT NULL,
+	FOREIGN KEY (id_patients) REFERENCES patients(id),
+	FOREIGN KEY (id_personel) REFERENCES personel(id)
+);
+
+CREATE TABLE referrals (
+	id serial PRIMARY KEY,
+	id_patients BIGINT UNSIGNED NOT NULL,
+	id_personel BIGINT UNSIGNED NOT NULL,
+	order_date DATE NOT NULL,
+	comments TEXT(65535) NOT NULL,
+	FOREIGN KEY (id_patients) REFERENCES patients(id),
+	FOREIGN KEY (id_personel) REFERENCES personel(id)
+);
+
+CREATE TABLE contracts (
+	id serial PRIMARY KEY,
+	id_personel BIGINT UNSIGNED NOT NULL,
+	salary float(16) NOT NULL,
+	emp_from DATE NOT NULL,
+	emp_until DATE NOT NULL,
+	FOREIGN KEY (id_personel) REFERENCES personel(id)
+);
+
+CREATE TABLE icd10 (
+	id serial PRIMARY KEY,
+	indx VARCHAR(10) NOT NULL,
+	descript VARCHAR(255),
+	category VARCHAR(255)
+);
+
+CREATE TABLE med_icd10 (
+	id serial PRIMARY KEY,
+	id_icd10 BIGINT UNSIGNED NOT NULL,
+	id_med BIGINT UNSIGNED NOT NULL,
+	FOREIGN KEY (id_icd10) REFERENCES icd10(id),
+	FOREIGN KEY (id_med) REFERENCES medicines(id)
+);
+
+CREATE TABLE illness (
+	id serial PRIMARY KEY,
+	id_icd10 BIGINT UNSIGNED NOT NULL,
+	id_patient BIGINT UNSIGNED NOT NULL,
+	FOREIGN KEY (id_icd10) REFERENCES icd10(id),
+	FOREIGN KEY (id_patient) REFERENCES patients(id)
+);
+
+
+CREATE TABLE diagnosis (
+	id serial PRIMARY KEY,
+	id_personel BIGINT UNSIGNED NOT NULL,
+	id_patient BIGINT UNSIGNED NOT NULL,
+	id_icd10 BIGINT UNSIGNED NOT NULL,
+	image LONGBLOB,
+	diagnose_date DATE NOT NULL,
+	comments TEXT(65535),
+	FOREIGN KEY (id_personel) REFERENCES personel(id),
+	FOREIGN KEY (id_patient) REFERENCES patients(id),
+	FOREIGN KEY (id_icd10) REFERENCES icd10(id)
+);
+
+
