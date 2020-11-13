@@ -40,7 +40,7 @@ public class App extends Application {
     private PasswordField userPassField;
     private Button btnLogin, btnReg;
     private HBox hbtnLogin, hbtnReg;
-    //private String cssPath;               tło można dodać
+    //private String cssPath;           //ścieżka do tła, ale w fxml chyba jest inaczej
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -120,6 +120,7 @@ public class App extends Application {
 
         //scene = new Scene(loadFXML("primary"),1280, 720);
         scene = new Scene(grid);
+        //scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
