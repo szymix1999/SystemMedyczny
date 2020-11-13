@@ -15,8 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -40,7 +41,7 @@ public class App extends Application {
     private PasswordField userPassField;
     private Button btnLogin, btnReg;
     private HBox hbtnLogin, hbtnReg;
-    //private String cssPath;           //ścieżka do tła, ale w fxml chyba jest inaczej
+    private Image image;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -119,8 +120,9 @@ public class App extends Application {
         });
 
         //scene = new Scene(loadFXML("primary"),1280, 720);
+        image = new Image("https://sm.newsecond.se/2019/08/2019-08-02_14.20.33.png");
+        grid.setBackground(new Background(new BackgroundImage(image,BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
         scene = new Scene(grid);
-        //scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
