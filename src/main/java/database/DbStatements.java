@@ -36,11 +36,11 @@ public class DbStatements {
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, log);
-        preparedStmt.setString(2, pass);
+        preparedStmt.setString(2, String.valueOf(pass.hashCode()));
 
         preparedStmt.executeQuery();
         ResultSet rs = preparedStmt.getResultSet();
-        return rs == null;
+        return rs.next();
     }
 
 }

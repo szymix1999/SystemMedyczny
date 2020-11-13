@@ -62,12 +62,14 @@ public class App extends Application {
         grid.add(userLogin, 0, 1);
 
         userLoginField = new TextField();
+        userLoginField.setPromptText("admin");
         grid.add(userLoginField, 1, 1);
 
         userPass = new Label("Password:");
         grid.add(userPass, 0, 2);
 
         userPassField = new PasswordField();
+        userPassField.setPromptText("admin");
         grid.add(userPassField, 1, 2);
 
         btnLogin = new Button("Log in");
@@ -90,12 +92,16 @@ public class App extends Application {
         btnLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                notofication.setFill(Color.FIREBRICK);
                 Connection c = DbConnector.connect();
+                System.out.println(userLoginField.getText() + " " + userPassField.getText());
                 try {
-                    if(DbStatements.checkUser(c, "log", "test") == true) {
+                    if((userLoginField.getText() != null && !userLoginField.getText().isEmpty() &&
+                            userPassField.getText() != null && !userPassField.getText().isEmpty()) &&
+                            (DbStatements.checkUser(c, userLoginField.getText(), userPassField.getText()) == true)) {
+                        notofication.setFill(Color.GREEN);
                         notofication.setText("You logged in!");
                     } else {
+                        notofication.setFill(Color.FIREBRICK);
                         notofication.setText("Bad login or password!");
                     }
                 } catch (SQLException ex){
@@ -107,13 +113,13 @@ public class App extends Application {
         btnReg.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                notofication.setFill(Color.FIREBRICK);
-                notofication.setText("To register, please contact the administrator!");
+                notofication.setFill(Color.BLUE);
+                notofication.setText("To register, please \ncontact the administrator!");
             }
         });
 
         //scene = new Scene(loadFXML("primary"),1280, 720);
-        scene = new Scene(grid, 1280, 720);
+        scene = new Scene(grid);
         stage.setScene(scene);
         stage.show();
     }
