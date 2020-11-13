@@ -2,6 +2,7 @@ package database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DbStatements {
@@ -30,5 +31,16 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    public static boolean checkUser(Connection conn, String log, String pass) throws SQLException {
+        String query = "select id_type from users where login = ? and password = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, log);
+        preparedStmt.setString(2, pass);
+
+        preparedStmt.executeQuery();
+        ResultSet rs = preparedStmt.getResultSet();
+        return rs == null;
+    }
 
 }

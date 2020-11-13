@@ -1,5 +1,7 @@
 package javafx;
 
+import database.DbConnector;
+import database.DbStatements;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,6 +24,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * JavaFX App
@@ -34,8 +38,8 @@ public class App extends Application {
     private Label userLogin, userPass;
     private TextField userLoginField;
     private PasswordField userPassField;
-    private Button btnLogin;
-    private HBox hbtnLogin;
+    private Button btnLogin, btnReg;
+    private HBox hbtnLogin, hbtnReg;
     //private String cssPath;               tło można dodać
 
     @Override
@@ -47,7 +51,7 @@ public class App extends Application {
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
-        grid.setPadding(new Insets(25,25,25,25));
+        grid.setPadding(new Insets(25,25,25,25));           //marginesy
         //grid.setGridLinesVisible(true);
 
         formTitle = new Text("Welcome");
@@ -71,17 +75,40 @@ public class App extends Application {
         hbtnLogin .setAlignment(Pos.BOTTOM_RIGHT);
         hbtnLogin .getChildren().add(btnLogin);
         grid.add(btnLogin, 1, 4);
-        grid.setHalignment(btnLogin, HPos.RIGHT);
+        //grid.setHalignment(btnLogin, HPos.RIGHT);
+
+        btnReg = new Button("Register on");
+        hbtnReg = new HBox(10);
+        hbtnReg .setAlignment(Pos.BOTTOM_RIGHT);
+        hbtnReg .getChildren().add(btnReg);
+        grid.add(btnReg, 1, 4);
+        grid.setHalignment(btnReg, HPos.RIGHT);
 
         notofication = new Text();
         grid.add(notofication, 1, 6);
 
-         btnLogin.setOnAction(new EventHandler<ActionEvent>() {
-
+        btnLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
                 notofication.setFill(Color.FIREBRICK);
-                notofication.setText("Log in button pressed");
+                Connection c = DbConnector.connect();
+                try {
+                    if(DbStatements.checkUser(c, "log", "test") == true) {
+                        notofication.setText("You logged in!");
+                    } else {
+                        notofication.setText("Bad login or password!");
+                    }
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+        btnReg.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                notofication.setFill(Color.FIREBRICK);
+                notofication.setText("To register, please contact the administrator!");
             }
         });
 
