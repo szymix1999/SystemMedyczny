@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -22,25 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="module">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/login_pane.fxml" afterDir="false" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="Resource">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PrimaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/SecondaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/language.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/language.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/language.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/language.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/login_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/login_pane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javafx/SecondaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/SecondaryController.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,11 +56,6 @@
         <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="1kHBzktKYEFYvY2XJ4PTQKVLUiV" />
   <component name="ProjectViewState">
@@ -77,22 +65,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="C:/Program Files/SceneBuilder/SceneBuilder.exe" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.30859834" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -114,7 +91,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -141,39 +118,50 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="module" />
     <option name="LAST_COMMIT_MESSAGE" value="module" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1605352309155">
+    <state x="548" y="96" key="FileChooserDialogImpl" timestamp="1605360598138">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605352309155" />
-    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1605352309154">
+    <state x="548" y="96" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605360598138" />
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1605363655015">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605352309154" />
-    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1605352309154">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605363655015" />
+    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1605363655014">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605352309154" />
-    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1605352309155">
+    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605363655014" />
+    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1605363655014">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605352309155" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1605349415118">
+    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605363655014" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1605363655014">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605349415118" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605363655014" />
+    <state x="349" y="152" key="IDE.errors.dialog" timestamp="1605361701476">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="349" y="152" key="IDE.errors.dialog/0.0.1536.834@0.0.1536.834" timestamp="1605361701476" />
+    <state x="554" y="120" key="RollbackChangesDialog" timestamp="1605363001896">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="554" y="120" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1605363001896" />
+    <state x="80" y="25" key="SettingsEditor" timestamp="1605363578559">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="80" y="25" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605363578559" />
     <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605352327878">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -28,6 +28,8 @@ import org.json.simple.JSONObject;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * JavaFX App
@@ -35,22 +37,12 @@ import java.sql.SQLException;
 public class App extends Application {
 
     private static Scene scene;
-    private GridPane grid;
-    private Text formTitle, notofication;
-    private Label userLogin, userPass;
-    private TextField userLoginField;
-    private PasswordField userPassField;
-    private Button btnLogin, btnReg;
-    private HBox hbtnLogin, hbtnReg;
-    private Image image;
+    private static ResourceBundle bundle;
 
     @Override
     public void start(Stage stage) throws IOException {
-
+        Locale.setDefault(new Locale("pl"));
         scene = new Scene(loadFXML("login_pane"));
-//        image = new Image("https://sm.newsecond.se/2019/08/2019-08-02_14.20.33.png");
-//        grid.setBackground(new Background(new BackgroundImage(image,BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
-//        scene = new Scene(grid);
         stage.setScene(scene);
         stage.show();
     }
@@ -62,13 +54,22 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        loadResources(fxmlLoader);
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        JSONObject o;
-        launch();
+    private static void loadResources(FXMLLoader fxmlLoader) throws IOException {
+        bundle = ResourceBundle.getBundle("config.strings");
+        fxmlLoader.setResources(bundle);
+    }
 
+    public static String getString(String key){
+        return bundle.getString(key);
+    }
+
+
+    public static void main(String[] args) {
+        launch();
     }
 
 }

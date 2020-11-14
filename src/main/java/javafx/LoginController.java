@@ -33,7 +33,7 @@ public class LoginController {
                 App.setRoot("secondary");
             } else {
                 notification.setFill(Color.FIREBRICK);
-                notification.setText("Złe hasło lub login!");
+                notification.setText(App.getString("badLoginOrPass"));
             }
         } catch (SQLException ex){
             ex.printStackTrace();
@@ -43,6 +43,6 @@ public class LoginController {
     @FXML
     private void reg_on() {
         notification.setFill(Color.BLUE);
-        notification.setText("Aby się zarejestrować skontaktuj się z administratorem!");
+        notification.setText(App.getString("signIn"));
     }
 }
