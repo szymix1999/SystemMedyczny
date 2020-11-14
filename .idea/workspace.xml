@@ -22,23 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="module">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/login_pane.fxml" afterDir="false" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PrimaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/SecondaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/language.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/language.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/language.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/language.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/login_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/login_pane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javafx/SecondaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/SecondaryController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605352319103</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="better_login_pane">
+      <created>1605358954650</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605358954650</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,7 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="module" />
-    <option name="LAST_COMMIT_MESSAGE" value="module" />
+    <MESSAGE value="better_login_pane" />
+    <option name="LAST_COMMIT_MESSAGE" value="better_login_pane" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1605352309155">
