@@ -23,6 +23,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -138,7 +139,9 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        JSONObject o;
         launch();
+
     }
 
 }

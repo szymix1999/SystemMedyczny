@@ -1,0 +1,12 @@
+{
+  "pl": {
+    "name": "imie",
+    "last_name": "nazwisko"
+  },
+
+  "en": {
+    "name": "name",
+    "last_name": "surname"
+  }
+
+}
