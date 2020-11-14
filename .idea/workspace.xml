@@ -22,15 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/Resource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config/language.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SystemMedyczny.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/primary.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="module" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,6 +86,14 @@
       <option name="presentableId" value="Default" />
       <updated>1605347906493</updated>
     </task>
+    <task id="LOCAL-00001" summary="module">
+      <created>1605352319103</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605352319103</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,26 +107,34 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="module" />
+    <option name="LAST_COMMIT_MESSAGE" value="module" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1605351311367">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1605352309155">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605351311367" />
-    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1605351311366">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605352309155" />
+    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1605352309154">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605351311366" />
-    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1605351311366">
+    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605352309154" />
+    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1605352309154">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605351311366" />
-    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1605351311366">
+    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605352309154" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1605352309155">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605351311366" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605352309155" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1605349415118">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605349415118" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605352327878">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605352327878" />
   </component>
 </project>

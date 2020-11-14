@@ -1,0 +1,5 @@
+aptekarz aptekarz
+SMITH password
+JOHNSON 123456
+WILLIAMS 12345678
+JONES 1234
