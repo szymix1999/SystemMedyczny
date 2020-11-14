@@ -1,18 +1,27 @@
 package config;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class Resource {
-    private String languagePath = "src\\main\\resources\\config\\language";
-    private String currentLanguage = "en";
+    private static String currentLanguage = "en";
 
-    //FileReader reader =
+    public static String getString(String key) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader("src\\main\\resources\\config\\language.json");
+        Object obj = jsonParser.parse(reader);
+        JSONObject language = (JSONObject) obj;
 
-    //JSONObject language = (JSONObject)
+        JSONObject language1 = (JSONObject) language.get(currentLanguage);
+        return (String) language1.get(key);
+    }
 
-//    public static String getString(String key){
-//
-//    }
+    public static void setLanguage(String language){
+        currentLanguage = language;
+    }
 }
