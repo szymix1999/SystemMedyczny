@@ -1,12 +1,20 @@
 {
   "pl": {
     "name": "imie",
-    "last_name": "nazwisko"
+    "last_name": "nazwisko",
+    "user_name": "Nazwa użytkownika",
+    "password": "Hasło",
+    "log_in": "Zaloguj się",
+    "register": "Zarejestruj się"
   },
 
   "en": {
     "name": "name",
-    "last_name": "surname"
+    "last_name": "surname",
+    "user_name": "User name",
+    "password": "Password",
+    "log_in": "Log in",
+    "register": "Register on"
   }
 
 }
