@@ -3,10 +3,10 @@ package javafx;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import database.DbConnector;
 import database.DbStatements;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -17,7 +17,7 @@ public class LoginController {
     private TextField userLoginField;
 
     @FXML
-    private TextField userPassField;
+    private PasswordField userPassField;
 
     @FXML
     private Text notification;

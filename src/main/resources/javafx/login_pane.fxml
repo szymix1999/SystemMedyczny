@@ -20,7 +20,7 @@
         </rowConstraints>
          <children>
             <TextField fx:id="userLoginField" promptText="admin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="userPassField" promptText="admin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <PasswordField fx:id="userPassField" promptText="admin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="3">
                <children>
                   <Button mnemonicParsing="false" onAction="#log_in" prefHeight="38.0" prefWidth="131.0" text="Zaloguj się!" />
