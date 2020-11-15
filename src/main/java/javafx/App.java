@@ -23,7 +23,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -41,7 +40,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Locale.setDefault(new Locale("pl"));
+        Locale.setDefault(new Locale("en"));
         scene = new Scene(loadFXML("login_pane"));
         stage.setScene(scene);
         stage.show();
