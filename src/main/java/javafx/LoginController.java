@@ -30,7 +30,7 @@ public class LoginController {
             if((userLoginField.getText() != null && !userLoginField.getText().isEmpty() &&
                     userPassField.getText() != null && !userPassField.getText().isEmpty()) &&
                     (DbStatements.checkUser(c, userLoginField.getText(), userPassField.getText()) == true)) {
-                App.setRoot("secondary");
+                //App.setRoot("secondary");
             } else {
                 notification.setFill(Color.FIREBRICK);
                 notification.setText(App.getString("badLoginOrPass"));
