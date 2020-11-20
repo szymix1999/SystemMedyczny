@@ -1,14 +1,31 @@
 package javafx;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class MenuController {
 
     static MainController mainController;
+    ObservableList<String> languList = FXCollections.observableArrayList(App.getString("eng"), App.getString("pl"));
+
+    @FXML
+    private ChoiceBox languChange;
 
     @FXML
     private ToggleGroup toggleMenu;
+
+    @FXML
+    private void initialize() {
+        languChange.setValue(App.getString("eng"));
+        languChange.setItems(languList);
+    }
 
     @FXML
     public void open_profil() {
@@ -18,9 +35,11 @@ public class MenuController {
 
     @FXML
     public void change_language() {
-        //to pewnie wyleci i zamiast tego będzie choice box
-        mainController.set_center("language.fxml");
-        check_toggle();
+        if(languChange.getValue() == App.getString("pl")) {
+            System.out.println("pl");
+        } else {
+            System.out.println("eng");
+        }
     }
 
     public void setMainController(MainController mController){
