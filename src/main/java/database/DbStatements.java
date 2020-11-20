@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 public class DbStatements {
 
+    public static int type = -1;
+
     public static void addUser(Connection conn, String name, String pass, int id) throws SQLException {
         String query = "insert into users (id_type, login, password)" + " values (?, ?, ?)";
 
@@ -31,16 +33,19 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
-    public static boolean checkUser(Connection conn, String log, String pass) throws SQLException {
+    public static int checkUser(Connection conn, String log, String pass) throws SQLException {
         String query = "select id_type from users where login = ? and password = ?";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, log);
         preparedStmt.setString(2, String.valueOf(pass.hashCode()));
 
-        preparedStmt.executeQuery();
-        ResultSet rs = preparedStmt.getResultSet();
-        return rs.next();
+        ResultSet rs = preparedStmt.executeQuery();
+        while (rs.next())
+            type = rs.getInt("id_type");
+        System.out.println("User type: " + type);
+
+        return type;
     }
 
 }

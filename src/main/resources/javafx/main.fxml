@@ -4,7 +4,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.MainController">
    <top>
-      <VBox prefHeight="91.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <VBox prefWidth="600.0" BorderPane.alignment="CENTER">
           <fx:include fx:id="topMenu" source="menu.fxml" />
       </VBox>
    </top>

@@ -25,18 +25,47 @@ public class LoginController {
     @FXML
     private void log_in() throws IOException {
         Connection c = DbConnector.connect();
-        System.out.println(userLoginField.getText() + " " + userPassField.getText());
+        System.out.println("Login: " + userLoginField.getText() + " | Password: " + userPassField.getText());
         try {
             if((userLoginField.getText() != null && !userLoginField.getText().isEmpty() &&
                     userPassField.getText() != null && !userPassField.getText().isEmpty()) &&
-                    (DbStatements.checkUser(c, userLoginField.getText(), userPassField.getText()) == true)) {
-                MenuController.mainController.set_center("admin_pane.fxml");
+                    (DbStatements.checkUser(c, userLoginField.getText(), userPassField.getText()) != -1)) {
+                choose_pane();
             } else {
                 notification.setFill(Color.FIREBRICK);
                 notification.setText(App.getString("badLoginOrPass"));
             }
         } catch (SQLException ex){
             ex.printStackTrace();
+        }
+    }
+
+    private void choose_pane() {
+        switch(DbStatements.type){
+            case 0: //pacjent
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 1: //lekarz
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 2: //aptekarz
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 3: //gosc
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 4: //ksiegowy
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 5: //admin
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 6: //kierownik
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
+            case 7: //recepcja
+                MenuController.mainController.set_center("admin_pane.fxml");
+                break;
         }
     }
 

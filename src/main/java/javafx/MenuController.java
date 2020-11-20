@@ -1,14 +1,12 @@
 package javafx;
 
+import database.DbStatements;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
 
-import java.util.ArrayList;
-import java.util.Locale;
 
 public class MenuController {
 
@@ -28,13 +26,13 @@ public class MenuController {
     }
 
     @FXML
-    public void open_profil() {
+    private void open_profil() {
         mainController.set_center("profile.fxml");
         check_toggle();
     }
 
     @FXML
-    public void change_language() {
+    private void change_language() {
         if(languChange.getValue() == App.getString("pl")) {
             System.out.println("pl");
         } else {
@@ -52,6 +50,12 @@ public class MenuController {
             //tutaj trzeba dać metode która sprawdzi do którego panelu cofnąć
             //bo nie zawsze będziesz cofać do login_pane
         }
+    }
+
+    @FXML
+    private void log_out() {
+        DbStatements.type = -1;
+        mainController.set_center("login_pane.fxml");
     }
 
 //    @FXML
