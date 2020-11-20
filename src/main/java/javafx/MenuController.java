@@ -18,6 +18,7 @@ public class MenuController {
 
     @FXML
     public void change_language() {
+        //to pewnie wyleci i zamiast tego będzie choice box
         mainController.set_center("language.fxml");
         check_toggle();
     }
@@ -29,6 +30,8 @@ public class MenuController {
     public void check_toggle() {
         if(toggleMenu.getSelectedToggle()==null) {
             mainController.set_center("login_pane.fxml");
+            //tutaj trzeba dać metode która sprawdzi do którego panelu cofnąć
+            //bo nie zawsze będziesz cofać do login_pane
         }
     }
 

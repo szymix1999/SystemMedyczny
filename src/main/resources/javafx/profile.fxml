@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.ProfileController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.ProfileController">
    <children>
-      <Button mnemonicParsing="false" text="Button" />
+      <TextField alignment="CENTER" prefWidth="400.0" text="tutaj bedzie profil uzytkownika z tymi notatkami kalendarzem itd">
+         <VBox.margin>
+            <Insets top="100.0" />
+         </VBox.margin>
+      </TextField>
    </children>
 </VBox>
