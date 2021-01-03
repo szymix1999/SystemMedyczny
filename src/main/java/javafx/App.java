@@ -2,8 +2,10 @@ package javafx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Locale;
@@ -19,8 +21,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        System.out.println(screenBounds);
+
         Locale.setDefault(new Locale("en"));
-        scene = new Scene(loadFXML("main"));
+        scene = new Scene(loadFXML("main"), screenBounds.getWidth()/1.3, screenBounds.getHeight()/1.3);
         stage.setScene(scene);
 
         MenuController.mainController.set_center("login_pane.fxml");
