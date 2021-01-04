@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -42,7 +41,7 @@ public class PatientController {
 
     @FXML
     private void displaySelectedVisitDetails() {
-        String name = visitList.getSelectionModel().getSelectedItem();
+        String name = prescList.getSelectionModel().getSelectedItem();
         System.out.println("Selected visit: " + name);
         if(name!=null || !name.isEmpty()) {
             visitName.setText(name);
@@ -51,8 +50,8 @@ public class PatientController {
 
     private void loadData() {
         list.clear();
-        list.addAll("test1", "test2", "test3");
-        visitList.getItems().addAll(list);
+        list.addAll("test1", "test2", "test3", "test2", "test3", "test2", "test3", "test2", "test3");
+        //visitList.getItems().addAll(list);
         prescList.getItems().addAll(list);
     }
 

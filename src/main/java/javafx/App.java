@@ -25,7 +25,7 @@ public class App extends Application {
         System.out.println(screenBounds);
 
         Locale.setDefault(new Locale("en"));
-        scene = new Scene(loadFXML("main"), screenBounds.getWidth()/1.3, screenBounds.getHeight()/1.3);
+        scene = new Scene(loadFXML("main"), 1280.0, 720.0);
         stage.setScene(scene);
 
         MenuController.mainController.set_center("patient_pane.fxml");
