@@ -43,7 +43,7 @@ public class LoginController {
     private void choose_pane() {
         switch(DbStatements.type){
             case 0: //pacjent
-                MenuController.mainController.set_center("admin_pane.fxml");
+                MenuController.mainController.set_center("patient_pane.fxml");
                 break;
             case 1: //lekarz
                 MenuController.mainController.set_center("admin_pane.fxml");
@@ -51,9 +51,9 @@ public class LoginController {
             case 2: //aptekarz
                 MenuController.mainController.set_center("admin_pane.fxml");
                 break;
-            case 3: //gosc
-                MenuController.mainController.set_center("admin_pane.fxml");
-                break;
+            //case 3: //gosc
+            //    MenuController.mainController.set_center("admin_pane.fxml");
+            //    break;
             case 4: //ksiegowy
                 MenuController.mainController.set_center("admin_pane.fxml");
                 break;

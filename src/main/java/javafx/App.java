@@ -28,7 +28,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("main"), screenBounds.getWidth()/1.3, screenBounds.getHeight()/1.3);
         stage.setScene(scene);
 
-        MenuController.mainController.set_center("login_pane.fxml");
+        MenuController.mainController.set_center("patient_pane.fxml");
 
         stage.setTitle(App.getString("title"));
         stage.show();
