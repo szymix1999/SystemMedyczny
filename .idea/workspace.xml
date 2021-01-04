@@ -22,22 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/guest_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/guest_pane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/login_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/login_window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
-    </list>
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609781609730</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="login_window&gt;login_pane">
+      <created>1609796860426</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609796860426</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,40 +204,41 @@
     <MESSAGE value="init_patient_pane" />
     <MESSAGE value="patient0.1" />
     <MESSAGE value="screen_resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="screen_resolution" />
+    <MESSAGE value="login_window&gt;login_pane" />
+    <option name="LAST_COMMIT_MESSAGE" value="login_window&gt;login_pane" />
   </component>
   <component name="WindowStateProjectService">
     <state x="551" y="306" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609688771570">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="551" y="306" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1609688771570" />
-    <state x="230" y="0" key="CommitChangelistDialog2" timestamp="1609781607397">
+    <state x="230" y="0" key="CommitChangelistDialog2" timestamp="1609796858241">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="230" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609781607397" />
+    <state x="230" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609796858241" />
     <state x="548" y="96" key="FileChooserDialogImpl" timestamp="1605360598138">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="548" y="96" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605360598138" />
-    <state width="1493" height="193" key="GridCell.Tab.0.bottom" timestamp="1609796597996">
+    <state width="1493" height="193" key="GridCell.Tab.0.bottom" timestamp="1609796817709">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="193" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609796597996" />
+    <state width="1493" height="193" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609796817709" />
     <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605363655015" />
-    <state width="1493" height="193" key="GridCell.Tab.0.center" timestamp="1609796597995">
+    <state width="1493" height="193" key="GridCell.Tab.0.center" timestamp="1609796817709">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="193" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609796597995" />
+    <state width="1493" height="193" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609796817709" />
     <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605363655014" />
-    <state width="1493" height="193" key="GridCell.Tab.0.left" timestamp="1609796597995">
+    <state width="1493" height="193" key="GridCell.Tab.0.left" timestamp="1609796817708">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="193" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609796597995" />
+    <state width="1493" height="193" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609796817708" />
     <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605363655014" />
-    <state width="1493" height="193" key="GridCell.Tab.0.right" timestamp="1609796597996">
+    <state width="1493" height="193" key="GridCell.Tab.0.right" timestamp="1609796817709">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="193" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609796597996" />
+    <state width="1493" height="193" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609796817709" />
     <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605363655014" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1609711615387">
       <screen x="0" y="0" width="1536" height="824" />
@@ -268,6 +261,10 @@
     </state>
     <state x="349" y="150" key="IDE.errors.dialog/0.0.1536.824@0.0.1536.824" timestamp="1605786789682" />
     <state x="349" y="152" key="IDE.errors.dialog/0.0.1536.834@0.0.1536.834" timestamp="1605361701476" />
+    <state x="147" y="64" key="MergeDialog" timestamp="1609796685964">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1609796685964" />
     <state x="554" y="120" key="RollbackChangesDialog" timestamp="1605363001896">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -277,11 +274,15 @@
     </state>
     <state x="80" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605789156602" />
     <state x="80" y="25" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605363578559" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1609781614455">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1609796861820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609781614455" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609796861820" />
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605352327878" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609796606309">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1609796606309" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1609783605812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
