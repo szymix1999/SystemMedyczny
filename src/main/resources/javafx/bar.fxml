@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="405.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.MenuController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="405.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.MenuController">
    <children>
       <ImageView fitHeight="62.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -56,7 +56,7 @@
             <Insets />
          </HBox.margin>
       </GridPane>
-      <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#log_out" prefHeight="62.0" prefWidth="69.0" text="%logOut">
+      <Button fx:id="btnLogInOut" mnemonicParsing="false" onAction="#log_in_out" prefHeight="62.0" prefWidth="69.0" text="%logOut">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

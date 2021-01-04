@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Button;
 
 
 public class MenuController {
@@ -18,6 +19,9 @@ public class MenuController {
 
     @FXML
     private ToggleGroup toggleMenu;
+
+    @FXML
+    private Button btnLogInOut;
 
     @FXML
     private void initialize() {
@@ -50,9 +54,18 @@ public class MenuController {
     }
 
     @FXML
-    private void log_out() {
-        DbStatements.type = -1;
-        App.setRoot("guest_pane");
+    private void log_in_out(){
+        if(DbStatements.type==-2){
+            btnLogInOut.setText("Log in");
+            DbStatements.type = -1;
+            App.setRoot("login_pane");
+        }else if(DbStatements.type==-1){
+            DbStatements.type = -2;
+            App.setRoot("guest_pane");
+        }else{
+            DbStatements.type = -2;
+            App.setRoot("guest_pane");
+        }
     }
 
 //    @FXML
