@@ -22,18 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/GuestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/bar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
-    </list>
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="screen_resolution" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609789227682</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="screen_resolution">
+      <created>1609801822708</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1609801822708</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,8 +216,8 @@
     <MESSAGE value="login_spec_acc" />
     <MESSAGE value="init_patient_pane" />
     <MESSAGE value="patient0.1" />
-    <MESSAGE value="screen_resolution" />
     <MESSAGE value="poprawka aaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawka aaa" />
+    <MESSAGE value="screen_resolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="screen_resolution" />
   </component>
 </project>
