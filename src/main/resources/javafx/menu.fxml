@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -17,7 +18,10 @@
                   <Image url="@../images/img_profile.png" />
                </image>
             </ImageView>
-         </graphic></ToggleButton>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ToggleButton>
       <GridPane>
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -27,14 +31,23 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ChoiceBox fx:id="languChange" prefHeight="22.0" prefWidth="135.0" />
-            <Button fx:id="languBtn" mnemonicParsing="false" onAction="#change_language" prefHeight="26.0" prefWidth="133.0" text="%languChange" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="languChange" prefHeight="22.0" prefWidth="135.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ChoiceBox>
+            <Button fx:id="languBtn" mnemonicParsing="false" onAction="#change_language" prefHeight="26.0" prefWidth="133.0" text="%languChange" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
          <HBox.margin>
             <Insets />
          </HBox.margin>
       </GridPane>
-      <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#log_out" prefHeight="62.0" prefWidth="69.0" text="%logOut" />
+      <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#log_out" prefHeight="62.0" prefWidth="69.0" text="%logOut">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

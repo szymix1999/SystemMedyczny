@@ -4,8 +4,11 @@ package javafx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -16,17 +19,19 @@ public class PatientController {
     ObservableList list = FXCollections.observableArrayList();
 
     @FXML
-    private ListView<String> visitList;
-
+    private ListView<String> vpList;
     @FXML
-    private ListView<String> prescList;
-
+    private Text txtList;
     @FXML
-    private TextField visitName;
+    private TextField FTxtName;
+    @FXML
+    private Text txtName;
+    @FXML
+    private Button btnName;
 
     @FXML
     private void initialize(){
-        loadData();
+        loadVisits();
     }
 
     @FXML
@@ -35,24 +40,45 @@ public class PatientController {
     }
 
     @FXML
-    private void changeCursor() {
-        //
-    }
-
-    @FXML
     private void displaySelectedVisitDetails() {
-        String name = prescList.getSelectionModel().getSelectedItem();
+        String name = vpList.getSelectionModel().getSelectedItem();
         System.out.println("Selected visit: " + name);
         if(name!=null || !name.isEmpty()) {
-            visitName.setText(name);
+            FTxtName.setText(name);
         }
     }
 
-    private void loadData() {
-        list.clear();
-        list.addAll("test1", "test2", "test3", "test2", "test3", "test2", "test3", "test2", "test3");
-        //visitList.getItems().addAll(list);
-        prescList.getItems().addAll(list);
+    @FXML
+    private void changeOnVisits() {
+        txtList.setText(App.getString("yourVisits"));
+        txtName.setText(App.getString("nameVisit"));
+        btnName.setVisible(true);
+        FTxtName.setEditable(true);
+        FTxtName.clear();
+        loadVisits();
+    }
+
+    @FXML
+    private void changeOnPrescriptions() {
+        txtList.setText(App.getString("prescriptions"));
+        txtName.setText(App.getString("prescriptionName"));
+        FTxtName.setEditable(false);
+        btnName.setVisible(false);
+        FTxtName.clear();
+        loadPrescriptions();
+
+    }
+
+    private void loadVisits() {
+        list.clear(); vpList.getItems().clear();
+        list.addAll("Wizyta1", "test1", "test2", "test3", "test2", "test3", "test2", "test3", "test2", "test3");
+        vpList.getItems().addAll(list);
+    }
+
+    private void loadPrescriptions() {
+        list.clear(); vpList.getItems().clear();
+        list.addAll("Recepta1", "test1", "test2", "test3", "test2", "test3", "test2", "test3", "test2", "test3");
+        vpList.getItems().addAll(list);
     }
 
 }

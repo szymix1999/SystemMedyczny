@@ -15,12 +15,33 @@
                <children>
                   <VBox prefHeight="146.0" prefWidth="442.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Recepty:">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Text>
-                        <ListView fx:id="prescList" onMouseClicked="#displaySelectedVisitDetails" prefHeight="200.0" prefWidth="200.0">
+                        <HBox prefHeight="27.0" prefWidth="442.0">
+                           <children>
+                              <Text fx:id="txtList" strokeType="OUTSIDE" strokeWidth="0.0" text="%prescriptions" wrappingWidth="203.4677734375">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="251.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnVisit" mnemonicParsing="false" onMouseClicked="#changeOnVisits" text="%visits">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="btnPrescript" mnemonicParsing="false" onMouseClicked="#changeOnPrescriptions" text="%prescriptions2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <ListView fx:id="vpList" onMouseClicked="#displaySelectedVisitDetails" prefHeight="200.0" prefWidth="442.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -43,25 +64,43 @@
                      <children>
                         <VBox spacing="5.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa wizyty:" />
-                              <TextField fx:id="visitName" />
+                              <Text fx:id="txtName" strokeType="OUTSIDE" strokeWidth="0.0" text="%nameVisit" />
+                              <TextField fx:id="FTxtName" />
+                              <Button fx:id="btnName" mnemonicParsing="false" text="%changeName">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                         </VBox>
                         <VBox spacing="5.0" GridPane.rowIndex="1">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data wizyty:" />
                               <TextField />
+                              <Button mnemonicParsing="false" text="Zmień datę">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </VBox>
                         <VBox spacing="5.0" GridPane.columnIndex="1">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kwota do zapłaty:" />
                               <TextField />
-                              <Button mnemonicParsing="false" text="Zapłać" />
+                              <Button mnemonicParsing="false" text="Zapłać">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Treść:" />
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
+                           </children>
                         </VBox>
                      </children>
                   </GridPane>
@@ -86,6 +125,9 @@
                <font>
                   <Font size="17.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="12.0" />
+               </VBox.margin>
             </Text>
             <TextArea editable="false" prefHeight="608.0" prefWidth="280.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
          </children>
