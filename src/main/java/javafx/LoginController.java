@@ -43,28 +43,28 @@ public class LoginController {
     private void choose_pane() {
         switch(DbStatements.type){
             case 0: //pacjent
-                MenuController.mainController.set_center("patient_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
             case 1: //lekarz
-                MenuController.mainController.set_center("admin_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
             case 2: //aptekarz
-                MenuController.mainController.set_center("admin_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
-            //case 3: //gosc
-            //    MenuController.mainController.set_center("admin_pane.fxml");
-            //    break;
+            case 3: //gosc
+                App.setRoot("patient_pane");
+                break;
             case 4: //ksiegowy
-                MenuController.mainController.set_center("admin_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
             case 5: //admin
-                MenuController.mainController.set_center("admin_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
             case 6: //kierownik
-                MenuController.mainController.set_center("admin_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
             case 7: //recepcja
-                MenuController.mainController.set_center("admin_pane.fxml");
+                App.setRoot("patient_pane");
                 break;
         }
     }

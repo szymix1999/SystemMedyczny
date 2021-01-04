@@ -4,13 +4,13 @@ import database.DbStatements;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
 
 
 public class MenuController {
 
-    static MainController mainController;
     ObservableList<String> languList = FXCollections.observableArrayList(App.getString("eng"), App.getString("pl"));
 
     @FXML
@@ -27,7 +27,7 @@ public class MenuController {
 
     @FXML
     private void open_profil() {
-        mainController.set_center("profile.fxml");
+        //tu bedzie wyswietlal sie profil
         check_toggle();
     }
 
@@ -38,15 +38,12 @@ public class MenuController {
         } else {
             System.out.println("eng");
         }
-    }
 
-    public void setMainController(MainController mController){
-        mainController = mController;
     }
 
     public void check_toggle() {
         if(toggleMenu.getSelectedToggle()==null) {
-            mainController.set_center("login_pane.fxml");
+            App.setRoot("login_window");
             //tutaj trzeba dać metode która sprawdzi do którego panelu cofnąć
             //bo nie zawsze będziesz cofać do login_pane
         }
@@ -55,7 +52,7 @@ public class MenuController {
     @FXML
     private void log_out() {
         DbStatements.type = -1;
-        mainController.set_center("login_pane.fxml");
+        App.setRoot("guest_pane");
     }
 
 //    @FXML
