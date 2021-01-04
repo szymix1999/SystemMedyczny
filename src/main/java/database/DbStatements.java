@@ -45,6 +45,16 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    public static int SearchMedicines(Connection conn, String name) throws SQLException {
+        String query = "select name, price, quantity from medicines where name LIKE ? ";
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, "%"+name+"%");
+        ResultSet rs = preparedStmt.executeQuery();
+
+
+        return 0;
+    }
+
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {
         String query = "select id, id_type from users where login = ? and password = ?";
 
