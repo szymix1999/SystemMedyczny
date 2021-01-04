@@ -26,7 +26,7 @@ public class App extends Application {
         Locale.setDefault(new Locale("en"));
 
         //Scena starowa
-        scene = new Scene(loadFXML("patient_pane"), 1280.0, 720.0);
+        scene = new Scene(loadFXML("login_pane"), 1280.0, 720.0);
         stage.setScene(scene);
 
         stage.setTitle(App.getString("title"));
