@@ -74,4 +74,9 @@ public class LoginController {
         notification.setFill(Color.BLUE);
         notification.setText(App.getString("signIn"));
     }
+
+    @FXML
+    private void returnAction(){
+        App.setRoot("guest_pane");
+    }
 }

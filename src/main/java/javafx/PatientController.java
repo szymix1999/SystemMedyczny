@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -28,10 +29,14 @@ public class PatientController {
     private Text txtName;
     @FXML
     private Button btnName;
+    @FXML
+    private Text txtCon;
+    @FXML
+    private TextArea ATxtCon;
 
     @FXML
     private void initialize(){
-        loadVisits();
+        changeOnVisits();
     }
 
     @FXML
@@ -55,6 +60,8 @@ public class PatientController {
         btnName.setVisible(true);
         FTxtName.setEditable(true);
         FTxtName.clear();
+        txtCon.setVisible(false);
+        ATxtCon.setVisible(false);
         loadVisits();
     }
 
@@ -65,6 +72,8 @@ public class PatientController {
         FTxtName.setEditable(false);
         btnName.setVisible(false);
         FTxtName.clear();
+        txtCon.setVisible(true);
+        ATxtCon.setVisible(true);
         loadPrescriptions();
 
     }
