@@ -36,11 +36,17 @@
                <GridPane.margin>
                   <Insets bottom="40.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Button>
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="%guestButtonDoctors" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets top="40.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Button>
          </children>
       </GridPane>
