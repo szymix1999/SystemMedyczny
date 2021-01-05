@@ -4,7 +4,6 @@ import database.DbStatements;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Button;
@@ -27,6 +26,7 @@ public class MenuController {
     private void initialize() {
         languChange.setValue(App.getString("eng"));
         languChange.setItems(languList);
+        start();
     }
 
     @FXML
@@ -55,16 +55,29 @@ public class MenuController {
 
     @FXML
     private void log_in_out(){
-        if(DbStatements.type==-2){
-            btnLogInOut.setText("Log in");
+        if(DbStatements.type==-2) {  //niezalogowany, chce sie zalogowac
             DbStatements.type = -1;
             App.setRoot("login_pane");
-        }else if(DbStatements.type==-1){
+            System.out.println("Login panel on. " + DbStatements.type + " " + DbStatements.id);
+        } else {    //zalogowany, chce się wylogować
+            DbStatements.id = -1;
             DbStatements.type = -2;
             App.setRoot("guest_pane");
-        }else{
-            DbStatements.type = -2;
-            App.setRoot("guest_pane");
+            System.out.println("Guest panel on. " + DbStatements.type + " " + DbStatements.id);
+        }
+    }
+
+    private void start() {
+        if(DbStatements.type==-2) { //kiedy jesteś gościem
+            btnLogInOut.setText(App.getString("logIn"));
+            System.out.println("Init -2. " + DbStatements.type + " " + DbStatements.id);
+        } else if(DbStatements.type==-1) {  //kiedy jesteś na logowaniu
+            btnLogInOut.setVisible(false);
+            System.out.println("Init -1. " + DbStatements.type + " " + DbStatements.id);
+        } else {    //kiedy jestes na jakims innym panelu
+            btnLogInOut.setVisible(true);
+            btnLogInOut.setText(App.getString("logOut"));
+            System.out.println("Init 0. " + DbStatements.type + " " + DbStatements.id);
         }
     }
 

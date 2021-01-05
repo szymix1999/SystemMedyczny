@@ -3,12 +3,9 @@ package javafx;
 import database.DbStatements;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -27,7 +24,7 @@ public class App extends Application {
         Locale.setDefault(new Locale("en"));
 
         //Scena starowa
-        scene = new Scene(loadFXML("guest_pane"), 1280.0, 720.0);
+        scene = new Scene(loadFXML("patient_pane"), 1280.0, 720.0);
         stage.setScene(scene);
 
         stage.setTitle(App.getString("title"));
