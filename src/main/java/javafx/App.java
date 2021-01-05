@@ -1,6 +1,7 @@
 package javafx;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ import java.util.Stack;
 public class App extends Application {
 
     private static Scene scene;
+    private static Stage curr_stage;
     private static ResourceBundle bundle;
     private static Stack<String> backStack;
 
@@ -25,7 +27,7 @@ public class App extends Application {
         Locale.setDefault(new Locale("en"));
 
         //Scena starowa
-        scene = new Scene(loadFXML("administration_pane"), 1280.0, 720.0);
+        make_scene();
         stage.setScene(scene);
 
         stage.setTitle(App.getString("title"));
@@ -33,6 +35,21 @@ public class App extends Application {
         stage.show();
 
         backStack = new Stack<String>();
+        curr_stage = stage;
+    }
+
+    private static void make_scene() throws IOException {
+        scene = new Scene(loadFXML("patient_pane"), 1280.0, 720.0);
+    }
+
+    public static void reopen() throws IOException {
+        curr_stage.close();
+        make_scene();
+        curr_stage.setScene(scene);
+
+        curr_stage.setTitle(App.getString("title"));
+        curr_stage.setResizable(false);
+        curr_stage.show();
     }
 
     //Załadowanie fxml na scene

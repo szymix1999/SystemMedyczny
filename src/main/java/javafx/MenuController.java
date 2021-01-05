@@ -4,9 +4,11 @@ import database.DbStatements;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Optional;
 
 
 public class MenuController {
@@ -15,42 +17,47 @@ public class MenuController {
 
     @FXML
     private ChoiceBox languChange;
-
-    @FXML
-    private ToggleGroup toggleMenu;
-
     @FXML
     private Button btnLogInOut;
 
     @FXML
     private void initialize() {
-        languChange.setValue(App.getString("eng"));
+        check_language();
         languChange.setItems(languList);
         start();
     }
 
     @FXML
-    private void open_profil() {
-        //tu bedzie wyswietlal sie profil
-        check_toggle();
+    private void change_language() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle(App.getString("languageChange"));
+        alert.setContentText(App.getString("langChangeCon"));
+        alert.setHeaderText(null);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            if(languChange.getValue() == App.getString("pl")) {
+                System.out.println("pl");
+                Locale.setDefault(new Locale("pl"));
+                App.reopen();
+            } else {
+                System.out.println("eng");
+                Locale.setDefault(new Locale("en"));
+                App.reopen();
+            }
+        } else {
+            check_language();
+        }
     }
 
     @FXML
-    private void change_language() {
-        if(languChange.getValue() == App.getString("pl")) {
-            System.out.println("pl");
-        } else {
-            System.out.println("eng");
-        }
-
-    }
-
-    public void check_toggle() {
-        if(toggleMenu.getSelectedToggle()==null) {
-            App.setRoot("login_window");
-            //tutaj trzeba dać metode która sprawdzi do którego panelu cofnąć
-            //bo nie zawsze będziesz cofać do login_pane
-        }
+    private void check_language() {
+        System.out.println("Language: " + Locale.getDefault().toString());
+        if(Locale.getDefault().toString().equals("pl"))         //ustawiamy choicebox na poprawny język
+            languChange.setValue(App.getString("pl"));
+        else
+            languChange.setValue(App.getString("eng"));
     }
 
     @FXML
@@ -81,8 +88,4 @@ public class MenuController {
         }
     }
 
-//    @FXML
-//    private void switchToPrimary() throws IOException {
-//        App.setRoot("login_pane");
-//    }
 }

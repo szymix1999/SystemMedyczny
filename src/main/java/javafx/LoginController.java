@@ -75,15 +75,15 @@ public class LoginController {
     }
 
     @FXML
-    private void reg_on() {
+    private void reg_on() {     //pokazuje okno rejestracji
         notification.setFill(Color.BLUE);
         notification.setText(App.getString("signIn"));
         vboxReg.setVisible(true);
     }
 
     @FXML
-    private void send_reg() {
-        notification.setText("");
+    private void send_reg() {   //metoda po kliknieciu Send w register
+        notification.setText("");   //tutaj można wpisać co wyskoczy po wysłaniu
         vboxReg.setVisible(false);
     }
 
