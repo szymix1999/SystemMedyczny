@@ -22,22 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="administration pane">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/eng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/pl.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/bar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/hire_employ.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/hire_employ.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609847307422</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="language_change">
+      <created>1609871726243</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609871726243</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -246,7 +239,8 @@
     <MESSAGE value="poprawka aaa" />
     <MESSAGE value="screen_resolution" />
     <MESSAGE value="administration pane" />
-    <option name="LAST_COMMIT_MESSAGE" value="administration pane" />
+    <MESSAGE value="language_change" />
+    <option name="LAST_COMMIT_MESSAGE" value="language_change" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1609851525751">
@@ -257,33 +251,33 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="551" y="312" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1609854005840" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1609870967107">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1609871724574">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609870967107" />
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609871724574" />
     <state x="593" y="319" key="Github.CreateGistDialog" timestamp="1609845667975">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="593" y="319" key="Github.CreateGistDialog/0.0.1536.834@0.0.1536.834" timestamp="1609845667975" />
-    <state width="1493" height="191" key="GridCell.Tab.0.bottom" timestamp="1609871484779">
+    <state width="1493" height="191" key="GridCell.Tab.0.bottom" timestamp="1609871782779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609871484779" />
+    <state width="1493" height="191" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609871782779" />
     <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1609860277452" />
-    <state width="1493" height="191" key="GridCell.Tab.0.center" timestamp="1609871484779">
+    <state width="1493" height="191" key="GridCell.Tab.0.center" timestamp="1609871782779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609871484779" />
+    <state width="1493" height="191" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609871782779" />
     <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1609860277452" />
-    <state width="1493" height="191" key="GridCell.Tab.0.left" timestamp="1609871484779">
+    <state width="1493" height="191" key="GridCell.Tab.0.left" timestamp="1609871782779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609871484779" />
+    <state width="1493" height="191" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609871782779" />
     <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1609860277452" />
-    <state width="1493" height="191" key="GridCell.Tab.0.right" timestamp="1609871484779">
+    <state width="1493" height="191" key="GridCell.Tab.0.right" timestamp="1609871782779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609871484779" />
+    <state width="1493" height="191" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609871782779" />
     <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1609860277452" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1609857878442">
       <screen x="0" y="0" width="1536" height="834" />
@@ -309,9 +303,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1609855829805" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1609847312658">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1609871730760">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609871730760" />
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1609847312658" />
     <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609855869675">
       <screen x="0" y="0" width="1536" height="834" />

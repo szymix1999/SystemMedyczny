@@ -25,31 +25,26 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         //Ustawianie jezyka
         Locale.setDefault(new Locale("en"));
-
-        //Scena starowa
-        make_scene();
-        stage.setScene(scene);
-
-        stage.setTitle(App.getString("title"));
-        stage.setResizable(false);
-        stage.show();
-
-        backStack = new Stack<String>();
+        //Przypisanie stage do zmiennej
         curr_stage = stage;
+        //Otworzenie aplikacji
+        open();
     }
 
-    private static void make_scene() throws IOException {
+    private static void open() throws IOException {
         scene = new Scene(loadFXML("patient_pane"), 1280.0, 720.0);
-    }
-
-    public static void reopen() throws IOException {
-        curr_stage.close();
-        make_scene();
         curr_stage.setScene(scene);
 
         curr_stage.setTitle(App.getString("title"));
         curr_stage.setResizable(false);
         curr_stage.show();
+
+        backStack = new Stack<String>();
+    }
+
+    public static void reopen() throws IOException {
+        curr_stage.close();
+        open();
     }
 
     //Załadowanie fxml na scene
