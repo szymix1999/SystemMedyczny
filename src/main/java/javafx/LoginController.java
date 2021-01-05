@@ -53,21 +53,18 @@ public class LoginController {
                 App.setRoot("patient_pane");
                 break;
             case 2: //aptekarz
+                App.setRoot("apothecary_pane");
+                break;
+            case 3: //ksiegowy
                 App.setRoot("patient_pane");
                 break;
-            case 3: //gosc
+            case 4: //admin
+                App.setRoot("admin_pane");
+                break;
+            case 5: //kierownik
                 App.setRoot("patient_pane");
                 break;
-            case 4: //ksiegowy
-                App.setRoot("patient_pane");
-                break;
-            case 5: //admin
-                App.setRoot("patient_pane");
-                break;
-            case 6: //kierownik
-                App.setRoot("patient_pane");
-                break;
-            case 7: //recepcja
+            case 6: //recepcja
                 App.setRoot("patient_pane");
                 break;
         }

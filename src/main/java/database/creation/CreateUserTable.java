@@ -12,11 +12,10 @@ import java.util.Scanner;
 //pacjent=0
 //lekarz=1
 //aptekarz=2
-//gosc=3
-//ksiegowy=4
-//admin=5
-//kierownik=6
-//osobazrecepcji=7
+//ksiegowy=3
+//admin=4
+//kierownik=5
+//osobazrecepcji=6
 
 
 public class CreateUserTable {
@@ -32,11 +31,10 @@ public class CreateUserTable {
             case "pacjent": id=0; break;
             case "lekarz": id=1; break;
             case "aptekarz": id=2; break;
-            case "gosc": id=3; break;
-            case "ksiegowy": id=4; break;
-            case "admin": id=5; break;
-            case "kierownik": id=6; break;
-            case "recepcja": id=7; break;
+            case "ksiegowy": id=3; break;
+            case "admin": id=4; break;
+            case "kierownik": id=5; break;
+            case "recepcja": id=6; break;
         }
         int i=0;
         while(true){
