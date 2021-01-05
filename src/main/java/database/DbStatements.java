@@ -77,4 +77,8 @@ public class DbStatements {
         String query = "select id, id_type from users where login = ? and password = ?";
     }
 
+    public static void addPersonel(String[] arr){
+
+    }
+
 }
