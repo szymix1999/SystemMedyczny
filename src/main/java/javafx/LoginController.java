@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -22,6 +23,9 @@ public class LoginController {
 
     @FXML
     private Text notification;
+
+    @FXML
+    private VBox vboxReg;
 
 
     @FXML
@@ -77,6 +81,13 @@ public class LoginController {
     private void reg_on() {
         notification.setFill(Color.BLUE);
         notification.setText(App.getString("signIn"));
+        vboxReg.setVisible(true);
+    }
+
+    @FXML
+    private void send_reg() {
+        notification.setText("");
+        vboxReg.setVisible(false);
     }
 
     @FXML

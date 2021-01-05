@@ -2,3 +2,13 @@
  -fx-background-image: url('background.png');
  -fx-background-size: 100% 100%;
 }
+
+.loginbg {
+ -fx-background-image: url('waterfall.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.ads {
+ -fx-background-image: url('03_pharmacy_ads.gif');
+ -fx-background-size: 100% 100%;
+}
