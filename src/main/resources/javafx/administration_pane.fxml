@@ -27,10 +27,10 @@
                 <RowConstraints minHeight="64.0" prefHeight="64.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="64.0" prefWidth="600.0" text="%hire" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="64.0" prefWidth="600.0" text="%registerPatient" GridPane.rowIndex="1" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="64.0" prefWidth="600.0" text="%registerPatient" GridPane.columnIndex="1" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="64.0" prefWidth="600.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="hire_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#hire_btn" prefHeight="64.0" prefWidth="600.0" text="%hire" />
+                  <Button fx:id="staff_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#staff_btn" prefHeight="64.0" prefWidth="600.0" text="%personel" GridPane.rowIndex="1" />
+                  <Button fx:id="reg_emp_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="64.0" prefWidth="600.0" text="%registerPatient" GridPane.columnIndex="1" />
+                  <Button fx:id="inventory_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="64.0" prefWidth="600.0" text="%inventory" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
                <opaqueInsets>
                   <Insets top="1000.0" />

@@ -3,12 +3,16 @@ package javafx;
 import database.DbStatements;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 /**
  * JavaFX App
@@ -17,6 +21,7 @@ public class App extends Application {
 
     private static Scene scene;
     private static ResourceBundle bundle;
+    private static Stack<String> backStack;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -24,12 +29,14 @@ public class App extends Application {
         Locale.setDefault(new Locale("en"));
 
         //Scena starowa
-        scene = new Scene(loadFXML("patient_pane"), 1280.0, 720.0);
+        scene = new Scene(loadFXML("administration_pane"), 1280.0, 720.0);
         stage.setScene(scene);
 
         stage.setTitle(App.getString("title"));
         stage.setResizable(false);
         stage.show();
+
+        backStack = new Stack<String>();
     }
 
     //Załadowanie fxml na scene
@@ -55,6 +62,15 @@ public class App extends Application {
 
     public static String getString(String key) {
         return bundle.getString(key);
+    }
+
+    public static void backBtn(){
+        if(!backStack.empty())
+            setRoot(backStack.pop());
+    }
+
+    public static void addToBtnStack(String fxml){
+        backStack.push(fxml);
     }
 
     public static void main(String[] args) {
