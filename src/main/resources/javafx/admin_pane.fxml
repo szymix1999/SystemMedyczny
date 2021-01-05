@@ -2,19 +2,49 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.AdminController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <ChoiceBox prefWidth="150.0" GridPane.rowIndex="1" />
-      <TextArea prefHeight="200.0" prefWidth="200.0" text="Tutaj znajdziesz sie po zalogowaniu na admina&#10;trzeba napisac metode ktora sprawdza na kogo&#10;sie logujesz i w zaleznosci od tego bedzie logowac&#10;do odpowiedniego panelu" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-   </children>
-</GridPane>
+<VBox prefHeight="601.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox fx:id="userList" prefHeight="58.0" prefWidth="815.0">
+            <fx:include fx:id="topMenu" source="bar.fxml" />
+        </VBox>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="454.0" prefWidth="795.0" VBox.vgrow="ALWAYS">
+            <children>
+                <VBox layoutX="83.0" layoutY="24.0" prefHeight="477.0" prefWidth="524.0">
+                    <children>
+                        <HBox prefHeight="39.0" prefWidth="524.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%usersList" wrappingWidth="243.228515625">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="300.0" prefWidth="688.0">
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <ListView prefHeight="300.0" prefWidth="249.0" />
+                                    </children>
+                                </HBox>
+                                <VBox prefHeight="300.0" prefWidth="178.0">
+                                    <children>
+                                        <CheckBox mnemonicParsing="false" text="%permission1" />
+                                        <CheckBox mnemonicParsing="false" text="%permission2" />
+                                        <CheckBox mnemonicParsing="false" text="%permission3" />
+                                        <CheckBox mnemonicParsing="false" text="%permission4" />
+                                        <CheckBox mnemonicParsing="false" text="%userBan" />
+                                        <Button mnemonicParsing="false" text="%deleteUser" />
+                                        <Button mnemonicParsing="false" text="%changePassword" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
