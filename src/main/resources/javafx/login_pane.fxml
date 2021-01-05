@@ -27,6 +27,12 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%firstName" />
+                              <TextField />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%birthdate" />
                               <TextField />
                            </children>
@@ -38,6 +44,12 @@
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%password" />
+                              <TextField />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lastName" />
                               <TextField />
                            </children>
                         </HBox>

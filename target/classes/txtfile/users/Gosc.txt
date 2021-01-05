@@ -1,7 +1,0 @@
-gosc gosc
-BROWN qwerty
-DAVIS 12345
-MILLER dragon
-WILSON pussy
-MOORE baseball
-TAYLOR football
