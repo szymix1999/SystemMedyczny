@@ -7,5 +7,6 @@ module javafx {
 
     opens javafx to javafx.fxml;
     exports javafx;
+    opens javafx.Administration to javafx.fxml;
 
 }

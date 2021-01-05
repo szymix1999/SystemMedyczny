@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.AdministrationPane">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Administration.PersonalPane">
     <top>
       <HBox spacing="20.0" BorderPane.alignment="CENTER">
          <children>
@@ -27,24 +27,28 @@
          </children>
       </HBox>
     </top>
-   <center>
-      <TableView prefHeight="297.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="254.39996033906937" text="%name" />
-          <TableColumn prefWidth="193.6000213623047" text="%surname" />
-            <TableColumn prefWidth="832.0" text="%post" />
-        </columns>
-      </TableView>
-   </center>
    <bottom>
       <HBox prefHeight="18.0" prefWidth="400.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea focusTraversable="false" prefHeight="38.0" prefWidth="947.0" />
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="103.0" text="%profile" />
+            <Button mnemonicParsing="false" onAction="#refresh_btn" prefHeight="54.0" prefWidth="78.0" styleClass="refresh" stylesheets="@../images/style.css" />
+            <TextArea fx:id="select_profil" editable="false" focusTraversable="false" prefHeight="38.0" prefWidth="947.0" />
+            <Button mnemonicParsing="false" onAction="#profil_btn" prefHeight="39.0" prefWidth="103.0" text="%profile" />
          </children>
          <BorderPane.margin>
             <Insets left="100.0" right="100.0" />
          </BorderPane.margin>
       </HBox>
    </bottom>
+   <left>
+      <TableView prefHeight="297.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="name_list" prefWidth="224.00000303983688" text="%name" />
+          <TableColumn fx:id="surname_list" minWidth="0.0" prefWidth="119.99998474121094" text="%surname" />
+            <TableColumn fx:id="post_list" prefWidth="255.20001220703125" text="%post" />
+        </columns>
+      </TableView>
+   </left>
+   <right>
+
+   </right>
 </BorderPane>

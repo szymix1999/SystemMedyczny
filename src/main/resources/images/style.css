@@ -3,6 +3,11 @@
  -fx-background-size: 100% 100%;
 }
 
+.refresh {
+ -fx-background-image: url('refresh.png');
+ -fx-background-size: 100% 100%;
+}
+
 .loginbg {
  -fx-background-image: url('waterfall.jpg');
  -fx-background-size: 100% 100%;
