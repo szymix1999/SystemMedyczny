@@ -1,17 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="660.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.ApothecaryController">
-   <top>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="962.0" minWidth="10.0" prefWidth="927.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="353.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="404.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="535.0" minHeight="10.0" prefHeight="488.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="93.0" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Button fx:id="SearchButton" layoutX="530.0" layoutY="113.0" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="Szukaj" />
-            <TextField layoutX="14.0" layoutY="113.0" prefHeight="31.0" prefWidth="500.0" />
+            <TextField prefHeight="31.0" prefWidth="476.0">
+               <GridPane.margin>
+                  <Insets left="20.0" right="90.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="%search" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+              <columns>
+                  <TableColumn prefWidth="36.0" text="Id" />
+                <TableColumn prefWidth="287.0" text="%name" />
+                <TableColumn prefWidth="66.0" text="%price" />
+                  <TableColumn prefWidth="116.0" text="%prescription" />
+                  <TableColumn prefWidth="92.0" text="%quantity" />
+                  <TableColumn prefWidth="104.0" text="%ordered" />
+                  <TableColumn prefWidth="89.0" text="%sold" />
+                  <TableColumn prefWidth="74.0" text="%returns" />
+                  <TableColumn prefWidth="115.0" text="%disposedOf" />
+                  <TableColumn prefWidth="106.0" text="%alternative" />
+                  <TableColumn minWidth="0.0" prefWidth="78.0" text="%image" />
+                  <TableColumn minWidth="0.0" prefWidth="76.0" text="%update" />
+              </columns>
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </GridPane.margin>
+            </TableView>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="%shoppinglist" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="%clear" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="101.6708984375" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
-      </Pane>
-   </top>
+      </GridPane>
+   </center>
 </BorderPane>

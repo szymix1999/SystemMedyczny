@@ -21,7 +21,6 @@ public class ApothecaryController {
     @FXML
     private void SearchAction() throws IOException {
         Connection c = DbConnector.connect();
-        SearchButton.setText("ala");
 /*
         try {
             if((SearchField.getText() != null && !SearchField.getText().isEmpty()) &&  (DbStatements.SearchMedicines(c, SearchField.getText()) != -1)) {
