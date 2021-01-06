@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -32,6 +31,10 @@ public class PatientController {
     private Text txtName;
     @FXML
     private Button btnName;
+    @FXML
+    private Text txtDate;
+    @FXML
+    private Button btnDate;
     @FXML
     private Text txtCon;
     @FXML
@@ -74,7 +77,9 @@ public class PatientController {
     private void changeOnVisits() {
         txtList.setText(App.getString("yourVisits"));
         txtName.setText(App.getString("nameVisit"));
+        txtDate.setText(App.getString("visitDate"));
         btnName.setVisible(true);
+        btnDate.setVisible(true);
         FTxtName.setEditable(true);
         FTxtName.clear();
         txtCon.setVisible(false);
@@ -86,13 +91,14 @@ public class PatientController {
     private void changeOnPrescriptions() {
         txtList.setText(App.getString("prescriptions"));
         txtName.setText(App.getString("prescriptionName"));
-        FTxtName.setEditable(false);
+        txtDate.setText(App.getString("expirationDate"));
         btnName.setVisible(false);
+        btnDate.setVisible(false);
+        FTxtName.setEditable(false);
         FTxtName.clear();
         txtCon.setVisible(true);
         ATxtCon.setVisible(true);
         loadPrescriptions();
-
     }
 
     private void loadVisits() {
