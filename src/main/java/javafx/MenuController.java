@@ -5,11 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Optional;
-
 
 public class MenuController {
 
@@ -38,11 +36,9 @@ public class MenuController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             if(languChange.getValue() == App.getString("pl")) {
-                System.out.println("pl");
                 Locale.setDefault(new Locale("pl"));
                 App.reopen();
             } else {
-                System.out.println("eng");
                 Locale.setDefault(new Locale("en"));
                 App.reopen();
             }
@@ -51,7 +47,7 @@ public class MenuController {
         }
     }
 
-    @FXML
+
     private void check_language() {
         System.out.println("Language: " + Locale.getDefault().toString());
         if(Locale.getDefault().toString().equals("pl"))         //ustawiamy choicebox na poprawny język
@@ -75,16 +71,16 @@ public class MenuController {
     }
 
     private void start() {
-        if(DbStatements.type==-2) { //kiedy jesteś gościem
+        if(DbStatements.type==-2) { //kiedy jesteś na gościu
             btnLogInOut.setText(App.getString("logIn"));
-            System.out.println("Init -2. " + DbStatements.type + " " + DbStatements.id);
+            System.out.println("Init -2. User type: " + DbStatements.type + " User id: " + DbStatements.id);
         } else if(DbStatements.type==-1) {  //kiedy jesteś na logowaniu
             btnLogInOut.setVisible(false);
-            System.out.println("Init -1. " + DbStatements.type + " " + DbStatements.id);
-        } else {    //kiedy jestes na jakims innym panelu
+            System.out.println("Init -1. User type: " + DbStatements.type + " User id: " + DbStatements.id);
+        } else {    //kiedy jestes na innym panelu
             btnLogInOut.setVisible(true);
             btnLogInOut.setText(App.getString("logOut"));
-            System.out.println("Init 0. " + DbStatements.type + " " + DbStatements.id);
+            System.out.println("Init 0. User type: " + DbStatements.type + " User id: " + DbStatements.id);
         }
     }
 
