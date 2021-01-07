@@ -35,13 +35,12 @@ public class MenuController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            if(languChange.getValue() == App.getString("pl")) {
+            if(languChange.getValue() == App.getString("pl"))
                 Locale.setDefault(new Locale("pl"));
-                App.reopen();
-            } else {
+            else
                 Locale.setDefault(new Locale("en"));
-                App.reopen();
-            }
+            App.reopen();
+
         } else {
             check_language();
         }

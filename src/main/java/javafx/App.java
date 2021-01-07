@@ -1,5 +1,6 @@
 package javafx;
 
+import database.DbStatements;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,6 +46,8 @@ public class App extends Application {
 
     public static void reopen() throws IOException {
         curr_stage.close();
+        DbStatements.id = -1;       //apka odpali się na guest
+        DbStatements.type = -2;
         open();
     }
 

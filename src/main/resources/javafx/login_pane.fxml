@@ -17,7 +17,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="100.0" prefWidth="225.0">
+                  <VBox prefHeight="100.0" prefWidth="280.0">
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
@@ -39,7 +39,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="100.0" prefWidth="255.0">
+                  <VBox prefHeight="100.0" prefWidth="280.0">
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
@@ -72,7 +72,7 @@
                </cursor></Button>
          </children>
          <padding>
-            <Insets bottom="60.0" left="400.0" right="400.0" top="10.0" />
+            <Insets bottom="60.0" left="320.0" right="400.0" top="10.0" />
          </padding>
          <BorderPane.margin>
             <Insets />
