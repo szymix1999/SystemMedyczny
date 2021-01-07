@@ -23,10 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/DbStatements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DbStatements.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,39 +280,5 @@
     <MESSAGE value="patient_change" />
     <MESSAGE value="s_changes" />
     <option name="LAST_COMMIT_MESSAGE" value="s_changes" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1610021342658">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1610021342658" />
-    <state width="1493" height="187" key="GridCell.Tab.0.bottom" timestamp="1610050278880">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="187" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610050278880" />
-    <state width="1493" height="187" key="GridCell.Tab.0.center" timestamp="1610050278880">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="187" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610050278880" />
-    <state width="1493" height="187" key="GridCell.Tab.0.left" timestamp="1610050278879">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="187" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610050278879" />
-    <state width="1493" height="187" key="GridCell.Tab.0.right" timestamp="1610050278880">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="187" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610050278880" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1610021345525">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1610021345525" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610050116491">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1610050116491" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1609934384000">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1609934384000" />
   </component>
 </project>
