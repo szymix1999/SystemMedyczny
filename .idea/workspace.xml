@@ -22,9 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="screen_resolution">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/DbStatements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DbStatements.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610021344558</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="screen_resolution">
+      <created>1610050929449</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1610050929449</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,10 +282,10 @@
     <MESSAGE value="poprawka aaa" />
     <MESSAGE value="administration pane" />
     <MESSAGE value="language_change" />
-    <MESSAGE value="screen_resolution" />
     <MESSAGE value="ads_system" />
     <MESSAGE value="patient_change" />
     <MESSAGE value="s_changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="s_changes" />
+    <MESSAGE value="screen_resolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="screen_resolution" />
   </component>
 </project>
