@@ -17,7 +17,7 @@ public class ApothecaryController {
 
     @FXML
     private TextField SearchField;
-//Testowanie3
+//Testowanie4
     @FXML
     private void SearchAction() throws IOException {
         Connection c = DbConnector.connect();
