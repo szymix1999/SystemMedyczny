@@ -46,7 +46,7 @@ public class App extends Application {
 
     public static void reopen() throws IOException {
         curr_stage.close();
-        DbStatements.id = -1;       //apka odpali się na guest
+        DbStatements.id = -1;       //Apka odpali się na guest
         DbStatements.type = -2;
         open();
     }
