@@ -40,7 +40,7 @@
       </HBox>
    </bottom>
    <left>
-      <TableView prefHeight="297.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <TableView prefHeight="592.0" prefWidth="670.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="name_list" prefWidth="224.00000303983688" text="%name" />
           <TableColumn fx:id="surname_list" minWidth="0.0" prefWidth="119.99998474121094" text="%surname" />
@@ -50,5 +50,8 @@
    </left>
    <right>
 
+   </right>
+   <right>
+      <VBox prefHeight="592.0" prefWidth="601.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DbConnector {
 
-    private static String URL = "jdbc:mysql://medyczne-systemy.mysql.database.azure.com:3306/med_database?useSSL=true&requireSSL=false&serverTimezone=UTC";
+    private static String URL ="jdbc:mysql://medyczne-systemy.mysql.database.azure.com:3306/med_database?useSSL=true&requireSSL=false&serverTimezone=UTC";
     private static String PASSWORD = "#cyberpunk2020";
     private static String USER = "med_admin@medyczne-systemy";
 

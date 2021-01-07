@@ -22,16 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="screen_resolution">
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/RegisterPatientPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/register_patient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DbConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/creation/CreateUserTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/creation/CreateUserTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Administration/AdministrationPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/AdministrationPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Administration/ProfilPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/ProfilPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/personel_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/personel_list.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +103,7 @@
       <recent name="C:\Users\USER\IdeaProjects\SystemMedyczny\src\main\resources\javafx" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.App" />
       <module name="SystemMedyczny" />
@@ -110,9 +117,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreateICD10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database.creation.CreateICD10" />
+      <module name="SystemMedyczny" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.creation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateUserTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database.creation.CreateUserTable" />
+      <module name="SystemMedyczny" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.creation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.CreateUserTable" />
+        <item itemvalue="Application.CreateICD10" />
       </list>
     </recent_temporary>
   </component>
@@ -277,22 +312,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609934775275" />
-    <state width="1493" height="187" key="GridCell.Tab.0.bottom" timestamp="1609936100647">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1610049541329">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="187" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609936100647" />
-    <state width="1493" height="187" key="GridCell.Tab.0.center" timestamp="1609936100647">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610049541329" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1610049541329">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="187" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609936100647" />
-    <state width="1493" height="187" key="GridCell.Tab.0.left" timestamp="1609936100647">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1610049541329" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1610049541329">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="187" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609936100647" />
-    <state width="1493" height="187" key="GridCell.Tab.0.right" timestamp="1609936100647">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1610049541329" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1610049541329">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="187" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609936100647" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1610049541329" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1609934783524">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

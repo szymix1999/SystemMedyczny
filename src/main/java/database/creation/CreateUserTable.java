@@ -55,7 +55,7 @@ public class CreateUserTable {
         Connection c = DbConnector.connect();
 
         try{
-            File directory = new File("src\\main\\resources\\users");
+            File directory = new File("src\\main\\resources\\txtfile\\users");
 
             System.out.println(directory.getAbsolutePath());
             File[] files = directory.listFiles();
@@ -64,6 +64,8 @@ public class CreateUserTable {
                 for (File file : files) {
                     f(file.getAbsoluteFile(), c);
                 }
+            }else{
+                System.out.println("nie ma plikow");
             }
 
             c.close();

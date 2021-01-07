@@ -16,6 +16,7 @@ public class ProfilPane {
     private void back(){
         App.backBtn();
     }
+
     @FXML
     private void initialize(){
         setDate();

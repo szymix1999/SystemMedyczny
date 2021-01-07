@@ -33,7 +33,7 @@ public class App extends Application {
     }
 
     private static void open() throws IOException {
-        scene = new Scene(loadFXML("patient_pane"), 1280.0, 720.0);
+        scene = new Scene(loadFXML("administration_pane"), 1280.0, 720.0);
         curr_stage.setScene(scene);
 
         curr_stage.setTitle(App.getString("title"));

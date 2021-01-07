@@ -43,7 +43,7 @@ public class AdministrationPane {
     private void reg_btn(){
         System.out.println("reg_patient_pane");
         App.addToBtnStack("administration_pane");
-        App.setRoot("reg_patient_pane");
+        App.setRoot("register_patient");
     }
 
 
