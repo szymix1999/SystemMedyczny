@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class DbStatements {
 
-    public static int type = 1;
-    public static int id = 1;
+    public static int type = -2;
+    public static int id = -1;
 
     public static void addUser(Connection conn, String name, String pass, int id) throws SQLException {
         String query = "insert into users (id_type, login, password)" + " values (?, ?, ?)";

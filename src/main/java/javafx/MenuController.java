@@ -40,12 +40,10 @@ public class MenuController {
             else
                 Locale.setDefault(new Locale("en"));
             App.reopen();
-
         } else {
             check_language();
         }
     }
-
 
     private void check_language() {
         System.out.println("Language: " + Locale.getDefault().toString());
