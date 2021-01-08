@@ -23,6 +23,7 @@ import java.util.Random;
 
 public class PatientController {
 
+    Connection c = DbConnector.connect();
     ObservableList list = FXCollections.observableArrayList();
     int adIndex = 0;
     int id_patient = 0;
@@ -51,13 +52,27 @@ public class PatientController {
     @FXML
     private TextArea ATxtHealth;
 
+    private class Visit {
+      public String vname;
+      public String change_vname;
+      public String vdate;
+      public String change_vdate;
+      public int vcost;
+
+      public Visit(String name, String ch_name, String date, String ch_date, int cost) {
+          vname = name;
+          change_vname = ch_name;
+          vdate = date;
+          change_vdate = ch_date;
+          vcost = cost;
+      }
+    }
+
     @FXML
-    private void initialize(){
+    private void initialize() throws SQLException {
         randomAds();
-        changeOnVisits();
 
         try {
-            Connection c = DbConnector.connect();
             ResultSet rs = DbStatements.getPatientData(c);
             while (rs.next()) {
                 id_patient = rs.getInt("id");
@@ -67,12 +82,13 @@ public class PatientController {
                 gender = rs.getString("sex");
                 health = rs.getString("health");
             }
-            System.out.println(id_patient + " " + health);
+            System.out.println("Id patient: " + id_patient);
         } catch (SQLException ex){
             ex.printStackTrace();
         }
 
         setHealth();
+        changeOnVisits();
     }
 
     private void setHealth() {
@@ -133,8 +149,22 @@ public class PatientController {
     }
 
     private void loadVisits() {
-        list.clear(); vpList.getItems().clear();
-        list.addAll("Wizyta1", "test1", "test2", "test3", "test2", "test3", "test2", "test3", "test2", "test3");
+        list.clear();
+        vpList.getItems().clear();
+
+        try {
+            ResultSet rs = DbStatements.getVisitDate(c, id_patient);
+            while (rs.next()) {
+//                Visit v = new Visit(rs.getString("visit_name"), rs.getString("change_name"),
+//                        rs.getDate("visit_date").toString(), rs.getDate("change_date").toString(),
+//                        rs.getInt("cost"));
+                String v = rs.getString("visit_name");
+                list.add(v);
+            }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
         vpList.getItems().addAll(list);
     }
 
