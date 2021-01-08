@@ -5,7 +5,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -45,8 +50,7 @@ public class MenuController {
         }
     }
 
-    private void check_language() {
-        System.out.println("Language: " + Locale.getDefault().toString());
+    public void check_language() {
         if(Locale.getDefault().toString().equals("pl"))         //ustawiamy choicebox na poprawny język
             languChange.setValue(App.getString("pl"));
         else
@@ -70,15 +74,17 @@ public class MenuController {
     private void start() {
         if(DbStatements.type==-2) { //kiedy jesteś na gościu
             btnLogInOut.setText(App.getString("logIn"));
-            System.out.println("Init -2. User type: " + DbStatements.type + " User id: " + DbStatements.id);
         } else if(DbStatements.type==-1) {  //kiedy jesteś na logowaniu
             btnLogInOut.setVisible(false);
-            System.out.println("Init -1. User type: " + DbStatements.type + " User id: " + DbStatements.id);
         } else {    //kiedy jestes na innym panelu
             btnLogInOut.setVisible(true);
             btnLogInOut.setText(App.getString("logOut"));
-            System.out.println("Init 0. User type: " + DbStatements.type + " User id: " + DbStatements.id);
         }
+    }
+
+    @FXML
+    private void openCalendar() throws IOException, URISyntaxException {
+        Desktop.getDesktop().browse(new URL("https://calendar.google.com/calendar").toURI());
     }
 
 }

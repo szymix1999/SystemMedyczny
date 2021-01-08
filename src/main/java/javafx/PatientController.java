@@ -1,5 +1,7 @@
 package javafx;
 
+import database.DbConnector;
+import database.DbStatements;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,12 +16,17 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
 
 public class PatientController {
 
     ObservableList list = FXCollections.observableArrayList();
     int adIndex = 0;
+    int id_patient = 0;
+    String first_name, last_name, birth_date, gender, health;
 
     @FXML
     private ListView<String> vpList;
@@ -41,11 +48,35 @@ public class PatientController {
     private TextArea ATxtCon;
     @FXML
     private ImageView imgAds;
+    @FXML
+    private TextArea ATxtHealth;
 
     @FXML
     private void initialize(){
         randomAds();
         changeOnVisits();
+
+        try {
+            Connection c = DbConnector.connect();
+            ResultSet rs = DbStatements.getPatientData(c);
+            while (rs.next()) {
+                id_patient = rs.getInt("id");
+                first_name = rs.getString("first_name");
+                last_name = rs.getString("last_name");
+                birth_date = rs.getDate("birth_date").toString();
+                gender = rs.getString("sex");
+                health = rs.getString("health");
+            }
+            System.out.println(id_patient + " " + health);
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        setHealth();
+    }
+
+    private void setHealth() {
+        ATxtHealth.setText(health);
     }
 
     public int getRandomNumber(int min, int max) {

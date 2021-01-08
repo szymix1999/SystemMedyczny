@@ -29,7 +29,7 @@ public class LoginController {
 
 
     @FXML
-    private void log_in() throws IOException {
+    private void log_in() {
         Connection c = DbConnector.connect();
         System.out.println("Login: " + userLoginField.getText() + " | Password: " + userPassField.getText());
         try {

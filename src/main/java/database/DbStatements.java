@@ -1,5 +1,7 @@
 package database;
 
+import javafx.PatientController;
+
 import java.sql.*;
 
 public class DbStatements {
@@ -45,6 +47,17 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    public static void deletePatient(Connection conn) throws SQLException {
+        String query = "delete from patients";
+        String queryAI = "ALTER TABLE patients AUTO_INCREMENT = 1";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.execute();
+
+        PreparedStatement preparedStmtAI = conn.prepareStatement(queryAI);
+        preparedStmtAI.execute();
+    }
+
     public static int SearchMedicines(Connection conn, String name) throws SQLException {
         String query = "select name, price, quantity from medicines where name LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -53,6 +66,20 @@ public class DbStatements {
 
 
         return 0;
+    }
+
+    public static ResultSet getPatientData(Connection conn) throws SQLException {
+        String query = "select id, first_name, last_name, birth_date, sex, health from patients where id_users = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        ResultSet rs = preparedStmt.executeQuery();
+        return rs;
+    }
+
+    public static void returnHealth(Connection conn, int id) {
+
     }
 
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {
@@ -67,8 +94,7 @@ public class DbStatements {
             id = rs.getInt("id");
             type = rs.getInt("id_type");
         }
-        System.out.println("User id: " + id);
-        System.out.println("User type: " + type);
+        System.out.println("User id: " + id + " | User type: " + type);
 
         return type;
     }
