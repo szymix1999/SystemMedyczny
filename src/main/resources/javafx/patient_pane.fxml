@@ -125,7 +125,7 @@
                               <VBox spacing="5.0" GridPane.rowIndex="1">
                                  <children>
                                     <Text fx:id="txtDate" strokeType="OUTSIDE" strokeWidth="0.0" text="%visitDate" />
-                                    <TextField />
+                                    <TextField fx:id="FTxtDate" />
                                     <Button fx:id="btnDate" mnemonicParsing="false" text="%changeDate">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
@@ -136,7 +136,7 @@
                               <VBox prefWidth="215.0" spacing="5.0" GridPane.columnIndex="1">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%amountToPay" />
-                                    <TextField />
+                                    <TextField fx:id="FTxtAmount" />
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                        <children>
                                           <Button mnemonicParsing="false" text="%allCosts">
