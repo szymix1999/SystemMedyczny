@@ -26,10 +26,9 @@ public class PatientController {
 
     Connection c = DbConnector.connect();
     ObservableList list = FXCollections.observableArrayList();
+    Patient curr_patient;
     int curr_list = 0;
-    int adIndex = 0;
-    int id_patient = 0;
-    String first_name, last_name, birth_date, gender, health;
+    int adsIndex = 0;
 
     @FXML
     private ListView vpList;
@@ -57,7 +56,14 @@ public class PatientController {
     private TextField FTxtAmount;
     @FXML
     private TextField FTxtDate;
+    @FXML
+    private TextField FTxtUser;
+    @FXML
+    private TextField FTxtGender;
+    @FXML
+    private TextField FTxtBirthdate;
 
+    //Klasa Wizyty
     private class Visit {
       public String vname;
       public String change_vname;
@@ -79,6 +85,7 @@ public class PatientController {
       }
     }
 
+    //Klasa recepty
     private class Prescription {
         public String ppresc_name;
         public String pcontent;
@@ -96,7 +103,25 @@ public class PatientController {
         public String toString() {
             return (this.ppresc_name);
         }
+    }
 
+    //Klasa pacjent
+    private class Patient {
+        public int id_patient = 0;
+        public String first_name;
+        public String last_name;
+        public String birth_date;
+        public String gender;
+        public String health;
+
+        public Patient(int id, String f_name, String l_name, String b_date, String sex, String health_con) {
+            id_patient = id;
+            first_name = f_name;
+            last_name = l_name;
+            birth_date = b_date;
+            gender = sex;
+            health = health_con;
+        }
     }
 
     @FXML
@@ -106,24 +131,27 @@ public class PatientController {
         try {
             ResultSet rs = DbStatements.getPatientData(c);
             while (rs.next()) {
-                id_patient = rs.getInt("id");
-                first_name = rs.getString("first_name");
-                last_name = rs.getString("last_name");
-                birth_date = rs.getDate("birth_date").toString();
-                gender = rs.getString("sex");
-                health = rs.getString("health");
+                curr_patient = new Patient(rs.getInt("id"), rs.getString("first_name"),
+                        rs.getString("last_name"), rs.getDate("birth_date").toString(),
+                        rs.getString("sex"), rs.getString("health"));
             }
-            System.out.println("Id patient: " + id_patient);
+            System.out.println("Id patient: " + curr_patient.id_patient);
         } catch (SQLException ex){
             ex.printStackTrace();
         }
 
-        setHealth();
+        setPatientData();
         changeOnVisits();
     }
 
-    private void setHealth() {
-        ATxtHealth.setText(health);
+    private void setPatientData() {
+        ATxtHealth.setText(curr_patient.health);
+        FTxtUser.setText(curr_patient.first_name + " " + curr_patient.last_name);
+        FTxtBirthdate.setText(curr_patient.birth_date);
+        if(curr_patient.gender.equals("M"))
+            FTxtGender.setText(App.getString("man"));
+        else
+            FTxtGender.setText(App.getString("woman"));
     }
 
     public int getRandomNumber(int min, int max) {
@@ -132,30 +160,30 @@ public class PatientController {
     }
 
     private void randomAds() {
-        adIndex = getRandomNumber(0,4);
-        imgAds.setImage(new Image(getClass().getResourceAsStream("/images/ads/" + adIndex + "_ads.gif")));
+        adsIndex = getRandomNumber(0,4);
+        imgAds.setImage(new Image(getClass().getResourceAsStream("/images/ads/" + adsIndex + "_ads.gif")));
     }
 
     @FXML
     private void openWeb() throws IOException, URISyntaxException {
         String url[] = {"https://google.com", "https://facebook.com", "https://github.com", "https://youtube.com"};
-        Desktop.getDesktop().browse(new URL(url[adIndex]).toURI());
+        Desktop.getDesktop().browse(new URL(url[adsIndex]).toURI());
     }
 
     @FXML
     private void displaySelectedVisitDetails() {
         if(curr_list == 0) {
             Visit selectedItem = (Visit) vpList.getSelectionModel().getSelectedItem();
-            System.out.println("Selected visit: " + selectedItem.vname);
-            if (selectedItem.vname != null || !selectedItem.vname.isEmpty()) {
+            if (selectedItem != null && selectedItem.vname != null && !selectedItem.vname.isEmpty()) {
+                System.out.println("Selected visit: " + selectedItem.vname);
                 FTxtName.setText(selectedItem.vname);
                 FTxtAmount.setText(selectedItem.vcost + ",00");
                 FTxtDate.setText(selectedItem.vdate);
             }
         } else {
             Prescription selectedItem = (Prescription) vpList.getSelectionModel().getSelectedItem();
-            System.out.println("Selected prescription: " + selectedItem.ppresc_name);
-            if (selectedItem.ppresc_name != null || !selectedItem.ppresc_name.isEmpty()) {
+            if (selectedItem != null && selectedItem.ppresc_name != null && !selectedItem.ppresc_name.isEmpty()) {
+                System.out.println("Selected prescription: " + selectedItem.ppresc_name);
                 FTxtName.setText(selectedItem.ppresc_name);
                 FTxtAmount.setText(selectedItem.pcost + ",00");
                 FTxtDate.setText(selectedItem.pdate);
@@ -205,7 +233,7 @@ public class PatientController {
         vpList.getItems().clear();
 
         try {
-            ResultSet rs = DbStatements.getVisitDate(c, id_patient);
+            ResultSet rs = DbStatements.getVisitDate(c, curr_patient.id_patient);
             while (rs.next()) {
                 String stringCHD = "";
                 Date chd = rs.getDate("change_date");
@@ -227,7 +255,7 @@ public class PatientController {
         list.clear();
         vpList.getItems().clear();
         try {
-            ResultSet rs = DbStatements.getPrescriptionDate(c, id_patient);
+            ResultSet rs = DbStatements.getPrescriptionDate(c, curr_patient.id_patient);
             while (rs.next()) {
                 Prescription v = new Prescription(rs.getString("presc_name"), rs.getString("content"),
                         rs.getDate("end_date").toString(), rs.getInt("cost"));

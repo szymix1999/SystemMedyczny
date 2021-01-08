@@ -11,6 +11,19 @@
    <top>
       <VBox BorderPane.alignment="CENTER">
          <fx:include fx:id="topMenu" source="bar.fxml" />
+         <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1006.0" spacing="15.0">
+            <children>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%user" />
+               <TextField fx:id="FTxtUser" editable="false" />
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%gender" />
+               <TextField fx:id="FTxtGender" editable="false" prefHeight="26.0" prefWidth="161.0" />
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%birthdate" />
+               <TextField fx:id="FTxtBirthdate" editable="false" />
+            </children>
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+            </padding>
+         </HBox>
       </VBox>
    </top>
    <opaqueInsets>
@@ -38,9 +51,9 @@
       </VBox>
    </left>
    <right>
-      <VBox alignment="CENTER" onMouseClicked="#openWeb" prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" onMouseClicked="#openWeb" prefHeight="582.0" prefWidth="247.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="imgAds" fitHeight="610.0" fitWidth="270.0" pickOnBounds="true">
+            <ImageView fx:id="imgAds" fitHeight="565.0" fitWidth="275.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/ads/0_ads.gif" />
                </image>
@@ -59,9 +72,9 @@
          <children>
             <VBox prefHeight="640.0" prefWidth="472.0">
                <children>
-                  <HBox prefHeight="219.0" prefWidth="931.0">
+                  <HBox prefHeight="247.0" prefWidth="462.0">
                      <children>
-                        <VBox prefHeight="146.0" prefWidth="442.0">
+                        <VBox prefHeight="222.0" prefWidth="442.0">
                            <children>
                               <HBox prefHeight="27.0" prefWidth="442.0">
                                  <children>
@@ -89,7 +102,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <ListView fx:id="vpList" onMouseClicked="#displaySelectedVisitDetails" prefHeight="200.0" prefWidth="442.0">
+                              <ListView fx:id="vpList" onMouseClicked="#displaySelectedVisitDetails" prefHeight="195.0" prefWidth="442.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -106,9 +119,8 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="81.6" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="179.00000381469727" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="223.20000000000002" minHeight="10.0" prefHeight="212.6" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="116.0" minHeight="6.999988555908203" prefHeight="87.2" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="288.2000114440918" minHeight="10.0" prefHeight="262.8" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <VBox spacing="5.0">
@@ -156,7 +168,7 @@
                                     <Insets />
                                  </GridPane.margin>
                               </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="2">
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
                                     <Text fx:id="txtCon" strokeType="OUTSIDE" strokeWidth="0.0" text="%contents" />
                                     <TextArea fx:id="ATxtCon" editable="false" prefHeight="200.0" prefWidth="200.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
