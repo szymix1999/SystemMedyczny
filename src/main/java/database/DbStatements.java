@@ -66,14 +66,13 @@ public class DbStatements {
         return rs;
     }
 
-    public static int SearchMedicines(Connection conn, String name) throws SQLException {
+    public static ResultSet SearchMedicines(Connection conn, String name) throws SQLException {
         String query = "select name, price, quantity from medicines where name LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, "%"+name+"%");
         ResultSet rs = preparedStmt.executeQuery();
 
-
-        return 0;
+        return rs;
     }
 
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {
