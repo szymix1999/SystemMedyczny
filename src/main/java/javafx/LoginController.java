@@ -41,6 +41,7 @@ public class LoginController {
                 notification.setFill(Color.FIREBRICK);
                 notification.setText(App.getString("badLoginOrPass"));
             }
+            c.close();
         } catch (SQLException ex){
             ex.printStackTrace();
         }

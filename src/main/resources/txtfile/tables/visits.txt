@@ -1,0 +1,3 @@
+Wyciecie wyrostka;;2021-01-08;;100
+Usuniecie lewej reki;Usuniecie prawej reki;2021-02-12;;200
+Przyszycie palca u nogi;;2021-03-21;2021-03-20;100

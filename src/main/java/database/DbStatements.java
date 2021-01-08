@@ -1,7 +1,5 @@
 package database;
 
-import javafx.PatientController;
-
 import java.sql.*;
 
 public class DbStatements {
@@ -49,7 +47,7 @@ public class DbStatements {
 
     public static void deletePatient(Connection conn) throws SQLException {
         String query = "delete from patients";
-        String queryAI = "ALTER TABLE patients AUTO_INCREMENT = 1";
+        String queryAI = "alter table patients AUTO_INCREMENT = 1";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.execute();
@@ -78,10 +76,6 @@ public class DbStatements {
         return rs;
     }
 
-    public static void returnHealth(Connection conn, int id) {
-
-    }
-
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {
         String query = "select id, id_type from users where login = ? and password = ?";
 
@@ -99,8 +93,28 @@ public class DbStatements {
         return type;
     }
 
-    public static void getVisits(Connection conn) throws SQLException {
-        String query = "select id, id_type from users where login = ? and password = ?";
+    public static void addVisit(Connection conn, int id_patients, String visit_name, String change_name, Date visit_date, Date change_date, int cost) throws  SQLException {
+        String query = "insert into visits (id_patients, visit_name, change_name, visit_date, change_date, cost)" + " values (?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id_patients);
+        preparedStmt.setString(2, visit_name);
+        preparedStmt.setString(3, change_name);
+        preparedStmt.setDate(4, visit_date);
+        preparedStmt.setDate(5, change_date);
+        preparedStmt.setInt(6, cost);
+
+        preparedStmt.execute();
+    }
+
+    public static ResultSet getVisitDate(Connection conn, int id) throws SQLException {
+        String query = "select visit_name, change_name, visit_date, change_date, cost from visits where id_patients = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        ResultSet rs = preparedStmt.executeQuery();
+        return rs;
     }
 
     public static void addPersonel(String[] arr){

@@ -2,6 +2,7 @@ package database.creation;
 
 import database.DbConnector;
 import database.DbStatements;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
@@ -10,14 +11,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class CreatePatients {
+public class CreateVisits {
 
     public static void main(String[] args) {
         Connection c = DbConnector.connect();
-        int user_index = 41;
+        int patient_index = 1;
 
         try{
-            Scanner scanner = new Scanner(new File("src\\main\\resources\\txtfile\\tables\\patients.txt"));
+            Scanner scanner = new Scanner(new File("src\\main\\resources\\txtfile\\tables\\visits.txt"));
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
             while(scanner.hasNext()){
@@ -25,9 +26,13 @@ public class CreatePatients {
                 String[] arr = line.split(";");
                 java.util.Date utilDate = format.parse(arr[2]);
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-                DbStatements.addPatient(c, user_index, arr[0], arr[1], sqlDate, arr[3], arr[4]);
-                System.out.println(user_index + " " + arr[0] + " " + arr[1] + " " + sqlDate + " " + arr[3] + " " + arr[4]);
-                user_index++;
+                java.sql.Date sqlDate2 = null;
+                if(arr[3] != "") {
+                    java.util.Date utilDate2 = format.parse(arr[3]);
+                    sqlDate2 = new java.sql.Date(utilDate2.getTime());
+                }
+                DbStatements.addVisit(c, patient_index, arr[0], arr[1], sqlDate, sqlDate2, Integer.parseInt(arr[4]));
+                System.out.println(patient_index + " " + arr[0] + " " + arr[1] + " " + sqlDate + " " + sqlDate2 + " " + arr[4]);
             }
 
             c.close();
@@ -36,18 +41,6 @@ public class CreatePatients {
         }catch (SQLException | FileNotFoundException | ParseException e){
             e.printStackTrace();
         }
+
     }
-
-//    public static void main(String[] args) {
-//        Connection c = DbConnector.connect();
-//
-//        try {
-//            DbStatements.deletePatient(c);
-//            c.close();
-//            System.out.println("THE END");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
 }
