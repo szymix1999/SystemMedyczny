@@ -28,6 +28,6 @@ public class HirePane {
         arr[2] = hire_post.getText();
         arr[3] = hire_salary.getText();
         System.out.println("DODAWANIE PRACOWNIKA DO BAZY");
-        DbStatements.addPersonel(arr);
+        //DbStatements.addPersonel(arr);
     }
 }

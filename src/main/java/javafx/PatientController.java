@@ -19,18 +19,20 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Random;
 
 public class PatientController {
 
     Connection c = DbConnector.connect();
     ObservableList list = FXCollections.observableArrayList();
+    int curr_list = 0;
     int adIndex = 0;
     int id_patient = 0;
     String first_name, last_name, birth_date, gender, health;
 
     @FXML
-    private ListView<String> vpList;
+    private ListView vpList;
     @FXML
     private Text txtList;
     @FXML
@@ -51,6 +53,10 @@ public class PatientController {
     private ImageView imgAds;
     @FXML
     private TextArea ATxtHealth;
+    @FXML
+    private TextField FTxtAmount;
+    @FXML
+    private TextField FTxtDate;
 
     private class Visit {
       public String vname;
@@ -66,10 +72,35 @@ public class PatientController {
           change_vdate = ch_date;
           vcost = cost;
       }
+
+      @Override
+      public String toString() {
+          return (this.vname);
+      }
+    }
+
+    private class Prescription {
+        public String ppresc_name;
+        public String pcontent;
+        public String pdate;
+        public int pcost;
+
+        public Prescription(String name, String content, String date, int cost) {
+            ppresc_name = name;
+            pcontent = content;
+            pdate = date;
+            pcost = cost;
+        }
+
+        @Override
+        public String toString() {
+            return (this.ppresc_name);
+        }
+
     }
 
     @FXML
-    private void initialize() throws SQLException {
+    private void initialize() {
         randomAds();
 
         try {
@@ -113,10 +144,23 @@ public class PatientController {
 
     @FXML
     private void displaySelectedVisitDetails() {
-        String name = vpList.getSelectionModel().getSelectedItem();
-        System.out.println("Selected visit: " + name);
-        if(name!=null || !name.isEmpty()) {
-            FTxtName.setText(name);
+        if(curr_list == 0) {
+            Visit selectedItem = (Visit) vpList.getSelectionModel().getSelectedItem();
+            System.out.println("Selected visit: " + selectedItem.vname);
+            if (selectedItem.vname != null || !selectedItem.vname.isEmpty()) {
+                FTxtName.setText(selectedItem.vname);
+                FTxtAmount.setText(selectedItem.vcost + ",00");
+                FTxtDate.setText(selectedItem.vdate);
+            }
+        } else {
+            Prescription selectedItem = (Prescription) vpList.getSelectionModel().getSelectedItem();
+            System.out.println("Selected prescription: " + selectedItem.ppresc_name);
+            if (selectedItem.ppresc_name != null || !selectedItem.ppresc_name.isEmpty()) {
+                FTxtName.setText(selectedItem.ppresc_name);
+                FTxtAmount.setText(selectedItem.pcost + ",00");
+                FTxtDate.setText(selectedItem.pdate);
+                ATxtCon.setText(selectedItem.pcontent);
+            }
         }
     }
 
@@ -129,8 +173,12 @@ public class PatientController {
         btnDate.setVisible(true);
         FTxtName.setEditable(true);
         FTxtName.clear();
+        FTxtAmount.clear();
+        FTxtDate.clear();
+        ATxtCon.clear();
         txtCon.setVisible(false);
         ATxtCon.setVisible(false);
+        curr_list = 0;
         loadVisits();
     }
 
@@ -143,8 +191,12 @@ public class PatientController {
         btnDate.setVisible(false);
         FTxtName.setEditable(false);
         FTxtName.clear();
+        FTxtAmount.clear();
+        FTxtDate.clear();
+        ATxtCon.clear();
         txtCon.setVisible(true);
         ATxtCon.setVisible(true);
+        curr_list = 1;
         loadPrescriptions();
     }
 
@@ -155,10 +207,13 @@ public class PatientController {
         try {
             ResultSet rs = DbStatements.getVisitDate(c, id_patient);
             while (rs.next()) {
-//                Visit v = new Visit(rs.getString("visit_name"), rs.getString("change_name"),
-//                        rs.getDate("visit_date").toString(), rs.getDate("change_date").toString(),
-//                        rs.getInt("cost"));
-                String v = rs.getString("visit_name");
+                String stringCHD = "";
+                Date chd = rs.getDate("change_date");
+                if(chd != null)
+                    stringCHD = chd.toString();
+                Visit v = new Visit(rs.getString("visit_name"), rs.getString("change_name"),
+                        rs.getDate("visit_date").toString(), stringCHD, rs.getInt("cost"));
+                //String v = rs.getString("visit_name");
                 list.add(v);
             }
         } catch (SQLException ex){
@@ -169,8 +224,19 @@ public class PatientController {
     }
 
     private void loadPrescriptions() {
-        list.clear(); vpList.getItems().clear();
-        list.addAll("Recepta1", "test1", "test2", "test3", "test2", "test3", "test2", "test3", "test2", "test3");
+        list.clear();
+        vpList.getItems().clear();
+        try {
+            ResultSet rs = DbStatements.getPrescriptionDate(c, id_patient);
+            while (rs.next()) {
+                Prescription v = new Prescription(rs.getString("presc_name"), rs.getString("content"),
+                        rs.getDate("end_date").toString(), rs.getInt("cost"));
+                list.add(v);
+            }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
         vpList.getItems().addAll(list);
     }
 

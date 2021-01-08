@@ -56,16 +56,6 @@ public class DbStatements {
         preparedStmtAI.execute();
     }
 
-    public static int SearchMedicines(Connection conn, String name) throws SQLException {
-        String query = "select name, price, quantity from medicines where name LIKE ? ";
-        PreparedStatement preparedStmt = conn.prepareStatement(query);
-        preparedStmt.setString(1, "%"+name+"%");
-        ResultSet rs = preparedStmt.executeQuery();
-
-
-        return 0;
-    }
-
     public static ResultSet getPatientData(Connection conn) throws SQLException {
         String query = "select id, first_name, last_name, birth_date, sex, health from patients where id_users = ?";
 
@@ -74,6 +64,16 @@ public class DbStatements {
 
         ResultSet rs = preparedStmt.executeQuery();
         return rs;
+    }
+
+    public static int SearchMedicines(Connection conn, String name) throws SQLException {
+        String query = "select name, price, quantity from medicines where name LIKE ? ";
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, "%"+name+"%");
+        ResultSet rs = preparedStmt.executeQuery();
+
+
+        return 0;
     }
 
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {
@@ -117,8 +117,41 @@ public class DbStatements {
         return rs;
     }
 
-    public static void addPersonel(String[] arr){
+    public static void addPrescription (Connection conn, int id_patients, int id_personel, String presc_name, int cost, String content, Date end_date) throws  SQLException {
+        String query = "insert into prescriptions (id_patients, id_personel, presc_name, cost, content, end_date)" + " values (?, ?, ?, ?, ?, ?)";
 
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id_patients);
+        preparedStmt.setInt(2, id_personel);
+        preparedStmt.setString(3, presc_name);
+        preparedStmt.setInt(4, cost);
+        preparedStmt.setString(5, content);
+        preparedStmt.setDate(6, end_date);
+
+        preparedStmt.execute();
+    }
+
+    public static ResultSet getPrescriptionDate(Connection conn, int id) throws SQLException {
+        String query = "select presc_name, cost, content, end_date from prescriptions where id_patients = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        ResultSet rs = preparedStmt.executeQuery();
+        return rs;
+    }
+
+    public static void addPersonel (Connection conn, int id_users, String first_name, String last_name, String profession, String salary) throws  SQLException {
+        String query = "insert into personel (id_users, first_name, last_name, profession, salary)" + " values (?, ?, ?, ?, ?)";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id_users);
+        preparedStmt.setString(2, first_name);
+        preparedStmt.setString(3, last_name);
+        preparedStmt.setString(4, profession);
+        preparedStmt.setString(5, salary);
+
+        preparedStmt.execute();
     }
 
 }
