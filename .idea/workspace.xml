@@ -22,10 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="screen_resolution">
-      <changelist_data name="Pitucha Aleksander" email="63605795+pituchaaleksander@users.noreply.github.com" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/creation/CreatePatients.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/txtfile/tables/patients.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/bar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/DbStatements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DbStatements.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +55,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="Pitucha Aleksander &lt;63605795+pituchaaleksander@users.noreply.github.com&gt;" />
-        <option value="PituchaAleksander &lt;pitucha.aleksander@gmial.com&gt;" />
-      </list>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -58,10 +65,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="9a758666-aef5-47b2-b596-ab7dace962fc" />
-  </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="11" />
@@ -81,25 +90,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/javafx" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.30859834" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
     <property name="settings.editor.splitter.proportion" value="0.21221532" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IntelliJProjects\Medyczne\src\main\resources\javafx" />
-      <recent name="D:\IntelliJProjects\Medyczne\src\main\resources\javafx\Administration" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="javafx" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\IdeaProjects\SystemMedyczny\src\main\resources\javafx" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IntelliJProjects\Medyczne\src\main\resources\javafx" />
+      <recent name="D:\IntelliJProjects\Medyczne\src\main\resources\javafx\Administration" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.App" />
       <module name="SystemMedyczny" />
@@ -113,15 +122,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreatePatients" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database.creation.CreatePatients" />
+      <module name="SystemMedyczny" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.creation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.CreatePatients" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
-    <configuration>C:\Users\Laptop\AppData\Roaming\Subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -264,42 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610050929449</updated>
     </task>
-    <task id="LOCAL-00020" summary="screen_resolution">
-      <created>1610052161838</created>
+    <task id="LOCAL-00020" summary="test">
+      <created>1610051848427</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1610052161838</updated>
+      <updated>1610051848427</updated>
     </task>
-    <task id="LOCAL-00021" summary="screen_resolution">
-      <created>1610052446366</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1610052446366</updated>
-    </task>
-    <task id="LOCAL-00022" summary="screen_resolution">
-      <created>1610052670447</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1610052670447</updated>
-    </task>
-    <task id="LOCAL-00023" summary="screen_resolution">
-      <created>1610052767320</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1610052767320</updated>
-    </task>
-    <task id="LOCAL-00024" summary="screen_resolution">
-      <created>1610052821153</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1610052821153</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,7 +312,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="module" />
-    <MESSAGE value="test" />
     <MESSAGE value="menu/change_center" />
     <MESSAGE value="panes/comments" />
     <MESSAGE value="lan_change" />
@@ -331,6 +325,49 @@
     <MESSAGE value="patient_change" />
     <MESSAGE value="s_changes" />
     <MESSAGE value="screen_resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="screen_resolution" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1610051847097">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1610051847097" />
+    <state width="1493" height="187" key="GridCell.Tab.0.bottom" timestamp="1610112355202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="187" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610112355202" />
+    <state width="1493" height="187" key="GridCell.Tab.0.center" timestamp="1610112355202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="187" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610112355202" />
+    <state width="1493" height="187" key="GridCell.Tab.0.left" timestamp="1610112355202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="187" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610112355202" />
+    <state width="1493" height="187" key="GridCell.Tab.0.right" timestamp="1610112355202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="187" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610112355202" />
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1610106374155">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1610106374155" />
+    <state x="147" y="64" key="MergeDialog" timestamp="1610104657207">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1610104657207" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1610051985751">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610051985751" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1610111397411">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1610111397411" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610104632337">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1610104632337" />
   </component>
 </project>

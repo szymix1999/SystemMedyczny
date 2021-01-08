@@ -35,6 +35,11 @@
                 <Insets />
             </HBox.margin>
         </GridPane>
+      <Button fx:id="btnCalendar" layoutX="239.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#openCalendar" prefHeight="59.0" prefWidth="89.0" text="%calendar" wrapText="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
         <Button fx:id="btnLogInOut" mnemonicParsing="false" onMouseClicked="#log_in_out" prefHeight="59.0" prefWidth="89.0" text="%logIn" wrapText="true">
             <cursor>
                 <Cursor fx:constant="HAND" />
