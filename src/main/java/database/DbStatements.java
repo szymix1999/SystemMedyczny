@@ -1,5 +1,7 @@
 package database;
 
+import javafx.Medicines.Medicines;
+
 import java.sql.*;
 
 public class DbStatements {
@@ -73,6 +75,37 @@ public class DbStatements {
         ResultSet rs = preparedStmt.executeQuery();
 
         return rs;
+    }
+
+    public static void AddMedicine(Connection conn, Medicines med) throws  SQLException {
+        if(med.getAlternative()!=-1){
+            String query = "insert into medicines (name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative)" + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, med.getName());
+            preparedStmt.setFloat(2, med.getPrice());
+            preparedStmt.setBoolean(3, med.isPrescription());
+            preparedStmt.setInt(4, med.getQuantity());
+            preparedStmt.setInt(5, med.getOrdered());
+            preparedStmt.setInt(6, med.getSold());
+            preparedStmt.setInt(7, med.getReturns());
+            preparedStmt.setInt(8, med.getDisposed_of());
+            preparedStmt.setInt(9, med.getAlternative());
+            preparedStmt.execute();
+        }else{
+            String query = "insert into medicines (name, price, prescription, quantity, ordered, sold, returns, disposed_of)" + " values (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, med.getName());
+            preparedStmt.setFloat(2, med.getPrice());
+            preparedStmt.setBoolean(3, med.isPrescription());
+            preparedStmt.setInt(4, med.getQuantity());
+            preparedStmt.setInt(5, med.getOrdered());
+            preparedStmt.setInt(6, med.getSold());
+            preparedStmt.setInt(7, med.getReturns());
+            preparedStmt.setInt(8, med.getDisposed_of());
+            preparedStmt.execute();
+        }
     }
 
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {

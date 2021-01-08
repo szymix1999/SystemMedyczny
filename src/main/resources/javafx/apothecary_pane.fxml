@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,8 +11,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="660.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.ApothecaryController">
@@ -28,26 +31,17 @@
                   <GridPane>
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1280.0" minWidth="10.0" prefWidth="896.0" />
+                        <ColumnConstraints />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="404.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="535.0" minHeight="10.0" prefHeight="404.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="93.0" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="404.0" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="535.0" minHeight="10.0" prefHeight="418.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="71.0" minHeight="71.0" prefHeight="71.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField prefHeight="31.0" prefWidth="476.0">
-                           <GridPane.margin>
-                              <Insets left="20.0" right="110.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="%search" GridPane.halignment="RIGHT">
-                           <GridPane.margin>
-                              <Insets right="20.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                        <TableView GridPane.columnSpan="2" GridPane.rowIndex="1">
                           <columns>
-                              <TableColumn prefWidth="30.0" text="Id" />
+                              <TableColumn prefWidth="30.0" text="%id" />
                             <TableColumn prefWidth="304.0" text="%name" />
                             <TableColumn prefWidth="75.0" text="%price" />
                               <TableColumn prefWidth="110.0" text="%prescription" />
@@ -62,9 +56,43 @@
                               <TableColumn prefWidth="50.0" text="%buy" />
                           </columns>
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" />
+                              <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </TableView>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
+                           <children>
+                              <TextField fx:id="nameTextAddition" prefHeight="30.0" prefWidth="535.0" promptText="%name" />
+                              <TextField fx:id="priceTextAddition" prefWidth="100.0" promptText="%price" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%prescription" wrappingWidth="95.4130859375">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <ChoiceBox fx:id="prescriptionChoiceAddition" prefWidth="100.0" />
+                              <TextField fx:id="quantityTextAddition" prefWidth="100.0" promptText="%quantity" />
+                              <TextField fx:id="alternativeTextAddition" prefWidth="100.0" promptText="%alternative" />
+                              <Button fx:id="addMedicineButton" mnemonicParsing="false" onAction="#addMedicineAction" prefWidth="100.0" text="%add" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <children>
+                              <TextField prefHeight="30.0" prefWidth="61.0" promptText="%id" />
+                              <TextField prefHeight="30.0" prefWidth="1066.0" promptText="%name" />
+                              <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="%search" />
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </HBox>
                      </children>
                   </GridPane>
                </content>
@@ -83,7 +111,7 @@
                      <children>
                         <TableView prefHeight="488.0" prefWidth="1280.0" GridPane.rowSpan="2">
                           <columns>
-                              <TableColumn prefWidth="30.0" text="Id" />
+                              <TableColumn prefWidth="30.0" text="%id" />
                               <TableColumn prefWidth="589.0" text="%name" />
                               <TableColumn minWidth="0.0" prefWidth="100.0" text="%price" />
                               <TableColumn prefWidth="100.0" text="%quantity" />
@@ -104,7 +132,7 @@
                               <Insets />
                            </GridPane.margin>
                            <padding>
-                              <Insets top="354.0" />
+                              <Insets top="369.0" />
                            </padding>
                         </VBox>
                      </children>
