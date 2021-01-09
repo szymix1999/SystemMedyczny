@@ -21,9 +21,9 @@
 ### Legenda
 ~~zrobione~~/nie zrobione
 ### Wymagania 
-- Przygotowanie środowiska oraz wybór technologii **Szymon Sala**
-- Uzytkownicy **Przemysław Sałek**
-  - ~~podstawowe tabele bazy danych~~ **wszyscy**
+- Przygotowanie środowiska oraz wybór technologii - **Szymon Sala**
+- Uzytkownicy - **Przemysław Sałek**
+  - ~~podstawowe tabele bazy danych~~ - **wszyscy**
   - ~~logowanie~~
   - ~~podział na typy uzytkowników (aptekarz, lekarz, pacjent, gosc, administrator, osoby z rejestracji, ksiegowa, kierownik)~~
   - ~~w zaleznosci od typu uzytkownika, wyswietla sie inny panel - oprogramowanie wyswietlanego panelu nalezy do innych osób z projektu~~
@@ -32,13 +32,13 @@
   - notatnik uzytkownika
   - ~~kalendarz uzytkownika (moze byc to integracja z Google Calendar)~~
   - mozliwosc wydruku planu dnia (np. lekarza)
-- Baza **wszyscy**
+- Baza - **wszyscy**
   - baza medycznych danych pacjentów wg klasyfikacji ICD-10
   - aktualizacja informacji o danych na podstawie komunikacji z innymi bazami (poprzez projekt komunikacji z pozostałymi projektami)
   - analiza diagnostyczna (np. czy ten pacjent nie ma leków kumulujacych nadmiernie efekty, znoszacych sie, zdiagnozowane uczulenia)
   - obrazy moga byc w postaci jpg, ale dla chetnych takze do opracowania DICOM lub jego elementy
   - zapewnienie anonimizacji (np. posrednio: nazwisk-¿id, id-¿dane; kodowanie tresci diagnoz i danych uniejednoznaczniajacych), nie nalezy pobierac ani wysyłac danych identyfikacyjnych z obcych baz - jedynie jako zapytania, ew. przesyłac ich uogólnienie (np. 27 lat -> zakres 20-29 lat), identyfikatory unikalne dla kazdego z pytajacych.
-- Apteka **Aleksander Pitucha**
+- Apteka - **Aleksander Pitucha**
   - tabela mozliwych do kupienia leków
   - wyszukiwarka leków
   - stany magazynowe (dostawy, sprzedaz, zwroty, utylizacja)
@@ -47,7 +47,7 @@
   - zdjecia opakowan
   - tworzenie nowych zamówien (pacjent, aptekarz) i wydruk paragonów wraz z zatwierdzeniem
   - realizacji recepty/zamówienia (aptekarz)
-- Panel lekarza **Maciej Rydzak**
+- Panel lekarza - **Maciej Rydzak**
   - tabela lekarzy
   - wizyty zintegrowane z kalendarzem
   - dostep do danych medycznych pacjenta/karta pacjenta
@@ -55,7 +55,7 @@
   - diagnozy
   - wypisywanie recept
   - zlecenia medyczne/skierowania
-- Pacjent **Przemysław Sałek**
+- Pacjent - **Przemysław Sałek**
   - ~~tabela pacjentów~~
   - ~~zapisane wizyty~~ (zapisy/zmiany)
   - reklamy (miejce na gify i zasady wyswietlania)
@@ -64,14 +64,14 @@
   - mozliwosc dołaczenia nowych badan (zdjecia rentgenowskie), skierowan
   - mozliwosc zbiorczej opłaty za wizyty, badania, leki
   - mozliwosc wyszukania specjalisty w róznych przychodniach (na bazie projektu komunikacji miedzy bazami)
-- Administracja przychodni **Szymon Sala**
+- Administracja przychodni - **Szymon Sala**
   - telefoniczna rejestracja pacjentów
   - baza pracowników
   - zatrudnianie/zwalnianie/wolne etaty
   - wynagrodzenia/podwyzki/ciecia
   - umowy/typy umów/czesci etatów
   - inwentaryzacja
-- Administracja systemem **Jan Starosta**
+- Administracja systemem - **Jan Starosta**
   - nadawanie uprawnien
   - modyfikacje kont
   - blokady systemu/uzytkowników
