@@ -251,4 +251,24 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    // ----------- Tables --------------
+
+    public static void deleteTable(Connection conn, String name) throws SQLException {
+        String query = "drop table if exists ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, name);
+
+        preparedStmt.execute();
+    }
+
+    public static void createTable(Connection conn, String Q) throws SQLException {
+        String query = "?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, Q);
+
+        preparedStmt.execute();
+    }
+
 }
