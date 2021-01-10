@@ -30,11 +30,11 @@ CREATE TABLE patients (
 CREATE TABLE visits (
 	id serial PRIMARY KEY,
 	id_patients BIGINT UNSIGNED NOT NULL,
-	visit_name VARCHAR(30) NOT NULL,
-	change_name VARCHAR(30),
+	visit_name VARCHAR(30) NOT NULL,    --większy varchar
+	change_name VARCHAR(30),            --większy varchar
 	visit_date DATE NOT NULL,
 	change_date DATE,
-	cost BIGINT UNSIGNED NOT NULL,
+	cost BIGINT UNSIGNED NOT NULL,      --pieniądze
 	FOREIGN KEY (id_patients) REFERENCES patients(id)
 );
 
@@ -76,9 +76,9 @@ CREATE TABLE prescriptions (
 CREATE TABLE referrals (
 	id serial PRIMARY KEY,
 	id_patients BIGINT UNSIGNED NOT NULL,
-	id_personel BIGINT UNSIGNED NOT NULL,
+	id_personel BIGINT UNSIGNED NOT NULL,   --tego nie powinno być albo przynajmniej bez noy null
 	order_date DATE NOT NULL,
-	comments TEXT(65535) NOT NULL,
+	comments TEXT(65535) NOT NULL,          --dodać zdjęcia
 	FOREIGN KEY (id_patients) REFERENCES patients(id),
 	FOREIGN KEY (id_personel) REFERENCES personel(id)
 );

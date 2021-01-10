@@ -169,6 +169,28 @@ public class DbStatements {
         //preparedStmt.execute();   --żeby nie zmieniać co chwilę rekordów
     }
 
+    public static void updateVisitName(Connection conn, int id, String old_name, String new_name) throws SQLException {
+        String query = "update visits set visit_name = ?, change_name = ? where id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, new_name);
+        preparedStmt.setString(2, old_name);
+        preparedStmt.setInt(3, id);
+
+        preparedStmt.execute();
+    }
+
+    public static void updateVisitDate(Connection conn, int id, Date old_date, Date new_date) throws SQLException {
+        String query = "update visits set visit_date = ?, change_date = ? where id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setDate(1, new_date);
+        preparedStmt.setDate(2, old_date);
+        preparedStmt.setInt(3, id);
+
+        preparedStmt.execute();
+    }
+
     // ----------- Presciptions --------------
 
     public static void addPrescription (Connection conn, int id_patients, int id_personel, String presc_name, int cost, String content, Date end_date) throws  SQLException {
@@ -193,6 +215,16 @@ public class DbStatements {
 
         ResultSet rs = preparedStmt.executeQuery();
         return rs;
+    }
+
+    public static void updatePrescriptionCost(Connection conn, int id, int value) throws SQLException {
+        String query = "update prescriptions set cost = ? where id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, value);
+        preparedStmt.setInt(2, id);
+
+        //preparedStmt.execute();   --żeby nie zmieniać co chwilę rekordów
     }
 
     // ----------- Personel --------------

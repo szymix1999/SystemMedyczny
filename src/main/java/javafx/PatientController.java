@@ -11,7 +11,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import java.awt.*;
 import java.io.IOException;
@@ -20,6 +22,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
@@ -30,6 +34,7 @@ public class PatientController {
     Patient curr_patient;
     int curr_list = 0;
     int adsIndex = 0;
+    int signUpCount = 0;
 
     @FXML
     private ListView vpList;
@@ -66,7 +71,11 @@ public class PatientController {
     @FXML
     private Button btnLastChange;
     @FXML
-    private HBox hBoxPay;
+    private GridPane gPaneSignUp;
+    @FXML
+    private Button btnStartSignUp;
+    @FXML
+    private TextField FTxtDoctorName;
 
     //Klasa Wizyty
     private class Visit {
@@ -185,7 +194,7 @@ public class PatientController {
     }
 
     @FXML
-    private void displaySelectedVisitDetails() {
+    private void displaySelectedObjectDetails() {
         if (curr_list == 0) {
             ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
             //cost
@@ -248,7 +257,7 @@ public class PatientController {
         btnName.setVisible(true);
         btnDate.setVisible(true);
         btnLastChange.setVisible(true);
-        hBoxPay.setVisible(true);
+        btnStartSignUp.setVisible(true);
         FTxtName.setEditable(true);
         FTxtDate.setEditable(true);
         FTxtName.setText(App.getString("selectVisit"));
@@ -269,7 +278,9 @@ public class PatientController {
         btnName.setVisible(false);
         btnDate.setVisible(false);
         btnLastChange.setVisible(false);
-        hBoxPay.setVisible(false);
+        btnStartSignUp.setVisible(false);
+        gPaneSignUp.setVisible(false);
+        signUpCount = 0;
         FTxtName.setEditable(false);
         FTxtDate.setEditable(false);
         FTxtName.setText(App.getString("selectPrescription"));
@@ -341,75 +352,221 @@ public class PatientController {
                 FTxtDate.setText(selectedItems.get(0).change_date);
             else
                 FTxtDate.setText(selectedItems.get(0).date);
+        } else if(selectedItems.size() == 0) {
+            FTxtAmount.setText(App.getString("selectVisit"));
         } else {
             FTxtAmount.setText(App.getString("moreThanOneSelected!"));
         }
     }
 
     @FXML
-    private void payForVisit() {
-        ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
+    private void payForObject() {
+        if (curr_list == 0) {
+            ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
 
-        if(selectedItems.size() == 1) {
-            try {
-                System.out.println("Paid");
-                DbStatements.updateVisitCost(c, selectedItems.get(0).id, 0);
-                selectedItems.get(0).cost = 0;
-                FTxtAmount.setText("0,00");
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        } else if(selectedItems.size() == 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Information Dialog \"" + App.getString("pay") + "\"");
-            alert.setHeaderText(null);
-            alert.setContentText(App.getString("chooseTheOption!"));
-
-            alert.showAndWait();
-        } else {
-            try {
-                System.out.println("Paid");
-                for(Visit v : selectedItems){
-                    DbStatements.updateVisitCost(c, v.id, 0);
-                    v.cost = 0;
+            if (selectedItems.size() == 1) {
+                try {
+                    System.out.println("Paid");
+                    DbStatements.updateVisitCost(c, selectedItems.get(0).id, 0);
+                    selectedItems.get(0).cost = 0;
+                    FTxtAmount.setText("0,00");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
-                FTxtAmount.setText("0,00");
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            } else if (selectedItems.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Information Dialog \"" + App.getString("pay") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("chooseTheOption!"));
+
+                alert.showAndWait();
+            } else {
+                try {
+                    System.out.println("Paid");
+                    for (Visit v : selectedItems) {
+                        DbStatements.updateVisitCost(c, v.id, 0);
+                        v.cost = 0;
+                    }
+                    FTxtAmount.setText("0,00");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            ObservableList<Prescription> selectedItems = vpList.getSelectionModel().getSelectedItems();
+
+            if (selectedItems.size() == 1) {
+                try {
+                    System.out.println("Paid");
+                    DbStatements.updatePrescriptionCost(c, selectedItems.get(0).id, 0);
+                    selectedItems.get(0).cost = 0;
+                    FTxtAmount.setText("0,00");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            } else if (selectedItems.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Information Dialog \"" + App.getString("pay") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("chooseTheOption!"));
+
+                alert.showAndWait();
+            } else {
+                try {
+                    System.out.println("Paid");
+                    for (Prescription v : selectedItems) {
+                        DbStatements.updatePrescriptionCost(c, v.id, 0);
+                        v.cost = 0;
+                    }
+                    FTxtAmount.setText("0,00");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }
 
     @FXML
-    private void payForMoreVisits() {
+    private void payForMoreObjects() {
+        if (curr_list == 0) {
+            ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
+
+            if (selectedItems.size() == 1) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("takeMoreOptions"));
+
+                alert.showAndWait();
+            } else if (selectedItems.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("chooseTheOption!"));
+
+                alert.showAndWait();
+            } else {
+                try {
+                    System.out.println("Paid");
+                    for (Visit v : selectedItems) {
+                        DbStatements.updateVisitCost(c, v.id, 0);
+                        v.cost = 0;
+                    }
+                    FTxtAmount.setText("0,00");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            ObservableList<Prescription> selectedItems = vpList.getSelectionModel().getSelectedItems();
+
+            if (selectedItems.size() == 1) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("takeMoreOptions"));
+
+                alert.showAndWait();
+            } else if (selectedItems.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("chooseTheOption!"));
+
+                alert.showAndWait();
+            } else {
+                try {
+                    System.out.println("Paid");
+                    for (Prescription v : selectedItems) {
+                        DbStatements.updatePrescriptionCost(c, v.id, 0);
+                        v.cost = 0;
+                    }
+                    FTxtAmount.setText("0,00");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @FXML
+    private void changeVisitDate() {
         ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
 
         if(selectedItems.size() == 1) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
-            alert.setHeaderText(null);
-            alert.setContentText(App.getString("takeMoreOptions"));
-
-            alert.showAndWait();
-        } else if(selectedItems.size() == 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
-            alert.setHeaderText(null);
-            alert.setContentText(App.getString("chooseTheOption!"));
-
-            alert.showAndWait();
-        } else {
             try {
-                System.out.println("Paid");
-                for(Visit v : selectedItems){
-                    DbStatements.updateVisitCost(c, v.id, 0);
-                    v.cost = 0;
-                }
-                FTxtAmount.setText("0,00");
+                System.out.println("Data changed");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+                java.util.Date utilDate = format.parse(selectedItems.get(0).date);
+                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+                java.util.Date utilDate2 = format.parse(FTxtDate.getText());
+                java.sql.Date sqlDate2 = new java.sql.Date(utilDate2.getTime());
+
+                DbStatements.updateVisitDate(c, selectedItems.get(0).id, sqlDate, sqlDate2);
+                selectedItems.get(0).change_date = sqlDate.toString();
+                selectedItems.get(0).date = sqlDate2.toString();
+
+                FTxtDate.setText(sqlDate2.toString());
+            } catch (SQLException | ParseException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Information Dialog \"" + App.getString("changeDate") + "\"");
+            alert.setHeaderText(null);
+            alert.setContentText(App.getString("dateCannotBeChanged!"));
+
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void changeVisitName() {
+        ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
+
+        if(selectedItems.size() == 1) {
+            try {
+                System.out.println("Name changed");
+
+                DbStatements.updateVisitName(c, selectedItems.get(0).id, selectedItems.get(0).name, FTxtName.getText());
+                selectedItems.get(0).change_date = selectedItems.get(0).name;
+                selectedItems.get(0).date = FTxtName.getText();
+
+                FTxtName.setText(FTxtName.getText());
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Information Dialog \"" + App.getString("changeName") + "\"");
+            alert.setHeaderText(null);
+            alert.setContentText(App.getString("nameCannotBeChanged!"));
+
+            alert.showAndWait();
         }
+    }
+
+    @FXML
+    private void startSignUpOnVisit() {
+        if(signUpCount == 0) {
+            signUpCount++;
+            FTxtDoctorName.clear();
+            gPaneSignUp.setVisible(true);
+        } else {
+            signUpCount--;
+            gPaneSignUp.setVisible(false);
+        }
+    }
+
+    @FXML
+    private void signUpOnVisit() {
+        System.out.println(FTxtDoctorName.getText());
+        gPaneSignUp.setVisible(false);
+        signUpCount--;
+
+        // Można dopisać metodę wysyłania do lekarza
     }
 
 }
