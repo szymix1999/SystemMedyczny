@@ -25,12 +25,12 @@
 - Uzytkownicy - **Przemysław Sałek**
   - ~~podstawowe tabele bazy danych~~ - **wszyscy**
   - ~~logowanie~~
-  - ~~podział na typy uzytkowników (aptekarz, lekarz, pacjent, gosc, administrator, osoby z rejestracji, ksiegowa, kierownik)~~
+  - ~~podział na typy uzytkowników~~ (~~aptekarz, lekarz, pacjent, gosc, administrator, osoby z rejestracji, ksiegowa, kierownik~~)
   - ~~w zaleznosci od typu uzytkownika, wyswietla sie inny panel - oprogramowanie wyswietlanego panelu nalezy do innych osób z projektu~~
   - ~~udostepnic mozliwa zmiane jezyka aplikacji~~ (ustawienie uzytkownika)
   - umozliwic ustawienie własnego menu (elementy menu w zaleznosci od uprawnien/typu uzytkownika)
   - notatnik uzytkownika
-  - ~~kalendarz uzytkownika (moze byc to integracja z Google Calendar)~~
+  - ~~kalendarz uzytkownika~~ (~~moze byc to integracja z Google Calendar~~)
   - mozliwosc wydruku planu dnia (np. lekarza)
 - Baza - **wszyscy**
   - baza medycznych danych pacjentów wg klasyfikacji ICD-10
@@ -57,12 +57,12 @@
   - zlecenia medyczne/skierowania
 - Pacjent - **Przemysław Sałek**
   - ~~tabela pacjentów~~
-  - ~~zapisane wizyty~~ (zapisy/zmiany)
-  - reklamy (miejce na gify i zasady wyswietlania)
+  - ~~zapisane wizyty~~ (zapisy/~~zmiany~~)
+  - ~~reklamy~~ (~~miejce na gify i zasady wyswietlania~~)
   - ~~informacja o stanie zdrowia~~
   - ~~zapisane recepty~~
   - mozliwosc dołaczenia nowych badan (zdjecia rentgenowskie), skierowan
-  - mozliwosc zbiorczej opłaty za wizyty, badania, leki
+  - ~~mozliwosc zbiorczej opłaty za wizyty~~, badania, ~~leki~~
   - mozliwosc wyszukania specjalisty w róznych przychodniach (na bazie projektu komunikacji miedzy bazami)
 - Administracja przychodni - **Szymon Sala**
   - telefoniczna rejestracja pacjentów
