@@ -1,36 +1,40 @@
 CREATE TABLE users (
-    	id serial PRIMARY KEY, 
-    	id_type INT NOT NULL, 
-    	login VARCHAR(30) NOT NULL,
-    	password VARCHAR(30) NOT NULL
+    id serial PRIMARY KEY,
+    id_type INT NOT NULL,
+    login VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE personel (
-    	id serial PRIMARY KEY, 
-    	id_users BIGINT UNSIGNED NOT NULL,
+    id serial PRIMARY KEY,
+    id_users BIGINT UNSIGNED NOT NULL,
 	first_name VARCHAR(30) NOT NULL,
 	last_name VARCHAR(30) NOT NULL,
 	profession VARCHAR(30) NOT NULL, 
+	salary VARCHAR(6) NOT NULL,
 	FOREIGN KEY (id_users) REFERENCES users(id)
 );
 
 
 CREATE TABLE patients (
-    	id serial PRIMARY KEY, 
-    	id_users BIGINT UNSIGNED NOT NULL,
+    id serial PRIMARY KEY,
+    id_users BIGINT UNSIGNED NOT NULL,
 	first_name VARCHAR(30) NOT NULL,
 	last_name VARCHAR(30) NOT NULL,
 	birth_date DATE NOT NULL,
 	sex CHAR NOT NULL,
-    	health TEXT(65535),
+    health TEXT(65535),
 	FOREIGN KEY (id_users) REFERENCES users(id)
 );
 
 CREATE TABLE visits (
 	id serial PRIMARY KEY,
 	id_patients BIGINT UNSIGNED NOT NULL,
-	visit_data DATE NOT NULL,
-	paid BOOLEAN,
+	visit_name VARCHAR(30) NOT NULL,
+	change_name VARCHAR(30),
+	visit_date DATE NOT NULL,
+	change_date DATE,
+	cost BIGINT UNSIGNED NOT NULL,
 	FOREIGN KEY (id_patients) REFERENCES patients(id)
 );
 
@@ -45,18 +49,26 @@ CREATE TABLE medicines (
 	id serial PRIMARY KEY,
 	name VARCHAR(30) NOT NULL,
 	price float(8) NOT NULL,
+	prescription BOOLEAN NOT NULL,
+    quantity INT NOT NULL,
+    ordered INT NOT NULL,
+    sold INT NOT NULL,
+    returns INT NOT NULL,
+    disposed_of INT NOT NULL,
 	alternative BIGINT UNSIGNED,
+    composition TEXT(65535),
 	package_picture LONGBLOB,
-	quantity INT NOT NULL,
 	FOREIGN KEY (alternative) REFERENCES medicines(id)
 );
 
 CREATE TABLE prescriptions (
 	id serial PRIMARY KEY,
 	id_patients BIGINT UNSIGNED NOT NULL,
-	id_personel BIGINT UNSIGNED NOT NULL,
-	used BOOLEAN NOT NULL,
+    id_personel BIGINT UNSIGNED NOT NULL,
+	presc_name VARCHAR(30) NOT NULL,
+    cost BIGINT NOT NULL,
 	content TEXT(65535) NOT NULL,
+    end_date DATE NOT NULL,
 	FOREIGN KEY (id_patients) REFERENCES patients(id),
 	FOREIGN KEY (id_personel) REFERENCES personel(id)
 );
@@ -80,11 +92,13 @@ CREATE TABLE contracts (
 	FOREIGN KEY (id_personel) REFERENCES personel(id)
 );
 
+
+
 CREATE TABLE icd10 (
 	id serial PRIMARY KEY,
-	indx VARCHAR(10) NOT NULL,
-	descript VARCHAR(255),
-	category VARCHAR(255)
+	index VARCHAR(30) NOT NULL,
+	name VARCHAR(30) NOT NULL,
+	descript TEXT(65535) NOT NULL
 );
 
 CREATE TABLE med_icd10 (
@@ -116,5 +130,3 @@ CREATE TABLE diagnosis (
 	FOREIGN KEY (id_patient) REFERENCES patients(id),
 	FOREIGN KEY (id_icd10) REFERENCES icd10(id)
 );
-
-

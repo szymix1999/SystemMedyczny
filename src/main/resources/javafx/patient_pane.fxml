@@ -72,13 +72,13 @@
          <children>
             <VBox prefHeight="640.0" prefWidth="472.0">
                <children>
-                  <HBox prefHeight="247.0" prefWidth="462.0">
+                  <HBox prefHeight="232.0" prefWidth="367.0">
                      <children>
                         <VBox prefHeight="222.0" prefWidth="442.0">
                            <children>
                               <HBox prefHeight="27.0" prefWidth="442.0">
                                  <children>
-                                    <Text fx:id="txtList" strokeType="OUTSIDE" strokeWidth="0.0" text="%prescriptions" wrappingWidth="203.4677734375">
+                                    <Text fx:id="txtList" strokeType="OUTSIDE" strokeWidth="0.0" text="%prescriptions" wrappingWidth="183.4677734375">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -111,82 +111,111 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="417.0" prefWidth="709.0">
+                  <VBox prefHeight="256.0" prefWidth="294.0" spacing="5.0">
                      <children>
-                        <GridPane alignment="CENTER" hgap="10.0" prefHeight="217.0" prefWidth="440.0" vgap="10.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="116.0" minHeight="6.999988555908203" prefHeight="87.2" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="288.2000114440918" minHeight="10.0" prefHeight="262.8" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <VBox spacing="5.0">
-                                 <children>
-                                    <Text fx:id="txtName" strokeType="OUTSIDE" strokeWidth="0.0" text="%nameVisit" />
-                                    <TextField fx:id="FTxtName" />
-                                    <Button fx:id="btnName" mnemonicParsing="false" text="%changeName">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                              <VBox spacing="5.0" GridPane.rowIndex="1">
-                                 <children>
-                                    <Text fx:id="txtDate" strokeType="OUTSIDE" strokeWidth="0.0" text="%visitDate" />
-                                    <TextField fx:id="FTxtDate" />
-                                    <Button fx:id="btnDate" mnemonicParsing="false" text="%changeDate">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                              <VBox prefWidth="215.0" spacing="5.0" GridPane.columnIndex="1">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%amountToPay" />
-                                    <TextField fx:id="FTxtAmount" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="%allCosts">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="%pay">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <children>
-                                    <Text fx:id="txtCon" strokeType="OUTSIDE" strokeWidth="0.0" text="%contents" />
-                                    <TextArea fx:id="ATxtCon" editable="false" prefHeight="200.0" prefWidth="200.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
-                                 </children>
-                              </VBox>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="7.0" />
-                           </padding>
-                        </GridPane>
+                        <Text fx:id="txtCon" strokeType="OUTSIDE" strokeWidth="0.0" text="%contents" />
+                        <TextArea fx:id="ATxtCon" editable="false" prefHeight="200.0" prefWidth="200.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" />
                      </children>
                      <padding>
-                        <Insets top="10.0" />
+                        <Insets top="20.0" />
                      </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="594.0" prefWidth="397.0">
+               <children>
+                  <HBox prefHeight="46.0" prefWidth="294.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnLastChange" mnemonicParsing="false" onMouseClicked="#displayLastName" text="%lastChange">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
                   </HBox>
+                  <GridPane hgap="10.0" prefHeight="120.0" prefWidth="294.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.4" minWidth="10.0" prefWidth="172.4" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.99999999999997" minWidth="10.0" prefWidth="110.40000000000003" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="93.4" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="143.4" minHeight="3.0" prefHeight="60.4" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Text fx:id="txtName" strokeType="OUTSIDE" strokeWidth="0.0" text="%nameVisit" />
+                              <TextField fx:id="FTxtName" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="69.0" prefWidth="173.0" spacing="5.0" GridPane.rowIndex="1">
+                           <children>
+                              <Text fx:id="txtDate" strokeType="OUTSIDE" strokeWidth="0.0" text="%visitDate" />
+                              <TextField fx:id="FTxtDate" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
+                              <Button fx:id="btnName" mnemonicParsing="false" text="%changeName">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
+                              <Button fx:id="btnDate" mnemonicParsing="false" text="%changeDate">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <GridPane hgap="10.0" prefHeight="64.0" prefWidth="294.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.9999942779541" minWidth="0.0" prefWidth="93.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="190.99999999999997" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <VBox prefHeight="85.0" prefWidth="173.0" spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%amountToPay" />
+                              <TextField fx:id="FTxtAmount" editable="false" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
+                              <HBox fx:id="hBoxPay" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#payForVisit" text="%pay">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#payForMoreVisits" text="%payForAll">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
