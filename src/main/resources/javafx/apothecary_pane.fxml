@@ -39,21 +39,21 @@
                       <RowConstraints maxHeight="71.0" minHeight="71.0" prefHeight="71.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TableView GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <TableView fx:id="medicinesTab" GridPane.columnSpan="2" GridPane.rowIndex="1">
                           <columns>
-                              <TableColumn prefWidth="30.0" text="%id" />
-                            <TableColumn prefWidth="304.0" text="%name" />
-                            <TableColumn prefWidth="75.0" text="%price" />
-                              <TableColumn prefWidth="110.0" text="%prescription" />
-                              <TableColumn prefWidth="90.0" text="%quantity" />
-                              <TableColumn text="%ordered" />
-                              <TableColumn prefWidth="70.0" text="%sold" />
-                              <TableColumn prefWidth="70.0" text="%returns" />
-                              <TableColumn prefWidth="100.0" text="%disposedOf" />
-                              <TableColumn prefWidth="100.0" text="%alternative" />
-                              <TableColumn minWidth="0.0" text="%image" />
-                              <TableColumn minWidth="0.0" text="%update" />
-                              <TableColumn prefWidth="50.0" text="%buy" />
+                              <TableColumn fx:id="idColumn" prefWidth="30.0" text="%id" />
+                            <TableColumn fx:id="nameColumn" prefWidth="304.0" text="%name" />
+                            <TableColumn fx:id="priceColumn" prefWidth="75.0" text="%price" />
+                              <TableColumn fx:id="prescriptionColumn" prefWidth="110.0" text="%prescription" />
+                              <TableColumn fx:id="quantityColumn" prefWidth="90.0" text="%quantity" />
+                              <TableColumn fx:id="orderedColumn" text="%ordered" />
+                              <TableColumn fx:id="soldColumn" prefWidth="70.0" text="%sold" />
+                              <TableColumn fx:id="returnsColumn" prefWidth="70.0" text="%returns" />
+                              <TableColumn fx:id="disposedOfColumn" prefWidth="100.0" text="%disposedOf" />
+                              <TableColumn fx:id="alternativeColumn" prefWidth="100.0" text="%alternative" />
+                              <TableColumn fx:id="imageColumn" minWidth="0.0" text="%image" />
+                              <TableColumn fx:id="updateColumn" minWidth="0.0" text="%update" />
+                              <TableColumn fx:id="addColumn" prefWidth="50.0" text="%add" />
                           </columns>
                            <GridPane.margin>
                               <Insets left="20.0" right="20.0" />
@@ -85,9 +85,9 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <children>
-                              <TextField prefHeight="30.0" prefWidth="61.0" promptText="%id" />
-                              <TextField prefHeight="30.0" prefWidth="1066.0" promptText="%name" />
-                              <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="%search" />
+                              <TextField fx:id="idSearchField" prefHeight="30.0" prefWidth="61.0" promptText="%id" />
+                              <TextField fx:id="nameSearchField" prefHeight="30.0" prefWidth="1066.0" promptText="%name" />
+                              <Button fx:id="searchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="%search" />
                            </children>
                            <padding>
                               <Insets left="20.0" right="20.0" top="20.0" />

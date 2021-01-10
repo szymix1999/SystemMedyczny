@@ -1,14 +1,14 @@
 package javafx;
 
+import javafx.Medicines.Medicines;
+import javafx.Medicines.MedicinesFx;
 import javafx.Medicines.MedicinesModel;
 import database.DbConnector;
 import database.DbStatements;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
@@ -17,89 +17,132 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ApothecaryController {
-
+//tabela leków
     @FXML
-    private Button SearchButton;
-
+    private TableView<MedicinesFx> medicinesTab;
+    @FXML
+    private TableColumn<MedicinesFx, String> idColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> nameColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> priceColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> prescriptionColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> quantityColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> orderedColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> soldColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> returnsColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> disposedOfColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> alternativeColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> imageColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> updateColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> addColumn;
+//wyszukiwanie leku
+    @FXML
+    private Button searchButton;
+    @FXML
+    private TextField nameSearchField;
+    @FXML
+    private TextField idSearchField;
+//dodawanie leku
+    @FXML
+    private TextField nameTextAddition;
+    @FXML
+    private TextField priceTextAddition;
+    @FXML
+    private TextField quantityTextAddition;
+    @FXML
+    private TextField alternativeTextAddition;
+    @FXML
+    private ChoiceBox prescriptionChoiceAddition;
     @FXML
     private Button addMedicineButton;
 
-    @FXML
-    private TextField SearchField;
-
-    @FXML
-    private TextField nameTextAddition;
-
-    @FXML
-    private TextField priceTextAddition;
-
-    @FXML
-    private TextField quantityTextAddition;
-
-    @FXML
-    private TextField alternativeTextAddition;
-
-    @FXML
-    private ChoiceBox prescriptionChoiceAddition;
-
     ObservableList<Boolean> prescriptionList = FXCollections.observableArrayList(true, false);
 
-    private MedicinesModel MedicinesAddition;
+    private Medicines MedicinesAddition;
+    private MedicinesModel medicinesModelList;
 
     @FXML
     void initialize(){
-        Connection c = DbConnector.connect();
-
         //dodawanie leków
         prescriptionChoiceAddition.setItems(prescriptionList);
-        this.MedicinesAddition=new MedicinesModel();
-        this.MedicinesAddition.medicinesFxObjectPropertyProperty().get().nameProperty().bind(this.nameTextAddition.textProperty());
-        StringConverter converter=new NumberStringConverter();
-        this.priceTextAddition.textProperty().bindBidirectional(this.MedicinesAddition.medicinesFxObjectPropertyProperty().get().priceProperty(), converter);
-        this.quantityTextAddition.textProperty().bindBidirectional(this.MedicinesAddition.medicinesFxObjectPropertyProperty().get().quantityProperty(), converter);
-        this.alternativeTextAddition.textProperty().bindBidirectional(this.MedicinesAddition.medicinesFxObjectPropertyProperty().get().alternativeProperty(), converter);
-        this.MedicinesAddition.medicinesFxObjectPropertyProperty().get().prescriptionProperty().bind(this.prescriptionChoiceAddition.valueProperty());
-        this.addMedicineButton.disableProperty().bind(this.nameTextAddition.textProperty().isEmpty());
+        this.MedicinesAddition=new Medicines();
+        this.addMedicineButton.disableProperty().bind(this.nameTextAddition.textProperty().isEmpty().or(this.prescriptionChoiceAddition.valueProperty().isNull()));
 
         //załadowanie tabeli
-        try {
-            ResultSet rs=DbStatements.SearchMedicines(c, "");
-        } catch (SQLException ex){
-            ex.printStackTrace();
-        }
+        this.idColumn.setCellValueFactory(cellData->cellData.getValue().idProperty().asString());
+        this.nameColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
+        this.priceColumn.setCellValueFactory(cellData->cellData.getValue().priceProperty().asString());
+        this.prescriptionColumn.setCellValueFactory(cellData->cellData.getValue().prescriptionProperty().asString());
+        this.quantityColumn.setCellValueFactory(cellData->cellData.getValue().quantityProperty().asString());
+        this.orderedColumn.setCellValueFactory(cellData->cellData.getValue().orderedProperty().asString());
+        this.soldColumn.setCellValueFactory(cellData->cellData.getValue().soldProperty().asString());
+        this.returnsColumn.setCellValueFactory(cellData->cellData.getValue().returnsProperty().asString());
+        this.disposedOfColumn.setCellValueFactory(cellData->cellData.getValue().disposed_ofProperty().asString());
+        this.alternativeColumn.setCellValueFactory(cellData->cellData.getValue().alternativeProperty().asString());
+        this.medicinesModelList=new MedicinesModel();
+        this.medicinesTab.setItems(this.medicinesModelList.getMedicinesFxObservableList());
+        this.medicinesModelList.nameSearchTable("");
     }
 
     @FXML
-    private void SearchAction() throws IOException {
+    private void SearchAction(){
         Connection c = DbConnector.connect();
-
-        try {
-            if((SearchField.getText() != null && !SearchField.getText().isEmpty())) {
-                ResultSet rs=DbStatements.SearchMedicines(c, SearchField.getText());
-
-            }
-        } catch (SQLException ex){
-            ex.printStackTrace();
+        if(idSearchField.getText().isEmpty()){
+            System.out.println("Search: "+nameSearchField.getText());
+            this.medicinesModelList.nameSearchTable(nameSearchField.getText());
+        }else if(!idSearchField.getText().isEmpty()){
+            nameSearchField.clear();
+            this.medicinesModelList.idSearchTable(Integer.parseInt(idSearchField.getText()));
         }
-
-
     }
 
     @FXML
     private void addMedicineAction(){
-        System.out.println(this.MedicinesAddition.getMedicinesFxObjectProperty().getName()+
-                " "+this.MedicinesAddition.getMedicinesFxObjectProperty().getPrice()+
-                " "+this.MedicinesAddition.getMedicinesFxObjectProperty().getQuantity()+
-                " "+this.MedicinesAddition.getMedicinesFxObjectProperty().getAlternative()+
-                " "+this.MedicinesAddition.getMedicinesFxObjectProperty().isPrescription());
+        this.MedicinesAddition.setName(this.nameTextAddition.getText());
+        if(!this.priceTextAddition.getText().isEmpty())
+            this.MedicinesAddition.setPrice(Float.parseFloat(this.priceTextAddition.getText()));
+        if(!this.quantityTextAddition.getText().isEmpty())
+            this.MedicinesAddition.setAlternative(Integer.parseInt(this.alternativeTextAddition.getText()));
+        if(!this.alternativeTextAddition.getText().isEmpty())
+            this.MedicinesAddition.setQuantity(Integer.parseInt(this.quantityTextAddition.getText()));
+        if(this.prescriptionChoiceAddition.getValue()!=null){
+            System.out.println(this.prescriptionChoiceAddition.getValue().equals(true));
+            this.MedicinesAddition.setPrescription(this.prescriptionChoiceAddition.getValue().equals(true));
+        }
+
+        System.out.println("Ilosc lekow w bazie danych "+medicinesModelList.getMedicinesFxObservableList().stream().count());
+        if(this.MedicinesAddition.getAlternative()<1 || this.MedicinesAddition.getAlternative()>medicinesModelList.getMedicinesFxObservableList().stream().count()){
+            System.out.println("Podano nie prawidłową alternatywę");
+            this.MedicinesAddition.setAlternative(-1);
+        }
+
+
+        System.out.println(this.MedicinesAddition.getName()+
+                " "+this.MedicinesAddition.getPrice()+
+                " "+this.MedicinesAddition.getQuantity()+
+                " "+this.MedicinesAddition.getAlternative()+
+                " "+this.MedicinesAddition.isPrescription());
 
         this.MedicinesAddition.addMedicineInDataBase();
         this.nameTextAddition.clear();
         this.priceTextAddition.clear();
         this.quantityTextAddition.clear();
         this.alternativeTextAddition.clear();
+        this.medicinesModelList.nameSearchTable("");
     }
 
 }

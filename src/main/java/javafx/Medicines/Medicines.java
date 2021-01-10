@@ -1,5 +1,11 @@
 package javafx.Medicines;
 
+import database.DbConnector;
+import database.DbStatements;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class Medicines {
     private int id;
     private String name = "";
@@ -12,6 +18,19 @@ public class Medicines {
     private int disposed_of = 0;
     private int alternative = -1;
     private String composition = "";
+
+    public void addMedicineInDataBase() {
+
+        Connection c = DbConnector.connect();
+        try {
+            if (!this.getName().equals("")) {
+                DbStatements.AddMedicine(c, this);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 
     public int getId() {
         return id;

@@ -93,10 +93,19 @@ public class DbStatements {
 
     // ----------- Medicines --------------
 
-    public static ResultSet SearchMedicines(Connection conn, String name) throws SQLException {
-        String query = "select name, price, quantity from medicines where name LIKE ? ";
+    public static ResultSet SearchNameMedicines(Connection conn, String name) throws SQLException {
+        String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative from medicines where name LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, "%"+name+"%");
+        ResultSet rs = preparedStmt.executeQuery();
+
+        return rs;
+    }
+
+    public static ResultSet SearchIdMedicines(Connection conn, int id) throws SQLException {
+        String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative from medicines where id LIKE ? ";
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
         ResultSet rs = preparedStmt.executeQuery();
 
         return rs;
