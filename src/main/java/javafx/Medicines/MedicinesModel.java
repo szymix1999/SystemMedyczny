@@ -17,10 +17,11 @@ public class MedicinesModel {
 
     private ObservableList<MedicinesFx> medicinesFxObservableList= FXCollections.observableArrayList();
 
+    Connection c = DbConnector.connect();
+
     public void idSearchTable(int id){
         medicinesFxObservableList.clear();
         try {
-            Connection c = DbConnector.connect();
             ResultSet rs=DbStatements.SearchIdMedicines(c, id);
             this.showMedicinesTable(rs);
         } catch (SQLException ex){
@@ -31,7 +32,6 @@ public class MedicinesModel {
     public void nameSearchTable(String s){
         medicinesFxObservableList.clear();
         try {
-            Connection c = DbConnector.connect();
             ResultSet rs=DbStatements.SearchNameMedicines(c, s);
             this.showMedicinesTable(rs);
         } catch (SQLException ex){

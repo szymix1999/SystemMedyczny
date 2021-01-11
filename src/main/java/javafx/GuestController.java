@@ -10,6 +10,9 @@ public class GuestController {
     private void logInAction(){
         App.setRoot("login_window");
     }
-
+    @FXML
+    private void guestPharmacyAction(){
+        App.setRoot("pharmacy_guest");
+    }
 
 }

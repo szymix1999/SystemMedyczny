@@ -100,7 +100,6 @@ public class ApothecaryController {
 
     @FXML
     private void SearchAction(){
-        Connection c = DbConnector.connect();
         if(idSearchField.getText().isEmpty()){
             System.out.println("Search: "+nameSearchField.getText());
             this.medicinesModelList.nameSearchTable(nameSearchField.getText());
@@ -113,11 +112,11 @@ public class ApothecaryController {
     @FXML
     private void addMedicineAction(){
         this.MedicinesAddition.setName(this.nameTextAddition.getText());
-        if(!this.priceTextAddition.getText().isEmpty())
+        if(!this.priceTextAddition.getText().isEmpty() && !this.priceTextAddition.getText().equals(""))
             this.MedicinesAddition.setPrice(Float.parseFloat(this.priceTextAddition.getText()));
-        if(!this.quantityTextAddition.getText().isEmpty())
+        if(!this.quantityTextAddition.getText().isEmpty() && !this.quantityTextAddition.getText().equals(""))
             this.MedicinesAddition.setAlternative(Integer.parseInt(this.alternativeTextAddition.getText()));
-        if(!this.alternativeTextAddition.getText().isEmpty())
+        if(!this.alternativeTextAddition.getText().isEmpty() && !this.alternativeTextAddition.getText().equals(""))
             this.MedicinesAddition.setQuantity(Integer.parseInt(this.quantityTextAddition.getText()));
         if(this.prescriptionChoiceAddition.getValue()!=null){
             System.out.println(this.prescriptionChoiceAddition.getValue().equals(true));
