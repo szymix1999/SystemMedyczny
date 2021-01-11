@@ -130,11 +130,11 @@ public class ApothecaryController {
         }
 
 
-        System.out.println(this.MedicinesAddition.getName()+
-                " "+this.MedicinesAddition.getPrice()+
-                " "+this.MedicinesAddition.getQuantity()+
-                " "+this.MedicinesAddition.getAlternative()+
-                " "+this.MedicinesAddition.isPrescription());
+        System.out.println("Name: "+this.MedicinesAddition.getName()+
+                " Price: "+this.MedicinesAddition.getPrice()+
+                " Quantity: "+this.MedicinesAddition.getQuantity()+
+                " Alternative: "+this.MedicinesAddition.getAlternative()+
+                " Prescription: "+this.MedicinesAddition.isPrescription());
 
         this.MedicinesAddition.addMedicineInDataBase();
         this.nameTextAddition.clear();
