@@ -61,8 +61,8 @@
                         </TableView>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
                            <children>
-                              <TextField fx:id="nameTextAddition" prefHeight="30.0" prefWidth="535.0" promptText="%name" />
-                              <TextField fx:id="priceTextAddition" prefWidth="100.0" promptText="%price" />
+                              <TextField fx:id="nameTextAddition" maxHeight="30.0" prefHeight="30.0" prefWidth="535.0" promptText="%name" />
+                              <TextField fx:id="priceTextAddition" maxHeight="30.0" prefWidth="100.0" promptText="%price" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%prescription" wrappingWidth="95.4130859375">
                                  <HBox.margin>
                                     <Insets />
@@ -72,9 +72,9 @@
                                  </font>
                               </Text>
                               <ChoiceBox fx:id="prescriptionChoiceAddition" prefWidth="100.0" />
-                              <TextField fx:id="quantityTextAddition" prefWidth="100.0" promptText="%quantity" />
-                              <TextField fx:id="alternativeTextAddition" prefWidth="100.0" promptText="%alternative" />
-                              <Button fx:id="addMedicineButton" mnemonicParsing="false" onAction="#addMedicineAction" prefWidth="100.0" text="%add" />
+                              <TextField fx:id="quantityTextAddition" maxHeight="30.0" prefWidth="100.0" promptText="%quantity" />
+                              <TextField fx:id="alternativeTextAddition" maxHeight="30.0" prefWidth="100.0" promptText="%alternative" />
+                              <Button fx:id="addMedicineButton" maxHeight="30.0" mnemonicParsing="false" onAction="#addMedicineAction" prefWidth="100.0" text="%add" />
                            </children>
                            <padding>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

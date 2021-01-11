@@ -112,12 +112,12 @@ public class ApothecaryController {
     @FXML
     private void addMedicineAction(){
         this.MedicinesAddition.setName(this.nameTextAddition.getText());
-        if(!this.priceTextAddition.getText().isEmpty() && !this.priceTextAddition.getText().equals(""))
+        if(!this.priceTextAddition.getText().isEmpty())
             this.MedicinesAddition.setPrice(Float.parseFloat(this.priceTextAddition.getText()));
-        if(!this.quantityTextAddition.getText().isEmpty() && !this.quantityTextAddition.getText().equals(""))
-            this.MedicinesAddition.setAlternative(Integer.parseInt(this.alternativeTextAddition.getText()));
-        if(!this.alternativeTextAddition.getText().isEmpty() && !this.alternativeTextAddition.getText().equals(""))
+        if(!this.quantityTextAddition.getText().isEmpty())
             this.MedicinesAddition.setQuantity(Integer.parseInt(this.quantityTextAddition.getText()));
+        if(!this.alternativeTextAddition.getText().isEmpty())
+            this.MedicinesAddition.setAlternative(Integer.parseInt(this.alternativeTextAddition.getText()));
         if(this.prescriptionChoiceAddition.getValue()!=null){
             System.out.println(this.prescriptionChoiceAddition.getValue().equals(true));
             this.MedicinesAddition.setPrescription(this.prescriptionChoiceAddition.getValue().equals(true));

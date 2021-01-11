@@ -22,15 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/PharmacyGuestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/pharmacy_guest.fxml" afterDir="false" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="pharmacy_guest/fx/controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/GuestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/guest_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/guest_pane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/DbStatements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DbStatements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/txtfile/Database/SQL_tables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/txtfile/Database/SQL_tables.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +75,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.30859834" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.21221532" />
   </component>
   <component name="RecentsManager">
@@ -363,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610291739906</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="pharmacy_guest/fx/controller">
+      <created>1610386012007</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610386012008</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -410,6 +412,7 @@
     <MESSAGE value="prescriptions + personel" />
     <MESSAGE value="[patient] Pay for more than one." />
     <MESSAGE value="[patient] Pay for more than one prescription." />
-    <option name="LAST_COMMIT_MESSAGE" value="[patient] Pay for more than one prescription." />
+    <MESSAGE value="pharmacy_guest/fx/controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="pharmacy_guest/fx/controller" />
   </component>
 </project>
