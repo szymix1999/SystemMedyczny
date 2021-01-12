@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="screen_resolution">
-      <changelist_data name="PituchaAleksander" email="pitucha.aleksander@gmial.com" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/DoctorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/doctor_pane.fxml" afterDir="false" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="doctor_panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -290,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610052767320</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="doctor_panel">
+      <created>1610394488597</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610394488597</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -322,7 +326,8 @@
     <MESSAGE value="patient_change" />
     <MESSAGE value="s_changes" />
     <MESSAGE value="screen_resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="screen_resolution" />
+    <MESSAGE value="doctor_panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="doctor_panel" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
