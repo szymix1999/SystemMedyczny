@@ -16,6 +16,7 @@ public class CreateVisits {
     public static void main(String[] args) {
         Connection c = DbConnector.connect();
         int patient_index = 1;
+        int personel_index = 1;
 
         try{
             Scanner scanner = new Scanner(new File("src\\main\\resources\\txtfile\\tables\\visits.txt"));
@@ -31,8 +32,9 @@ public class CreateVisits {
                     java.util.Date utilDate2 = format.parse(arr[3]);
                     sqlDate2 = new java.sql.Date(utilDate2.getTime());
                 }
-                DbStatements.addVisit(c, patient_index, arr[0], arr[1], sqlDate, sqlDate2, Integer.parseInt(arr[4]));
+                DbStatements.addVisit(c, patient_index, personel_index, arr[0], arr[1], sqlDate, sqlDate2, Float.parseFloat(arr[4]));
                 System.out.println(patient_index + " " + arr[0] + " " + arr[1] + " " + sqlDate + " " + sqlDate2 + " " + arr[4]);
+                personel_index++;
             }
 
             c.close();

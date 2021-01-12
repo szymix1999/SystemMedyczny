@@ -2,7 +2,9 @@ package database;
 
 import javafx.Medicines.Medicines;
 
+import java.math.BigDecimal;
 import java.sql.*;
+import java.text.DecimalFormat;
 
 public class DbStatements {
 
@@ -144,22 +146,23 @@ public class DbStatements {
 
     // ----------- Visits --------------
 
-    public static void addVisit(Connection conn, int id_patients, String visit_name, String change_name, Date visit_date, Date change_date, int cost) throws  SQLException {
-        String query = "insert into visits (id_patients, visit_name, change_name, visit_date, change_date, cost)" + " values (?, ?, ?, ?, ?, ?)";
+    public static void addVisit(Connection conn, int id_patients, int id_personel, String visit_name, String change_name, Date visit_date, Date change_date, float cost) throws  SQLException {
+        String query = "insert into visits (id_patients, id_personel, visit_name, change_name, visit_date, change_date, cost)" + " values (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id_patients);
-        preparedStmt.setString(2, visit_name);
-        preparedStmt.setString(3, change_name);
-        preparedStmt.setDate(4, visit_date);
-        preparedStmt.setDate(5, change_date);
-        preparedStmt.setInt(6, cost);
+        preparedStmt.setInt(2, id_personel);
+        preparedStmt.setString(3, visit_name);
+        preparedStmt.setString(4, change_name);
+        preparedStmt.setDate(5, visit_date);
+        preparedStmt.setDate(6, change_date);
+        preparedStmt.setFloat(7, cost);
 
         preparedStmt.execute();
     }
 
     public static ResultSet getVisitDate(Connection conn, int id) throws SQLException {
-        String query = "select id, visit_name, change_name, visit_date, change_date, cost from visits where id_patients = ?";
+        String query = "select id, id_personel, visit_name, change_name, visit_date, change_date, cost from visits where id_patients = ?";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
@@ -168,11 +171,11 @@ public class DbStatements {
         return rs;
     }
 
-    public static void updateVisitCost(Connection conn, int id, int value) throws SQLException {
+    public static void updateVisitCost(Connection conn, int id, float value) throws SQLException {
         String query = "update visits set cost = ? where id = ?";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
-        preparedStmt.setInt(1, value);
+        preparedStmt.setFloat(1, value);
         preparedStmt.setInt(2, id);
 
         //preparedStmt.execute();   --żeby nie zmieniać co chwilę rekordów

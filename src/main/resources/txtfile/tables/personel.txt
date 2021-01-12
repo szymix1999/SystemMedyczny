@@ -1,2 +1,6 @@
 Stanisla;Naczas;dentysta;3600
 Michal;Chrominski;ratownik;1800
+Adam;Chromiak;urolog;7600
+Przemyslaw;Kochanowski;patolog;4600
+Olga;Tokarczuk;polozna;2000
+Karolina;Michalczyk;pielegniarka;2800

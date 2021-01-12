@@ -79,17 +79,19 @@ public class PatientController {
 
     //Klasa Wizyty
     private class Visit {
-        public int id;
-        public int index;
+        public int id;      //index w bazie
+        public int index;   //index w liscie
+        public int id_personel;
         public String name;
         public String change_name;
         public String date;
         public String change_date;
-        public int cost;
+        public float cost;
 
-        public Visit(int id, int index, String name, String change_name, String date, String change_date, int cost) {
+        public Visit(int id, int index, int id_personel, String name, String change_name, String date, String change_date, float cost) {
             this.id = id;
             this.index = index;
+            this.id_personel = id_personel;
             this.name = name;
             this.change_name = change_name;
             this.date = date;
@@ -156,7 +158,7 @@ public class PatientController {
             while (rs.next()) {
                 curr_patient = new Patient(rs.getInt("id"), rs.getString("first_name"),
                         rs.getString("last_name"), rs.getDate("birth_date").toString(),
-                        rs.getString("sex"), rs.getString("health"));
+                        rs.getString("sex"), rs.getString("health").replace("\\n", "\n"));
             }
             System.out.println("Id patient: " + curr_patient.id);
         } catch (SQLException ex){
@@ -198,11 +200,11 @@ public class PatientController {
         if (curr_list == 0) {
             ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
             //cost
-            int sum = 0;
+            float sum = 0;
             for(Visit o : selectedItems){
                 sum += o.cost;
             }
-            FTxtAmount.setText(sum + ",00");
+            FTxtAmount.setText(String.valueOf(sum));
             //name
             if(selectedItems.size() > 1)
                 FTxtName.setText(App.getString("moreThanOneSelected!"));
@@ -305,8 +307,8 @@ public class PatientController {
                 Date chd = rs.getDate("change_date");
                 if(chd != null)
                     stringCHD = chd.toString();
-                Visit v = new Visit(rs.getInt("id"), index, rs.getString("visit_name"), rs.getString("change_name"),
-                        rs.getDate("visit_date").toString(), stringCHD, rs.getInt("cost"));
+                Visit v = new Visit(rs.getInt("id"), index, rs.getInt("id_personel"), rs.getString("visit_name"), rs.getString("change_name"),
+                        rs.getDate("visit_date").toString(), stringCHD, rs.getFloat("cost"));
                 //String v = rs.getString("visit_name");
                 list.add(v);
                 index++;
@@ -367,9 +369,9 @@ public class PatientController {
             if (selectedItems.size() == 1) {
                 try {
                     System.out.println("Paid");
-                    DbStatements.updateVisitCost(c, selectedItems.get(0).id, 0);
-                    selectedItems.get(0).cost = 0;
-                    FTxtAmount.setText("0,00");
+                    DbStatements.updateVisitCost(c, selectedItems.get(0).id, (float) 0);
+                    selectedItems.get(0).cost = (float) 0;
+                    FTxtAmount.setText(String.valueOf(selectedItems.get(0).cost));
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -384,10 +386,10 @@ public class PatientController {
                 try {
                     System.out.println("Paid");
                     for (Visit v : selectedItems) {
-                        DbStatements.updateVisitCost(c, v.id, 0);
-                        v.cost = 0;
+                        DbStatements.updateVisitCost(c, v.id, (float) 0);
+                        v.cost = (float) 0;
                     }
-                    FTxtAmount.setText("0,00");
+                    FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -400,7 +402,7 @@ public class PatientController {
                     System.out.println("Paid");
                     DbStatements.updatePrescriptionCost(c, selectedItems.get(0).id, 0);
                     selectedItems.get(0).cost = 0;
-                    FTxtAmount.setText("0,00");
+                    FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -418,7 +420,7 @@ public class PatientController {
                         DbStatements.updatePrescriptionCost(c, v.id, 0);
                         v.cost = 0;
                     }
-                    FTxtAmount.setText("0,00");
+                    FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -449,10 +451,10 @@ public class PatientController {
                 try {
                     System.out.println("Paid");
                     for (Visit v : selectedItems) {
-                        DbStatements.updateVisitCost(c, v.id, 0);
-                        v.cost = 0;
+                        DbStatements.updateVisitCost(c, v.id, (float) 0);
+                        v.cost = (float) 0;
                     }
-                    FTxtAmount.setText("0,00");
+                    FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -481,7 +483,7 @@ public class PatientController {
                         DbStatements.updatePrescriptionCost(c, v.id, 0);
                         v.cost = 0;
                     }
-                    FTxtAmount.setText("0,00");
+                    FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -531,8 +533,8 @@ public class PatientController {
                 System.out.println("Name changed");
 
                 DbStatements.updateVisitName(c, selectedItems.get(0).id, selectedItems.get(0).name, FTxtName.getText());
-                selectedItems.get(0).change_date = selectedItems.get(0).name;
-                selectedItems.get(0).date = FTxtName.getText();
+                selectedItems.get(0).change_name = selectedItems.get(0).name;
+                selectedItems.get(0).name = FTxtName.getText();
 
                 FTxtName.setText(FTxtName.getText());
             } catch (SQLException ex) {
