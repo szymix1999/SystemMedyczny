@@ -17,6 +17,7 @@ public class CreatePrescriptions {
         Connection c = DbConnector.connect();
         int patient_index = 1;
         int personel_index = 1;
+        int medicine_index = 1;
 
         try{
             Scanner scanner = new Scanner(new File("src\\main\\resources\\txtfile\\tables\\prescriptions.txt"));
@@ -25,10 +26,12 @@ public class CreatePrescriptions {
             while(scanner.hasNext()){
                 String line = scanner.nextLine();
                 String[] arr = line.split(";");
-                java.util.Date utilDate = format.parse(arr[3]);
+                java.util.Date utilDate = format.parse(arr[2]);
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-                DbStatements.addPrescription(c, patient_index, personel_index, arr[0], Integer.parseInt(arr[1]), arr[2], sqlDate);
-                System.out.println(patient_index + " " + arr[0] + " " + arr[1] + " " + arr[2] + " " + sqlDate);
+                DbStatements.addPrescription(c, patient_index, personel_index, medicine_index, arr[0], Float.parseFloat(arr[1]), sqlDate);
+                System.out.println(patient_index + " " + medicine_index + " " + arr[0] + " " + arr[1] + " " + sqlDate);
+                medicine_index++;
+                personel_index++;
             }
 
             c.close();

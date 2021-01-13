@@ -11,7 +11,7 @@ CREATE TABLE personel (
 	first_name VARCHAR(30) NOT NULL,
 	last_name VARCHAR(30) NOT NULL,
 	profession VARCHAR(30) NOT NULL, 
-	salary DECIMAL(15,2) NOT NULL,
+	salary FLOAT(15,2) NOT NULL,
 	FOREIGN KEY (id_users) REFERENCES users(id)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE visits (
 	change_name VARCHAR(60),
 	visit_date DATE NOT NULL,
 	change_date DATE,
-	cost DECIMAL(15,2) NOT NULL,
+	cost FLOAT(15,2) NOT NULL,
 	FOREIGN KEY (id_personel) REFERENCES personel(id),
 	FOREIGN KEY (id_patients) REFERENCES patients(id)
 );
@@ -50,7 +50,7 @@ CREATE TABLE notes (
 CREATE TABLE medicines (
 	id serial PRIMARY KEY,
 	name VARCHAR(30) NOT NULL,
-	price DECIMAL(15,2) NOT NULL,
+	price FLOAT(15,2) NOT NULL,
 	prescription BOOLEAN NOT NULL,
     quantity INT NOT NULL,
     ordered INT NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE prescriptions (
     id_personel BIGINT UNSIGNED NOT NULL,
     id_medicine BIGINT UNSIGNED NOT NULL,
 	name VARCHAR(30) NOT NULL,
-    cost DECIMAL(15,2) NOT NULL,
+    cost FLOAT(15,2) NOT NULL,
     end_date DATE NOT NULL,
     FOREIGN KEY (id_medicine) REFERENCES medicines(id),
 	FOREIGN KEY (id_patients) REFERENCES patients(id),
@@ -88,7 +88,7 @@ CREATE TABLE referrals (
 CREATE TABLE contracts (
 	id serial PRIMARY KEY,
 	id_personel BIGINT UNSIGNED NOT NULL,
-	salary DECIMAL(15,2) NOT NULL,
+	salary FLOAT(15,2) NOT NULL,
 	emp_from DATE NOT NULL,
 	emp_until DATE NOT NULL,
 	FOREIGN KEY (id_personel) REFERENCES personel(id)

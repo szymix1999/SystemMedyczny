@@ -1,3 +1,4 @@
-Recepta patolog;140;Rp. Asamax 500 tabletki dojelitowe 0,5 g 4,5 op. po 100 tabl. (10 blist. po 10 szt.) D.S. tabl. rano: 1 po poludniu: 1 wieczorem: 1 przez 50 dni 3x dziennie po 3 tabletki Odplatnosc R\n;2020-02-20
-jakis tytul;240;Rp.\nEfferalgan Codeine tabl. mus. 0,5 g + 0,03 g\n24 op. po 16 tabl.\nD.S. 3 x 1\nOdplatnosc 100%\n;2020-03-10
-lekarz wpisuje;1000;Rpw.\nPecfent aerozol do nosa 100 mcg/d\n4 but. a 1,55 ml\nDS. wrb\nOdplatnosc: R\nPotwierdzona ilosc substancji\n;2010-04-20
+Na chora noge;25.00;2021-03-30
+lekarz test;25.60;2021-04-03
+Nerka;35.40;2021-07-12
+Lewa reka;125.50;2021-01-01

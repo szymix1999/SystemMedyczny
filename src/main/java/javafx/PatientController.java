@@ -11,9 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import java.awt.*;
 import java.io.IOException;
@@ -35,6 +33,7 @@ public class PatientController {
     int curr_list = 0;
     int adsIndex = 0;
     int signUpCount = 0;
+    int lastChangeCount = 0;
 
     @FXML
     private ListView vpList;
@@ -50,10 +49,6 @@ public class PatientController {
     private Text txtDate;
     @FXML
     private Button btnDate;
-    @FXML
-    private Text txtCon;
-    @FXML
-    private TextArea ATxtCon;
     @FXML
     private ImageView imgAds;
     @FXML
@@ -71,17 +66,18 @@ public class PatientController {
     @FXML
     private Button btnLastChange;
     @FXML
-    private GridPane gPaneSignUp;
-    @FXML
     private Button btnStartSignUp;
     @FXML
-    private TextField FTxtDoctorName;
+    private TextField FTxtPersonelName;
+    @FXML
+    private VBox vBoxPay;
 
     //Klasa Wizyty
     private class Visit {
         public int id;      //index w bazie
         public int index;   //index w liscie
         public int id_personel;
+        public String name_personel;
         public String name;
         public String change_name;
         public String date;
@@ -92,6 +88,11 @@ public class PatientController {
             this.id = id;
             this.index = index;
             this.id_personel = id_personel;
+            try {
+                this.name_personel = DbStatements.getPersonelName(c, id_personel);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             this.name = name;
             this.change_name = change_name;
             this.date = date;
@@ -107,30 +108,40 @@ public class PatientController {
 
     //Klasa recepty
     private class Prescription {
-        public int id;
-        public int index;
+        public int id;          //index w bazie
+        public int index;       //index w liscie
+        private int id_personel;
+        public String name_personel;
+        private int id_medicine;
+        public String name_medicine;
         public String name;
-        public String content;
         public String date;
-        public int cost;
+        public float cost;
 
-        public Prescription(int id, int index, String name, String content, String date, int cost) {
+        public Prescription(int id, int id_personel, int id_medicine, int index, String name, String date, float cost) {
             this.id = id;
             this.index = index;
+            this.id_personel = id_personel;
+            try {
+                this.name_personel = DbStatements.getPersonelName(c, id_personel);
+                this.name_medicine = DbStatements.getMedicineName(c, id_medicine);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            this.id_medicine = id_medicine;
             this.name = name;
-            this.content = content;
             this.date = date;
             this.cost = cost;
         }
 
         @Override
         public String toString() {
-            return (String.format("%03d", this.index) + " - " +this.name);
+            return (String.format("%03d", this.index) + " - " + this.name + " - " + this.name_medicine);
         }
     }
 
     //Klasa pacjent
-    private class Patient {
+    private static class Patient {
         public int id = 0;
         public String first_name;
         public String last_name;
@@ -219,14 +230,21 @@ public class PatientController {
                 FTxtDate.setText(App.getString("selectVisit"));
             else
                 FTxtDate.setText(selectedItems.get(0).date);
+            //doctor name
+            if(selectedItems.size() > 1)
+                FTxtPersonelName.setText(App.getString("moreThanOneSelected!"));
+            else if(selectedItems.size() == 0)
+                FTxtPersonelName.setText(App.getString("selectVisit"));
+            else
+                FTxtPersonelName.setText(selectedItems.get(0).name_personel);
         } else {
             ObservableList<Prescription> selectedItems = vpList.getSelectionModel().getSelectedItems();
             //cost
-            int sum = 0;
+            float sum = 0;
             for(Prescription o : selectedItems){
                 sum += o.cost;
             }
-            FTxtAmount.setText(sum + ",00");
+            FTxtAmount.setText(String.valueOf(sum));
             //name
             if(selectedItems.size() > 1)
                 FTxtName.setText(App.getString("moreThanOneSelected!"));
@@ -241,13 +259,13 @@ public class PatientController {
                 FTxtDate.setText(App.getString("selectPrescription"));
             else
                 FTxtDate.setText(selectedItems.get(0).date);
-            //content
+            //doctor name
             if(selectedItems.size() > 1)
-                ATxtCon.setText(App.getString("moreThanOneSelected!"));
+                FTxtPersonelName.setText(App.getString("moreThanOneSelected!"));
             else if(selectedItems.size() == 0)
-                ATxtCon.setText(App.getString("selectPrescription"));
+                FTxtPersonelName.setText(App.getString("selectPrescription"));
             else
-                ATxtCon.setText(selectedItems.get(0).content);
+                FTxtPersonelName.setText(selectedItems.get(0).name_personel);
         }
     }
 
@@ -265,9 +283,7 @@ public class PatientController {
         FTxtName.setText(App.getString("selectVisit"));
         FTxtAmount.setText(App.getString("selectVisit"));
         FTxtDate.setText(App.getString("selectVisit"));
-        ATxtCon.clear();
-        txtCon.setVisible(false);
-        ATxtCon.setVisible(false);
+        FTxtPersonelName.setText(App.getString("selectVisit"));
         curr_list = 0;
         loadVisits();
     }
@@ -281,16 +297,14 @@ public class PatientController {
         btnDate.setVisible(false);
         btnLastChange.setVisible(false);
         btnStartSignUp.setVisible(false);
-        gPaneSignUp.setVisible(false);
-        signUpCount = 0;
+        //gPaneSignUp.setVisible(false);
+        //signUpCount = 0;
         FTxtName.setEditable(false);
         FTxtDate.setEditable(false);
         FTxtName.setText(App.getString("selectPrescription"));
         FTxtAmount.setText(App.getString("selectPrescription"));
         FTxtDate.setText(App.getString("selectPrescription"));
-        ATxtCon.setText(App.getString("selectPrescription"));
-        txtCon.setVisible(true);
-        ATxtCon.setVisible(true);
+        FTxtPersonelName.setText(App.getString("selectPrescription"));
         curr_list = 1;
         loadPrescriptions();
     }
@@ -304,12 +318,12 @@ public class PatientController {
             ResultSet rs = DbStatements.getVisitDate(c, curr_patient.id);
             while (rs.next()) {
                 String stringCHD = "";
-                Date chd = rs.getDate("change_date");
-                if(chd != null)
-                    stringCHD = chd.toString();
-                Visit v = new Visit(rs.getInt("id"), index, rs.getInt("id_personel"), rs.getString("visit_name"), rs.getString("change_name"),
+                Date change_date = rs.getDate("change_date");
+                if(change_date != null)
+                    stringCHD = change_date.toString();
+                Visit v = new Visit(rs.getInt("id"), index, rs.getInt("id_personel"),
+                        rs.getString("visit_name"), rs.getString("change_name"),
                         rs.getDate("visit_date").toString(), stringCHD, rs.getFloat("cost"));
-                //String v = rs.getString("visit_name");
                 list.add(v);
                 index++;
             }
@@ -328,8 +342,9 @@ public class PatientController {
         try {
             ResultSet rs = DbStatements.getPrescriptionDate(c, curr_patient.id);
             while (rs.next()) {
-                Prescription v = new Prescription(rs.getInt("id"), index, rs.getString("presc_name"), rs.getString("content"),
-                        rs.getDate("end_date").toString(), rs.getInt("cost"));
+                Prescription v = new Prescription(rs.getInt("id"), rs.getInt("id_personel"),
+                        rs.getInt("id_medicine"), index, rs.getString("name"),
+                        rs.getDate("end_date").toString(), rs.getFloat("cost"));
                 list.add(v);
                 index++;
             }
@@ -340,26 +355,38 @@ public class PatientController {
         vpList.getItems().addAll(list);
     }
 
+    //------------------------ Display last changes in visit -------------------------
+
     @FXML
-    private void displayLastName() {
+    private void displayLastChange() {
         ObservableList<Visit> selectedItems = vpList.getSelectionModel().getSelectedItems();
 
-        if(selectedItems.size() == 1) {
-            if (!selectedItems.get(0).change_name.isEmpty() && selectedItems.get(0).change_name != null)
-                FTxtName.setText(selectedItems.get(0).change_name);
-            else
-                FTxtName.setText(selectedItems.get(0).name);
+        if(lastChangeCount == 0) {
+            if (selectedItems.size() == 1) {
+                if (!selectedItems.get(0).change_name.isEmpty() && selectedItems.get(0).change_name != null)
+                    FTxtName.setText(selectedItems.get(0).change_name);
+                else
+                    FTxtName.setText(selectedItems.get(0).name);
 
-            if (!selectedItems.get(0).change_date.isEmpty() && selectedItems.get(0).change_date != null)
-                FTxtDate.setText(selectedItems.get(0).change_date);
-            else
-                FTxtDate.setText(selectedItems.get(0).date);
-        } else if(selectedItems.size() == 0) {
-            FTxtAmount.setText(App.getString("selectVisit"));
+                if (!selectedItems.get(0).change_date.isEmpty() && selectedItems.get(0).change_date != null)
+                    FTxtDate.setText(selectedItems.get(0).change_date);
+                else
+                    FTxtDate.setText(selectedItems.get(0).date);
+            } else if (selectedItems.size() == 0) {
+                FTxtAmount.setText(App.getString("selectVisit"));
+            } else {
+                FTxtAmount.setText(App.getString("moreThanOneSelected!"));
+            }
         } else {
-            FTxtAmount.setText(App.getString("moreThanOneSelected!"));
+            if (selectedItems.size() == 1) {
+                FTxtName.setText(selectedItems.get(0).name);
+                FTxtDate.setText(selectedItems.get(0).date);
+            }
         }
+        lastChangeCount = (lastChangeCount + 1)%2;
     }
+
+    // -------------------------------- Pay for visits or prescriptions -------------------------
 
     @FXML
     private void payForObject() {
@@ -399,10 +426,14 @@ public class PatientController {
 
             if (selectedItems.size() == 1) {
                 try {
-                    System.out.println("Paid");
-                    DbStatements.updatePrescriptionCost(c, selectedItems.get(0).id, 0);
-                    selectedItems.get(0).cost = 0;
-                    FTxtAmount.setText("0.0");
+                    if(DbStatements.updateMedicineQuantity(c, selectedItems.get(0).id_medicine)) {
+                        System.out.println("Paid");
+                        DbStatements.updatePrescriptionCost(c, selectedItems.get(0).id, 0);
+                        selectedItems.get(0).cost = 0;
+                        FTxtAmount.setText("0.0");
+                    } else  {
+                        FTxtAmount.setText(App.getString("noDrug!"));
+                    }
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -415,12 +446,16 @@ public class PatientController {
                 alert.showAndWait();
             } else {
                 try {
-                    System.out.println("Paid");
+                    float sum = 0;
                     for (Prescription v : selectedItems) {
-                        DbStatements.updatePrescriptionCost(c, v.id, 0);
-                        v.cost = 0;
+                        if(DbStatements.updateMedicineQuantity(c, v.id_medicine)) {
+                            System.out.println("Paid");
+                            DbStatements.updatePrescriptionCost(c, v.id, (float) 0);
+                            v.cost = (float) 0;
+                        }
+                        sum += v.cost;
                     }
-                    FTxtAmount.setText("0.0");
+                    FTxtAmount.setText(String.valueOf(sum));
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -478,18 +513,24 @@ public class PatientController {
                 alert.showAndWait();
             } else {
                 try {
-                    System.out.println("Paid");
+                    float sum = 0;
                     for (Prescription v : selectedItems) {
-                        DbStatements.updatePrescriptionCost(c, v.id, 0);
-                        v.cost = 0;
+                        if(DbStatements.updateMedicineQuantity(c, v.id_medicine)) {
+                            System.out.println("Paid");
+                            DbStatements.updatePrescriptionCost(c, v.id, (float) 0);
+                            v.cost = (float) 0;
+                        }
+                        sum += v.cost;
                     }
-                    FTxtAmount.setText("0.0");
+                    FTxtAmount.setText(String.valueOf(sum));
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
         }
     }
+
+    // ---------------- Change visit name and date ------------------
 
     @FXML
     private void changeVisitDate() {
@@ -550,23 +591,42 @@ public class PatientController {
         }
     }
 
+    // ----------------------------------------------------------------
+
     @FXML
     private void startSignUpOnVisit() {
-        if(signUpCount == 0) {
-            signUpCount++;
-            FTxtDoctorName.clear();
-            gPaneSignUp.setVisible(true);
-        } else {
-            signUpCount--;
-            gPaneSignUp.setVisible(false);
-        }
+//        if(signUpCount == 0) {
+//            signUpCount++;
+//            vpList.getSelectionModel().clearSelection();
+//            FTxtName.clear();
+//            FTxtName.setPromptText(App.getString("completeAndSend!"));
+//            FTxtDate.clear();
+//            FTxtDate.setPromptText(App.getString("completeAndSend!"));
+//            FTxtInfo.clear();
+//            FTxtInfo.setPromptText(App.getString("completeAndSend!"));
+//            FTxtInfo.setEditable(true);
+//            FTxtAmount.clear();
+//            FTxtAmount.setDisable(true);
+//            vBoxPay.setDisable(true);
+//        } else {
+//            signUpCount--;
+//            FTxtName.setPromptText(null);
+//            FTxtName.clear();
+//            FTxtDate.setPromptText(null);
+//            FTxtDate.clear();
+//            FTxtInfo.setPromptText(null);
+//            FTxtInfo.clear();
+//            FTxtInfo.setEditable(false);
+//            FTxtAmount.setDisable(false);
+//            vBoxPay.setDisable(false);
+//        }
     }
 
     @FXML
     private void signUpOnVisit() {
-        System.out.println(FTxtDoctorName.getText());
-        gPaneSignUp.setVisible(false);
-        signUpCount--;
+        //System.out.println(FTxtDoctorName.getText());
+        //gPaneSignUp.setVisible(false);/////////////////////////////////////
+        //signUpCount--;
 
         // Można dopisać metodę wysyłania do lekarza
     }
