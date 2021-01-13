@@ -2,10 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -35,10 +39,28 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <TextField promptText="%name" />
-            <TextField promptText="%surname" />
-            <TextField promptText="%visitDate" />
-            <TextField promptText="%reason" />
+            <TextField fx:id="name" promptText="%name" />
+            <TextField fx:id="surname" promptText="%surname" />
+            <TextField fx:id="birthday" promptText="%birthdate" />
+            <TextField fx:id="cause" promptText="%reason" />
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.20001220703125" minWidth="10.0" prefWidth="66.4000244140625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="708.7999877929688" minWidth="10.0" prefWidth="701.5999755859375" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="%gender" />
+                  <ChoiceBox fx:id="gender" prefHeight="26.0" prefWidth="215.0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <Label fx:id="infoLabel" text="%correctData" textFill="RED" visible="false">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
          </children>
          <BorderPane.margin>
             <Insets left="256.0" right="256.0" />
@@ -48,8 +70,8 @@
    <bottom>
       <HBox prefHeight="30.0" prefWidth="768.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="%ok" />
-            <Button mnemonicParsing="false" onAction="#back" text="%cancel" />
+            <Button mnemonicParsing="false" onAction="#ok" text="%ok" />
+            <Button fx:id="back" mnemonicParsing="false" onAction="#back" text="%cancel" />
          </children>
          <BorderPane.margin>
             <Insets left="512.0" />

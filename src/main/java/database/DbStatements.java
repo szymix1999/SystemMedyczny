@@ -1,10 +1,12 @@
 package database;
 
 import javafx.Medicines.Medicines;
+import javafx.beans.property.StringProperty;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class DbStatements {
 
@@ -326,6 +328,34 @@ public class DbStatements {
         }
         return name;
     }
+
+    public static ArrayList<String> getPersonel(Connection conn) throws  SQLException{
+        String query = "SELECT id, first_name ,last_name, profession FROM personel";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        ResultSet result = preparedStmt.executeQuery();
+
+        ArrayList<String> list = new ArrayList<>();
+        while(result.next()){
+            list.add(result.getString("first_name"));
+            list.add(result.getString("last_name"));
+            list.add(result.getString("profession"));
+            list.add(String.valueOf(result.getInt("id")));
+        }
+
+        return list;
+    }
+    public static ResultSet getPersonel(Connection conn, String id) throws  SQLException{
+        String query = "SELECT * FROM personel WHERE id=?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, Integer.parseInt(id));
+
+        ResultSet r = preparedStmt.executeQuery();
+        return r;
+    }
+
+
 
     // ----------- Tables --------------
 
