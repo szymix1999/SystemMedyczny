@@ -1,5 +1,6 @@
 package javafx;
 
+import database.DbConnector;
 import javafx.Medicines.MedicinesFx;
 import javafx.Medicines.MedicinesModel;
 import javafx.fxml.FXML;
@@ -7,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
+import java.sql.Connection;
 
 public class PharmacyGuestController {
     //tabela leków
@@ -36,6 +39,8 @@ public class PharmacyGuestController {
 
     private MedicinesModel medicinesModelList;
 
+    Connection c = DbConnector.connect();
+
     @FXML
     void initialize(){
         //załadowanie tabeli
@@ -47,17 +52,17 @@ public class PharmacyGuestController {
         this.alternativeColumn.setCellValueFactory(cellData->cellData.getValue().alternativeProperty().asString());
         this.medicinesModelList=new MedicinesModel();
         this.medicinesTab.setItems(this.medicinesModelList.getMedicinesFxObservableList());
-        this.medicinesModelList.nameSearchTable("");
+        this.medicinesModelList.nameSearchTable(c,"");
     }
 
     @FXML
     private void SearchAction(){
         if(idSearchField.getText().isEmpty()){
             System.out.println("Search: "+nameSearchField.getText());
-            this.medicinesModelList.nameSearchTable(nameSearchField.getText());
+            this.medicinesModelList.nameSearchTable(c,nameSearchField.getText());
         }else if(!idSearchField.getText().isEmpty()){
             nameSearchField.clear();
-            this.medicinesModelList.idSearchTable(Integer.parseInt(idSearchField.getText()));
+            this.medicinesModelList.idSearchTable(c,Integer.parseInt(idSearchField.getText()));
         }
     }
 

@@ -14,12 +14,11 @@ import java.util.List;
 
 public class MedicinesModel {
     private ObjectProperty<MedicinesFx> MedicinesFxObjectProperty = new SimpleObjectProperty<>(new MedicinesFx());
+    private ObjectProperty<MedicinesFx> MedicinesFxObjectPropertyEdit = new SimpleObjectProperty<>(new MedicinesFx());
 
     private ObservableList<MedicinesFx> medicinesFxObservableList= FXCollections.observableArrayList();
 
-    Connection c = DbConnector.connect();
-
-    public void idSearchTable(int id){
+    public void idSearchTable(Connection c, int id){
         medicinesFxObservableList.clear();
         try {
             ResultSet rs=DbStatements.SearchIdMedicines(c, id);
@@ -29,11 +28,32 @@ public class MedicinesModel {
         }
     }
 
-    public void nameSearchTable(String s){
+    public void nameSearchTable(Connection c, String s){
         medicinesFxObservableList.clear();
         try {
             ResultSet rs=DbStatements.SearchNameMedicines(c, s);
             this.showMedicinesTable(rs);
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public void editTable(Connection c){
+        try {
+            Medicines med= new Medicines();
+            med.setId(this.MedicinesFxObjectPropertyEdit.getValue().getId());
+            med.setName(this.MedicinesFxObjectPropertyEdit.getValue().getName());
+            med.setPrice(this.MedicinesFxObjectPropertyEdit.getValue().getPrice());
+            med.setPrescription(this.MedicinesFxObjectPropertyEdit.getValue().isPrescription());
+            med.setQuantity(this.MedicinesFxObjectPropertyEdit.getValue().getQuantity());
+            med.setOrdered(this.MedicinesFxObjectPropertyEdit.getValue().getOrdered());
+            med.setSold(this.MedicinesFxObjectPropertyEdit.getValue().getSold());
+            med.setReturns(this.MedicinesFxObjectPropertyEdit.getValue().getReturns());
+            med.setDisposed_of(this.MedicinesFxObjectPropertyEdit.getValue().getDisposed_of());
+            med.setAlternative(this.MedicinesFxObjectPropertyEdit.getValue().getAlternative());
+            DbStatements.editMedicines(c, med);
+            medicinesFxObservableList.clear();
+            this.nameSearchTable(c,"");
         } catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -80,5 +100,17 @@ public class MedicinesModel {
 
     public void setMedicinesFxObjectProperty(MedicinesFx medicinesFxObjectProperty) {
         this.MedicinesFxObjectProperty.set(medicinesFxObjectProperty);
+    }
+
+    public MedicinesFx getMedicinesFxObjectPropertyEdit() {
+        return MedicinesFxObjectPropertyEdit.get();
+    }
+
+    public ObjectProperty<MedicinesFx> medicinesFxObjectPropertyEditProperty() {
+        return MedicinesFxObjectPropertyEdit;
+    }
+
+    public void setMedicinesFxObjectPropertyEdit(MedicinesFx medicinesFxObjectPropertyEdit) {
+        this.MedicinesFxObjectPropertyEdit.set(medicinesFxObjectPropertyEdit);
     }
 }

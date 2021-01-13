@@ -39,21 +39,21 @@
                       <RowConstraints maxHeight="71.0" minHeight="71.0" prefHeight="71.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TableView fx:id="medicinesTab" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <TableView fx:id="medicinesTab" editable="true" GridPane.columnSpan="2" GridPane.rowIndex="1">
                           <columns>
-                              <TableColumn fx:id="idColumn" prefWidth="30.0" text="%id" />
-                            <TableColumn fx:id="nameColumn" prefWidth="304.0" text="%name" />
-                            <TableColumn fx:id="priceColumn" prefWidth="75.0" text="%price" />
-                              <TableColumn fx:id="prescriptionColumn" prefWidth="110.0" text="%prescription" />
-                              <TableColumn fx:id="quantityColumn" prefWidth="90.0" text="%quantity" />
-                              <TableColumn fx:id="orderedColumn" text="%ordered" />
-                              <TableColumn fx:id="soldColumn" prefWidth="70.0" text="%sold" />
-                              <TableColumn fx:id="returnsColumn" prefWidth="70.0" text="%returns" />
-                              <TableColumn fx:id="disposedOfColumn" prefWidth="100.0" text="%disposedOf" />
-                              <TableColumn fx:id="alternativeColumn" prefWidth="100.0" text="%alternative" />
-                              <TableColumn fx:id="imageColumn" minWidth="0.0" text="%image" />
-                              <TableColumn fx:id="updateColumn" minWidth="0.0" text="%update" />
-                              <TableColumn fx:id="addColumn" prefWidth="50.0" text="%add" />
+                              <TableColumn fx:id="idColumn" editable="false" prefWidth="30.0" text="%id" />
+                            <TableColumn fx:id="nameColumn" onEditCommit="#OnEditCommitName" prefWidth="304.0" text="%name" />
+                            <TableColumn fx:id="priceColumn" onEditCommit="#OnEditCommitPrice" prefWidth="75.0" text="%price" />
+                              <TableColumn fx:id="prescriptionColumn" onEditCommit="#OnEditCommitPrescription" prefWidth="110.0" text="%prescription" />
+                              <TableColumn fx:id="quantityColumn" onEditCommit="#OnEditCommitQuantity" prefWidth="90.0" text="%quantity" />
+                              <TableColumn fx:id="orderedColumn" onEditCommit="#OnEditCommitOrdered" text="%ordered" />
+                              <TableColumn fx:id="soldColumn" onEditCommit="#OnEditCommitSold" prefWidth="70.0" text="%sold" />
+                              <TableColumn fx:id="returnsColumn" onEditCommit="#OnEditCommitReturns" prefWidth="70.0" text="%returns" />
+                              <TableColumn fx:id="disposedOfColumn" onEditCommit="#OnEditCommitDisposedOf" prefWidth="100.0" text="%disposedOf" />
+                              <TableColumn fx:id="alternativeColumn" onEditCommit="#OnEditCommitAlternative" prefWidth="100.0" text="%alternative" />
+                              <TableColumn fx:id="imageColumn" editable="false" minWidth="0.0" text="%image" />
+                              <TableColumn fx:id="updateColumn" editable="false" minWidth="0.0" text="%update" />
+                              <TableColumn fx:id="addColumn" editable="false" prefWidth="50.0" text="%add" />
                           </columns>
                            <GridPane.margin>
                               <Insets left="20.0" right="20.0" />

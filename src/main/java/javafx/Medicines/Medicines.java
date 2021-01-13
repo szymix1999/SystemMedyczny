@@ -19,9 +19,7 @@ public class Medicines {
     private int alternative = -1;
     private String composition = "";
 
-    public void addMedicineInDataBase() {
-
-        Connection c = DbConnector.connect();
+    public void addMedicineInDataBase(Connection c) {
         try {
             if (!this.getName().equals("")) {
                 DbStatements.AddMedicine(c, this);

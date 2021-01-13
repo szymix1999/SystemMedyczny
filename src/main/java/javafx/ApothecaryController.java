@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
 
@@ -75,6 +76,8 @@ public class ApothecaryController {
     private Medicines MedicinesAddition;
     private MedicinesModel medicinesModelList;
 
+    Connection c = DbConnector.connect();
+
     @FXML
     void initialize(){
         //dodawanie leków
@@ -95,17 +98,32 @@ public class ApothecaryController {
         this.alternativeColumn.setCellValueFactory(cellData->cellData.getValue().alternativeProperty().asString());
         this.medicinesModelList=new MedicinesModel();
         this.medicinesTab.setItems(this.medicinesModelList.getMedicinesFxObservableList());
-        this.medicinesModelList.nameSearchTable("");
+        this.medicinesModelList.nameSearchTable(c,"");
+
+        //edycja kolumn
+        this.nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.priceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.prescriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.orderedColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.soldColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.returnsColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.disposedOfColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.alternativeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        this.medicinesTab.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)->{
+            this.medicinesModelList.setMedicinesFxObjectPropertyEdit(newValue);
+        });
     }
 
     @FXML
     private void SearchAction(){
         if(idSearchField.getText().isEmpty()){
             System.out.println("Search: "+nameSearchField.getText());
-            this.medicinesModelList.nameSearchTable(nameSearchField.getText());
+            this.medicinesModelList.nameSearchTable(c,nameSearchField.getText());
         }else if(!idSearchField.getText().isEmpty()){
             nameSearchField.clear();
-            this.medicinesModelList.idSearchTable(Integer.parseInt(idSearchField.getText()));
+            this.medicinesModelList.idSearchTable(c,Integer.parseInt(idSearchField.getText()));
         }
     }
 
@@ -136,12 +154,63 @@ public class ApothecaryController {
                 " Alternative: "+this.MedicinesAddition.getAlternative()+
                 " Prescription: "+this.MedicinesAddition.isPrescription());
 
-        this.MedicinesAddition.addMedicineInDataBase();
+        this.MedicinesAddition.addMedicineInDataBase(c);
         this.nameTextAddition.clear();
         this.priceTextAddition.clear();
         this.quantityTextAddition.clear();
         this.alternativeTextAddition.clear();
-        this.medicinesModelList.nameSearchTable("");
+        this.medicinesModelList.nameSearchTable(c,"");
     }
 
+    public void OnEditCommitName(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxStringCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setName(medicinesFxStringCellEditEvent.getNewValue());
+        System.out.println("Zmieniono name: "+medicinesFxStringCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitPrice(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxFloatCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setPrice(Float.parseFloat(medicinesFxFloatCellEditEvent.getNewValue()));
+        System.out.println("Zmieniono Price: "+medicinesFxFloatCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitPrescription(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setPrescription(medicinesFxIntegerCellEditEvent.getNewValue().equals("true"));
+        System.out.println("Zmieniono Prescription: "+medicinesFxIntegerCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitQuantity(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setQuantity(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+        System.out.println("Zmieniono Quantity: "+medicinesFxIntegerCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitOrdered(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setOrdered(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+        System.out.println("Zmieniono Ordered: "+medicinesFxIntegerCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitSold(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setSold(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+        System.out.println("Zmieniono Sold: "+medicinesFxIntegerCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitReturns(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setReturns(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+        System.out.println("Zmieniono Returns: "+medicinesFxIntegerCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitDisposedOf(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setDisposed_of(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+        System.out.println("Zmieniono DisposedOf: "+medicinesFxIntegerCellEditEvent.getNewValue());
+        this.medicinesModelList.editTable(c);
+    }
+    public void OnEditCommitAlternative(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        System.out.println("Ilosc lekow w bazie danych "+medicinesModelList.getMedicinesFxObservableList().stream().count());
+        if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())<1 || Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())>medicinesModelList.getMedicinesFxObservableList().stream().count()){
+            System.out.println("Podano nie prawidłową alternatywę");
+            this.medicinesModelList.nameSearchTable(c,"");
+        }else{
+            this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setAlternative(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+            System.out.println("Zmieniono Alternative: "+medicinesFxIntegerCellEditEvent.getNewValue());
+            this.medicinesModelList.editTable(c);
+        }
+    }
 }

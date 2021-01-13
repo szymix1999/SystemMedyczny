@@ -95,6 +95,33 @@ public class DbStatements {
 
     // ----------- Medicines --------------
 
+
+    public static void editMedicines(Connection conn, Medicines med) throws SQLException {
+        String query;
+        if(med.getAlternative()<1){
+            query = "update medicines set name=?, price=?, prescription=?, quantity=?, ordered=?, sold=?, returns=?, disposed_of=? where id=?";
+        }else{
+            query = "update medicines set name=?, price=?, prescription=?, quantity=?, ordered=?, sold=?, returns=?, disposed_of=?, alternative=? where id=?";
+        }
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, med.getName());
+        preparedStmt.setFloat(2, med.getPrice());
+        preparedStmt.setBoolean(3, med.isPrescription());
+        preparedStmt.setInt(4, med.getQuantity());
+        preparedStmt.setInt(5, med.getOrdered());
+        preparedStmt.setInt(6, med.getSold());
+        preparedStmt.setInt(7, med.getReturns());
+        preparedStmt.setInt(8, med.getDisposed_of());
+        if(med.getAlternative()<1){
+            preparedStmt.setInt(9, med.getId());
+        }else{
+            preparedStmt.setInt(9, med.getAlternative());
+            preparedStmt.setInt(10, med.getId());
+        }
+        preparedStmt.execute();
+
+    }
+
     public static ResultSet SearchNameMedicines(Connection conn, String name) throws SQLException {
         String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative from medicines where name LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -114,34 +141,25 @@ public class DbStatements {
     }
 
     public static void AddMedicine(Connection conn, Medicines med) throws  SQLException {
-        if(med.getAlternative()!=-1){
-            String query = "insert into medicines (name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative)" + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, med.getName());
-            preparedStmt.setFloat(2, med.getPrice());
-            preparedStmt.setBoolean(3, med.isPrescription());
-            preparedStmt.setInt(4, med.getQuantity());
-            preparedStmt.setInt(5, med.getOrdered());
-            preparedStmt.setInt(6, med.getSold());
-            preparedStmt.setInt(7, med.getReturns());
-            preparedStmt.setInt(8, med.getDisposed_of());
-            preparedStmt.setInt(9, med.getAlternative());
-            preparedStmt.execute();
+        String query ="";
+        if(med.getAlternative()<1){
+            query = "insert into medicines (name, price, prescription, quantity, ordered, sold, returns, disposed_of)" + " values (?, ?, ?, ?, ?, ?, ?, ?)";
         }else{
-            String query = "insert into medicines (name, price, prescription, quantity, ordered, sold, returns, disposed_of)" + " values (?, ?, ?, ?, ?, ?, ?, ?)";
-
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, med.getName());
-            preparedStmt.setFloat(2, med.getPrice());
-            preparedStmt.setBoolean(3, med.isPrescription());
-            preparedStmt.setInt(4, med.getQuantity());
-            preparedStmt.setInt(5, med.getOrdered());
-            preparedStmt.setInt(6, med.getSold());
-            preparedStmt.setInt(7, med.getReturns());
-            preparedStmt.setInt(8, med.getDisposed_of());
-            preparedStmt.execute();
+            query = "insert into medicines (name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative)" + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         }
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, med.getName());
+        preparedStmt.setFloat(2, med.getPrice());
+        preparedStmt.setBoolean(3, med.isPrescription());
+        preparedStmt.setInt(4, med.getQuantity());
+        preparedStmt.setInt(5, med.getOrdered());
+        preparedStmt.setInt(6, med.getSold());
+        preparedStmt.setInt(7, med.getReturns());
+        preparedStmt.setInt(8, med.getDisposed_of());
+        if(!(med.getAlternative()<1)){
+            preparedStmt.setInt(9, med.getAlternative());
+        }
+        preparedStmt.execute();
     }
 
     public static String getMedicineName(Connection conn, int id) throws SQLException {
