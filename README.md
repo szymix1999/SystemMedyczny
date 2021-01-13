@@ -40,10 +40,10 @@
   - zapewnienie anonimizacji (~~np. posrednio: nazwisk-¿id, id-¿dane;~~ kodowanie tresci diagnoz i danych uniejednoznaczniajacych), ~~nie nalezy pobierac ani wysyłac danych identyfikacyjnych z obcych baz - jedynie jako zapytania~~, ~~ew. przesyłac ich uogólnienie (np. 27 lat -> zakres 20-29 lat)~~, identyfikatory unikalne dla kazdego z pytajacych.
 - Apteka - **Aleksander Pitucha**
   - ~~tabela mozliwych do kupienia leków~~
-  - wyszukiwarka leków
-  - stany magazynowe (dostawy, sprzedaz, zwroty, utylizacja)
+  - ~~wyszukiwarka leków~~
+  - ~~stany magazynowe (dostawy, sprzedaz, zwroty, utylizacja)~~
   - realizowanie recept
-  - znane zastepniki (na podstawie zapisów lub składu leków)
+  - ~~znane zastepniki (na podstawie zapisów lub składu leków)~~
   - zdjecia opakowan
   - tworzenie nowych zamówien (pacjent, aptekarz) i wydruk paragonów wraz z zatwierdzeniem
   - realizacji recepty/zamówienia (aptekarz)
