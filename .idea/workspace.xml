@@ -23,8 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="doctor_panel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/DoctorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/dbTables/dbDiagnosis/Diagnosis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/dbTables/dbPatient/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/dbTables/dbRecipe/Recipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/dbTables/dbRefferal/Refferal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -302,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610466193440</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="doctor_panel">
+      <created>1610550056272</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610550056272</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
