@@ -37,9 +37,9 @@
   - aktualizacja informacji o danych na podstawie komunikacji z innymi bazami (poprzez projekt komunikacji z pozostałymi projektami)
   - analiza diagnostyczna (np. czy ten pacjent nie ma leków kumulujacych nadmiernie efekty, znoszacych sie, zdiagnozowane uczulenia)
   - obrazy moga byc w postaci jpg, ale dla chetnych takze do opracowania DICOM lub jego elementy
-  - zapewnienie anonimizacji (np. posrednio: nazwisk-¿id, id-¿dane; kodowanie tresci diagnoz i danych uniejednoznaczniajacych), nie nalezy pobierac ani wysyłac danych identyfikacyjnych z obcych baz - jedynie jako zapytania, ew. przesyłac ich uogólnienie (np. 27 lat -> zakres 20-29 lat), identyfikatory unikalne dla kazdego z pytajacych.
+  - zapewnienie anonimizacji (~~np. posrednio: nazwisk-¿id, id-¿dane;~~ kodowanie tresci diagnoz i danych uniejednoznaczniajacych), ~~nie nalezy pobierac ani wysyłac danych identyfikacyjnych z obcych baz - jedynie jako zapytania~~, ~~ew. przesyłac ich uogólnienie (np. 27 lat -> zakres 20-29 lat)~~, identyfikatory unikalne dla kazdego z pytajacych.
 - Apteka - **Aleksander Pitucha**
-  - tabela mozliwych do kupienia leków
+  - ~~tabela mozliwych do kupienia leków~~
   - wyszukiwarka leków
   - stany magazynowe (dostawy, sprzedaz, zwroty, utylizacja)
   - realizowanie recept
@@ -48,7 +48,7 @@
   - tworzenie nowych zamówien (pacjent, aptekarz) i wydruk paragonów wraz z zatwierdzeniem
   - realizacji recepty/zamówienia (aptekarz)
 - Panel lekarza - **Maciej Rydzak**
-  - tabela lekarzy
+  - ~~tabela lekarzy~~
   - wizyty zintegrowane z kalendarzem
   - dostep do danych medycznych pacjenta/karta pacjenta
   - mozliwosc wyszukania danych w innych bazach (na bazie interfejsu projektu komunikacji miedzy projektami)
@@ -75,3 +75,13 @@
   - nadawanie uprawnien
   - modyfikacje kont
   - blokady systemu/uzytkowników
+- Ksiegowosc  **nie przydzielone**
+  - przychody, dochody, koszty, odpisy, amortyzacja
+  - składki
+  - raporty okresowe
+  - forma: tabelaryczna + druga, dowolnie wybrana - wybór techniki na poziomie przychodni Formy i techniki ksiegowosci
+- Komunikacja **nie przydzielone**
+  - wyszukiwanie danych o pacjentach (+wizyty, leki, skierowania, badania) i przekazywanie informacji o istnieniu/zródle tych danych
+  - wyszukiwanie danych o dostepnosci leków w aptekach róznych przychodni
+  - wyszukiwanie danych o wolnych terminach specjalistów w danej dziedzinie w innych przychodniach
+  - wyszukiwanie danych o wolnych etatach/zapotrzebowaniach na specjalistów w danej dziedzinie
