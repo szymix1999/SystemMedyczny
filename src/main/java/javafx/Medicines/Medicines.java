@@ -12,6 +12,7 @@ public class Medicines {
     private float price = 0;
     private boolean prescription = false;
     private int quantity = 0;
+    private int shopQuantity = 0;
     private int ordered = 0;
     private int sold = 0;
     private int returns = 0;
@@ -116,5 +117,13 @@ public class Medicines {
 
     public void setComposition(String composition) {
         this.composition = composition;
+    }
+
+    public int getShopQuantity() {
+        return shopQuantity;
+    }
+
+    public void setShopQuantity(int shopQuantity) {
+        this.shopQuantity = shopQuantity;
     }
 }

@@ -39,7 +39,7 @@
                       <RowConstraints maxHeight="71.0" minHeight="71.0" prefHeight="71.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TableView fx:id="medicinesTab" editable="true" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <TableView fx:id="medicinesTab" editable="true" maxWidth="1240.0" minWidth="1240.0" prefWidth="1240.0" GridPane.rowIndex="1">
                           <columns>
                               <TableColumn fx:id="idColumn" editable="false" prefWidth="30.0" text="%id" />
                             <TableColumn fx:id="nameColumn" onEditCommit="#OnEditCommitName" prefWidth="304.0" text="%name" />
@@ -52,12 +52,15 @@
                               <TableColumn fx:id="disposedOfColumn" onEditCommit="#OnEditCommitDisposedOf" prefWidth="100.0" text="%disposedOf" />
                               <TableColumn fx:id="alternativeColumn" onEditCommit="#OnEditCommitAlternative" prefWidth="100.0" text="%alternative" />
                               <TableColumn fx:id="imageColumn" editable="false" minWidth="0.0" text="%image" />
-                              <TableColumn fx:id="updateColumn" editable="false" minWidth="0.0" text="%update" />
-                              <TableColumn fx:id="addColumn" editable="false" prefWidth="50.0" text="%add" />
+                              <TableColumn fx:id="updateColumn" editable="false" minWidth="0.0" prefWidth="126.0" text="%update" />
+                              <TableColumn fx:id="addColumn" editable="false" prefWidth="97.0" resizable="false" text="%add" />
                           </columns>
                            <GridPane.margin>
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
                         </TableView>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
                            <children>
@@ -109,20 +112,20 @@
                         <RowConstraints maxHeight="476.0" minHeight="10.0" prefHeight="449.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TableView prefHeight="488.0" prefWidth="1280.0" GridPane.rowSpan="2">
+                        <TableView fx:id="medicinesShopTab" prefHeight="488.0" prefWidth="1280.0" GridPane.rowSpan="2">
                           <columns>
-                              <TableColumn prefWidth="30.0" text="%id" />
-                              <TableColumn prefWidth="589.0" text="%name" />
-                              <TableColumn minWidth="0.0" prefWidth="100.0" text="%price" />
-                              <TableColumn prefWidth="100.0" text="%quantity" />
-                              <TableColumn prefWidth="140.0" text="%prescription" />
-                              <TableColumn prefWidth="100.0" text="%remove" />
+                              <TableColumn fx:id="idShopColumn" prefWidth="30.0" text="%id" />
+                              <TableColumn fx:id="nameShopColumn" prefWidth="589.0" text="%name" />
+                              <TableColumn fx:id="priceShopColumn" minWidth="0.0" prefWidth="100.0" text="%price" />
+                              <TableColumn fx:id="quantityShopColumn" prefWidth="100.0" text="%quantity" />
+                              <TableColumn fx:id="prescriptionShopColumn" prefWidth="140.0" text="%prescription" />
+                              <TableColumn fx:id="removeShopColumn" prefWidth="95.0" text="%remove" />
                           </columns>
                            <GridPane.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                         </TableView>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="%clear" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#clearShopOnAction" prefHeight="40.0" prefWidth="160.0" text="%clear" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="150.6708984375" />

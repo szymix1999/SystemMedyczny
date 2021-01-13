@@ -8,6 +8,7 @@ public class MedicinesFx {
     private FloatProperty price = new SimpleFloatProperty(0);
     private BooleanProperty prescription = new SimpleBooleanProperty(false);
     private IntegerProperty quantity = new SimpleIntegerProperty(0);
+    private IntegerProperty shopQuantity = new SimpleIntegerProperty(0);
     private IntegerProperty ordered = new SimpleIntegerProperty(0);
     private IntegerProperty sold = new SimpleIntegerProperty(0);
     private IntegerProperty returns = new SimpleIntegerProperty(0);
@@ -146,5 +147,17 @@ public class MedicinesFx {
 
     public void setComposition(String composition) {
         this.composition.set(composition);
+    }
+
+    public int getShopQuantity() {
+        return shopQuantity.get();
+    }
+
+    public IntegerProperty shopQuantityProperty() {
+        return shopQuantity;
+    }
+
+    public void setShopQuantity(int shopQuantity) {
+        this.shopQuantity.set(shopQuantity);
     }
 }

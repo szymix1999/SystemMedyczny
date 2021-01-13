@@ -5,6 +5,7 @@ import javafx.Medicines.MedicinesFx;
 import javafx.Medicines.MedicinesModel;
 import database.DbConnector;
 import database.DbStatements;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,7 +50,7 @@ public class ApothecaryController {
     @FXML
     private TableColumn<MedicinesFx, String> updateColumn;
     @FXML
-    private TableColumn<MedicinesFx, String> addColumn;
+    private TableColumn<MedicinesFx, MedicinesFx> addColumn;
 //wyszukiwanie leku
     @FXML
     private Button searchButton;
@@ -70,11 +71,27 @@ public class ApothecaryController {
     private ChoiceBox prescriptionChoiceAddition;
     @FXML
     private Button addMedicineButton;
+//koszyk
+    @FXML
+    private TableView<MedicinesFx> medicinesShopTab;
+    @FXML
+    private TableColumn<MedicinesFx, String> idShopColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> nameShopColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> priceShopColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> prescriptionShopColumn;
+    @FXML
+    private TableColumn<MedicinesFx, String> quantityShopColumn;
+    @FXML
+    private TableColumn<MedicinesFx, MedicinesFx> removeShopColumn;
 
     ObservableList<Boolean> prescriptionList = FXCollections.observableArrayList(true, false);
 
     private Medicines MedicinesAddition;
     private MedicinesModel medicinesModelList;
+    private MedicinesModel medicinesModelShopList;
 
     Connection c = DbConnector.connect();
 
@@ -113,6 +130,60 @@ public class ApothecaryController {
 
         this.medicinesTab.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)->{
             this.medicinesModelList.setMedicinesFxObjectPropertyEdit(newValue);
+        });
+
+        //koszyk
+        this.idShopColumn.setCellValueFactory(cellData->cellData.getValue().idProperty().asString());
+        this.nameShopColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
+        this.priceShopColumn.setCellValueFactory(cellData->cellData.getValue().priceProperty().asString());
+        this.prescriptionShopColumn.setCellValueFactory(cellData->cellData.getValue().prescriptionProperty().asString());
+        this.quantityShopColumn.setCellValueFactory(cellData->cellData.getValue().shopQuantityProperty().asString());
+        this.medicinesModelShopList=new MedicinesModel();
+        this.medicinesShopTab.setItems(this.medicinesModelShopList.getMedicinesFxObservableList());
+
+        //dodawanie do koszyka
+        this.addColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
+
+        this.addColumn.setCellFactory(param -> new TableCell<MedicinesFx, MedicinesFx>(){
+            Button addButton=createButton("+");
+            @Override
+            protected void updateItem(MedicinesFx medicine, boolean empty) {
+                super.updateItem(medicine, empty);
+
+                if(!empty){
+                    setGraphic(addButton);
+                    addButton.setOnAction(event ->{
+                        System.out.println("Dodaje lek o id: "+ medicine.getId());
+                        medicinesModelShopList.getMedicinesFxObservableList().remove(medicine);
+                        medicinesModelShopList.getMedicinesFxObservableList().add(medicine);
+                        deleteMedicineShop();
+                    });
+                }
+            }
+        });
+
+        //usuwanie z koszyka
+        deleteMedicineShop();
+    }
+
+    void deleteMedicineShop(){
+        this.removeShopColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
+
+        this.removeShopColumn.setCellFactory(param -> new TableCell<MedicinesFx, MedicinesFx>(){
+            Button removeButton=createButton("-");
+            @Override
+            protected void updateItem(MedicinesFx medicine, boolean empty) {
+                super.updateItem(medicine, empty);
+
+                if(!empty){
+                    setGraphic(removeButton);
+                    removeButton.setOnAction(event ->{
+                        System.out.println("Usuwam lek o id: "+ medicine.getId());
+                        medicinesModelShopList.getMedicinesFxObservableList().remove(medicine);
+                        deleteMedicineShop();
+                    });
+                }
+            }
         });
     }
 
@@ -193,14 +264,24 @@ public class ApothecaryController {
         this.medicinesModelList.editTable(c);
     }
     public void OnEditCommitReturns(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
-        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setReturns(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
-        System.out.println("Zmieniono Returns: "+medicinesFxIntegerCellEditEvent.getNewValue());
-        this.medicinesModelList.editTable(c);
+        if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())<=this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getSold() && Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())>0){
+            this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setQuantity(this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getQuantity()+Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+            this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setReturns(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+            this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setSold(this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getSold()-Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+            System.out.println("Zmieniono Returns: "+medicinesFxIntegerCellEditEvent.getNewValue());
+            this.medicinesModelList.editTable(c);
+        }else{
+            System.out.println("Zwrócono więcej leków niż sprzedano");
+            this.medicinesModelList.nameSearchTable(c,"");
+        }
     }
     public void OnEditCommitDisposedOf(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
-        this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setDisposed_of(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
-        System.out.println("Zmieniono DisposedOf: "+medicinesFxIntegerCellEditEvent.getNewValue());
-        this.medicinesModelList.editTable(c);
+        if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())<=this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getQuantity() && Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())>0){
+            this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setDisposed_of(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+            System.out.println("Zmieniono DisposedOf: "+medicinesFxIntegerCellEditEvent.getNewValue());
+            this.medicinesModelList.editTable(c);
+            this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setQuantity(this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getQuantity()-Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+        }
     }
     public void OnEditCommitAlternative(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
         System.out.println("Ilosc lekow w bazie danych "+medicinesModelList.getMedicinesFxObservableList().stream().count());
@@ -212,5 +293,17 @@ public class ApothecaryController {
             System.out.println("Zmieniono Alternative: "+medicinesFxIntegerCellEditEvent.getNewValue());
             this.medicinesModelList.editTable(c);
         }
+    }
+
+    @FXML
+    private void clearShopOnAction(){
+        medicinesModelShopList.getMedicinesFxObservableList().clear();
+    }
+
+    private Button createButton(String s){
+        Button addButton= new Button();
+        addButton.setText(s);
+
+        return addButton;
     }
 }

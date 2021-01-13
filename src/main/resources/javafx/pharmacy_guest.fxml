@@ -60,9 +60,12 @@
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <TextField fx:id="idSearchField" prefHeight="30.0" prefWidth="61.0" promptText="%id" />
-                  <TextField fx:id="nameSearchField" prefHeight="30.0" prefWidth="1066.0" promptText="%name" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="90.0" text="%search" />
+                  <TextField fx:id="idSearchField" prefHeight="30.0" prefWidth="60.0" promptText="%id" />
+                  <TextField fx:id="nameSearchField" prefHeight="30.0" prefWidth="1051.0" promptText="%name" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#SearchAction" prefHeight="30.0" prefWidth="89.0" text="%search">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Button>
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" top="20.0" />
