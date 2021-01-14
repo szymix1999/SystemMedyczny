@@ -22,26 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="doctor_panel">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/Person.java" afterDir="false" />
+    <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="apothecary_shopList">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Administration/HirePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/HirePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Administration/PersonalPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/PersonalPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Administration/ProfilPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/ProfilPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Administration/RegisterPatientPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Administration/RegisterPatientPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Medicines/MedicinesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Medicines/MedicinesModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/hire_employ.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/hire_employ.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/personel_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/personel_list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/register_patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/register_patient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/DbStatements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DbStatements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/javafx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javafx/App.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +49,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Pitucha Aleksander 63605795+pituchaaleksander@users.noreply.github.com &lt;pitucha aleksander 63605795+pituchaaleksander@users.noreply.github.com&gt;" />
         <option value="PituchaAleksander &lt;pitucha.aleksander@gmial.com&gt;" />
         <option value="Pitucha Aleksander &lt;63605795+pituchaaleksander@users.noreply.github.com&gt;" />
       </list>
@@ -326,17 +316,54 @@
       <option name="project" value="LOCAL" />
       <updated>1610550056272</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="apothecary_shopList">
+      <created>1610572098442</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610572098442</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/Laptop/Desktop/SystemMedyczny/src/main/java/database" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -359,29 +386,8 @@
     <MESSAGE value="s_changes" />
     <MESSAGE value="screen_resolution" />
     <MESSAGE value="doctor_panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="doctor_panel" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1610561488001">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834/-1680.26.1680.1020@0.0.1536.834" timestamp="1610561488001" />
-    <state width="1493" height="209" key="GridCell.Tab.0.bottom" timestamp="1610563028851">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.bottom/0.0.1536.834/-1680.26.1680.1020@0.0.1536.834" timestamp="1610563028851" />
-    <state width="1493" height="209" key="GridCell.Tab.0.center" timestamp="1610563028851">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.center/0.0.1536.834/-1680.26.1680.1020@0.0.1536.834" timestamp="1610563028851" />
-    <state width="1493" height="209" key="GridCell.Tab.0.left" timestamp="1610563028851">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.left/0.0.1536.834/-1680.26.1680.1020@0.0.1536.834" timestamp="1610563028851" />
-    <state width="1493" height="209" key="GridCell.Tab.0.right" timestamp="1610563028851">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.right/0.0.1536.834/-1680.26.1680.1020@0.0.1536.834" timestamp="1610563028851" />
+    <MESSAGE value="apothecary_shopList" />
+    <option name="LAST_COMMIT_MESSAGE" value="apothecary_shopList" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

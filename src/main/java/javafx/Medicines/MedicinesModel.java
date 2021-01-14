@@ -59,6 +59,17 @@ public class MedicinesModel {
         }
     }
 
+    public void reloadTable(){
+        ObservableList<MedicinesFx> medicinesList= FXCollections.observableArrayList();
+        for(int i=0; i<medicinesFxObservableList.size(); i++){
+            medicinesList.add(medicinesFxObservableList.get(i));
+        }
+        medicinesFxObservableList.clear();
+        for(int i=0; i<medicinesList.size(); i++){
+            medicinesFxObservableList.add(medicinesList.get(i));
+        }
+    }
+
     public void showMedicinesTable(ResultSet rs){
         try {
             List<Medicines> medicinesList;
@@ -80,6 +91,16 @@ public class MedicinesModel {
         } catch (SQLException ex){
             ex.printStackTrace();
         }
+    }
+
+    public String shopTotalPriceUpdate(){
+        String s="";
+        float price=0;
+        for(int i=0; i<medicinesFxObservableList.size(); i++){
+            price+=medicinesFxObservableList.get(i).getPrice()*medicinesFxObservableList.get(i).getShopQuantity();
+        }
+        s=String.format("%.2f",price);
+        return s;
     }
 
     public ObservableList<MedicinesFx> getMedicinesFxObservableList() {

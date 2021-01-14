@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
 
@@ -85,7 +86,11 @@ public class ApothecaryController {
     @FXML
     private TableColumn<MedicinesFx, String> quantityShopColumn;
     @FXML
+    private TableColumn<MedicinesFx, String> availabilityShopColumn;
+    @FXML
     private TableColumn<MedicinesFx, MedicinesFx> removeShopColumn;
+    @FXML
+    private Text totalPrice;
 
     ObservableList<Boolean> prescriptionList = FXCollections.observableArrayList(true, false);
 
@@ -137,9 +142,17 @@ public class ApothecaryController {
         this.nameShopColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
         this.priceShopColumn.setCellValueFactory(cellData->cellData.getValue().priceProperty().asString());
         this.prescriptionShopColumn.setCellValueFactory(cellData->cellData.getValue().prescriptionProperty().asString());
+        this.availabilityShopColumn.setCellValueFactory(cellData->cellData.getValue().quantityProperty().asString());
         this.quantityShopColumn.setCellValueFactory(cellData->cellData.getValue().shopQuantityProperty().asString());
         this.medicinesModelShopList=new MedicinesModel();
         this.medicinesShopTab.setItems(this.medicinesModelShopList.getMedicinesFxObservableList());
+        totalPrice.setText("0.00");
+
+        //edycja kolumny w koszyku
+        this.quantityShopColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.medicinesShopTab.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)->{
+            this.medicinesModelShopList.setMedicinesFxObjectPropertyEdit(newValue);
+        });
 
         //dodawanie do koszyka
         this.addColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
@@ -154,8 +167,10 @@ public class ApothecaryController {
                     setGraphic(addButton);
                     addButton.setOnAction(event ->{
                         System.out.println("Dodaje lek o id: "+ medicine.getId());
+                        medicine.setShopQuantity(1);
                         medicinesModelShopList.getMedicinesFxObservableList().remove(medicine);
                         medicinesModelShopList.getMedicinesFxObservableList().add(medicine);
+                        totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
                         deleteMedicineShop();
                     });
                 }
@@ -180,6 +195,7 @@ public class ApothecaryController {
                     removeButton.setOnAction(event ->{
                         System.out.println("Usuwam lek o id: "+ medicine.getId());
                         medicinesModelShopList.getMedicinesFxObservableList().remove(medicine);
+                        totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
                         deleteMedicineShop();
                     });
                 }
@@ -295,9 +311,27 @@ public class ApothecaryController {
         }
     }
 
+//edycja tabeli z koszyka
+    public void OnEditCommitShopQuantity(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxIntegerCellEditEvent){
+        if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())>=1 && Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())<=this.medicinesModelShopList.getMedicinesFxObjectPropertyEdit().getQuantity()){
+            this.medicinesModelShopList.getMedicinesFxObjectPropertyEdit().setShopQuantity(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
+            System.out.println("Zmieniono Quantity w koszyku: "+medicinesFxIntegerCellEditEvent.getNewValue());
+            totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
+        }else if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())==0){
+            medicinesModelShopList.getMedicinesFxObservableList().remove(medicinesFxIntegerCellEditEvent.getRowValue());
+            System.out.println("Usuniecie z koszyka przez ustawienie 0");
+            totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
+            deleteMedicineShop();
+        }else{
+            medicinesModelShopList.reloadTable();
+            deleteMedicineShop();
+        }
+    }
+
     @FXML
     private void clearShopOnAction(){
         medicinesModelShopList.getMedicinesFxObservableList().clear();
+        totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
     }
 
     private Button createButton(String s){
