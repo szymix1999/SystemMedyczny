@@ -4,25 +4,24 @@ import javafx.Medicines.Medicines;
 import javafx.Medicines.MedicinesFx;
 import javafx.Medicines.MedicinesModel;
 import database.DbConnector;
-import database.DbStatements;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
-import javafx.util.StringConverter;
-import javafx.util.converter.NumberStringConverter;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
 
-public class ApothecaryController {
+public class ApothecaryController{
 //tabela leków
     @FXML
     private TableView<MedicinesFx> medicinesTab;
@@ -47,7 +46,7 @@ public class ApothecaryController {
     @FXML
     private TableColumn<MedicinesFx, String> alternativeColumn;
     @FXML
-    private TableColumn<MedicinesFx, String> imageColumn;
+    private TableColumn<MedicinesFx, MedicinesFx> imageColumn;
     @FXML
     private TableColumn<MedicinesFx, String> updateColumn;
     @FXML
@@ -165,23 +164,19 @@ public class ApothecaryController {
 
                 if(!empty){
                     setGraphic(addButton);
+                    setAlignment(Pos.CENTER);
                     addButton.setOnAction(event ->{
                         System.out.println("Dodaje lek o id: "+ medicine.getId());
                         medicine.setShopQuantity(1);
                         medicinesModelShopList.getMedicinesFxObservableList().remove(medicine);
                         medicinesModelShopList.getMedicinesFxObservableList().add(medicine);
                         totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
-                        deleteMedicineShop();
                     });
                 }
             }
         });
 
         //usuwanie z koszyka
-        deleteMedicineShop();
-    }
-
-    void deleteMedicineShop(){
         this.removeShopColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
 
         this.removeShopColumn.setCellFactory(param -> new TableCell<MedicinesFx, MedicinesFx>(){
@@ -190,13 +185,49 @@ public class ApothecaryController {
             protected void updateItem(MedicinesFx medicine, boolean empty) {
                 super.updateItem(medicine, empty);
 
+                if(empty)
+                    setGraphic(null);
                 if(!empty){
                     setGraphic(removeButton);
+                    setAlignment(Pos.CENTER);
                     removeButton.setOnAction(event ->{
                         System.out.println("Usuwam lek o id: "+ medicine.getId());
                         medicinesModelShopList.getMedicinesFxObservableList().remove(medicine);
                         totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
-                        deleteMedicineShop();
+                    });
+                }
+            }
+        });
+
+        //image
+        this.imageColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
+
+        this.imageColumn.setCellFactory(param -> new TableCell<MedicinesFx, MedicinesFx>(){
+            Button imgButton=createButton("img");
+            @Override
+            protected void updateItem(MedicinesFx medicine, boolean empty) {
+                super.updateItem(medicine, empty);
+
+                if(!empty){
+                    setGraphic(imgButton);
+                    setAlignment(Pos.CENTER);
+                    imgButton.setOnAction(event ->{
+                        System.out.println("Wyświetlam grafikę dla leku o id: "+ medicine.getId());
+                        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("imageShowEdit_pane.fxml"));
+                        fxmlLoader.setResources(App.getBundle());
+                        Scene scene=null;
+                        try {
+                            scene=new Scene(fxmlLoader.load());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        imageShowEditController cont=fxmlLoader.getController();
+                        cont.getMedicinesModel().setMedicinesFxObjectProperty(medicine);
+                        cont.ImageMedLoad();
+                        Stage stage=new Stage();
+                        stage.setScene(scene);
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
                     });
                 }
             }
@@ -321,10 +352,8 @@ public class ApothecaryController {
             medicinesModelShopList.getMedicinesFxObservableList().remove(medicinesFxIntegerCellEditEvent.getRowValue());
             System.out.println("Usuniecie z koszyka przez ustawienie 0");
             totalPrice.setText(medicinesModelShopList.shopTotalPriceUpdate());
-            deleteMedicineShop();
         }else{
             medicinesModelShopList.reloadTable();
-            deleteMedicineShop();
         }
     }
 

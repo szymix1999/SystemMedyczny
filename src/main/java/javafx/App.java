@@ -89,4 +89,7 @@ public class App extends Application {
         launch();
     }
 
+    public static ResourceBundle getBundle() {
+        return bundle;
+    }
 }

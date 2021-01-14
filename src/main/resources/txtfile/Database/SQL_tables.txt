@@ -59,7 +59,7 @@ CREATE TABLE medicines (
     disposed_of INT NOT NULL,
 	alternative BIGINT UNSIGNED,
     composition TEXT(65535),
-	image VARCHAR(60),
+	image VARCHAR(120),
 	FOREIGN KEY (alternative) REFERENCES medicines(id)
 );
 

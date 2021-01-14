@@ -9,6 +9,7 @@ import java.sql.SQLException;
 public class Medicines {
     private int id;
     private String name = "";
+    private String image = "";
     private float price = 0;
     private boolean prescription = false;
     private int quantity = 0;
@@ -19,6 +20,14 @@ public class Medicines {
     private int disposed_of = 0;
     private int alternative = -1;
     private String composition = "";
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public void addMedicineInDataBase(Connection c) {
         try {

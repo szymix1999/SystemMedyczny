@@ -5,6 +5,7 @@ import javafx.beans.property.*;
 public class MedicinesFx {
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty("");
+    private StringProperty image = new SimpleStringProperty("");
     private FloatProperty price = new SimpleFloatProperty(0);
     private BooleanProperty prescription = new SimpleBooleanProperty(false);
     private IntegerProperty quantity = new SimpleIntegerProperty(0);
@@ -16,6 +17,17 @@ public class MedicinesFx {
     private IntegerProperty alternative = new SimpleIntegerProperty(-1);
     private StringProperty composition = new SimpleStringProperty("");
 
+    public String getImage() {
+        return image.get();
+    }
+
+    public StringProperty imageProperty() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image.set(image);
+    }
 
     public int getId() {
         return id.get();

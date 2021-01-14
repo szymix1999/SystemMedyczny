@@ -101,9 +101,9 @@ public class DbStatements {
     public static void editMedicines(Connection conn, Medicines med) throws SQLException {
         String query;
         if(med.getAlternative()<1){
-            query = "update medicines set name=?, price=?, prescription=?, quantity=?, ordered=?, sold=?, returns=?, disposed_of=? where id=?";
+            query = "update medicines set name=?, price=?, prescription=?, quantity=?, ordered=?, sold=?, returns=?, disposed_of=?, image=? where id=?";
         }else{
-            query = "update medicines set name=?, price=?, prescription=?, quantity=?, ordered=?, sold=?, returns=?, disposed_of=?, alternative=? where id=?";
+            query = "update medicines set name=?, price=?, prescription=?, quantity=?, ordered=?, sold=?, returns=?, disposed_of=?, image=? alternative=? where id=?";
         }
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, med.getName());
@@ -114,18 +114,19 @@ public class DbStatements {
         preparedStmt.setInt(6, med.getSold());
         preparedStmt.setInt(7, med.getReturns());
         preparedStmt.setInt(8, med.getDisposed_of());
+        preparedStmt.setString(9, med.getImage());
         if(med.getAlternative()<1){
-            preparedStmt.setInt(9, med.getId());
-        }else{
-            preparedStmt.setInt(9, med.getAlternative());
             preparedStmt.setInt(10, med.getId());
+        }else{
+            preparedStmt.setInt(10, med.getAlternative());
+            preparedStmt.setInt(11, med.getId());
         }
         preparedStmt.execute();
 
     }
 
     public static ResultSet SearchNameMedicines(Connection conn, String name) throws SQLException {
-        String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative from medicines where name LIKE ? ";
+        String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative, image from medicines where name LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, "%"+name+"%");
         ResultSet rs = preparedStmt.executeQuery();
@@ -134,7 +135,7 @@ public class DbStatements {
     }
 
     public static ResultSet SearchIdMedicines(Connection conn, int id) throws SQLException {
-        String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative from medicines where id LIKE ? ";
+        String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative, image from medicines where id LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
         ResultSet rs = preparedStmt.executeQuery();
