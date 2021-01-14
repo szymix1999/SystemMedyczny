@@ -11,12 +11,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,6 +76,12 @@ public class PatientController {
     private TextField FTxtPersonelName;
     @FXML
     private VBox vBoxPay;
+    @FXML
+    private TextArea ATxtReferralContents;
+    @FXML
+    private TextField FTxtReferralDate;
+    @FXML
+    private GridPane gridPaneReferral;
 
     //Klasa Wizyty
     private class Visit {
@@ -158,9 +169,13 @@ public class PatientController {
             this.health = health;
         }
     }
+    
 
     @FXML
     private void initialize() {
+        lastChangeCount = 0;
+        curr_list = 0;
+
         vpList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         randomAds();
 
@@ -271,7 +286,7 @@ public class PatientController {
 
     @FXML
     private void changeOnVisits() {
-        txtList.setText(App.getString("yourVisits"));
+        txtList.setText(App.getString("visits") + ":");
         txtName.setText(App.getString("nameVisit"));
         txtDate.setText(App.getString("visitDate"));
         btnName.setVisible(true);
@@ -297,8 +312,6 @@ public class PatientController {
         btnDate.setVisible(false);
         btnLastChange.setVisible(false);
         btnStartSignUp.setVisible(false);
-        //gPaneSignUp.setVisible(false);
-        //signUpCount = 0;
         FTxtName.setEditable(false);
         FTxtDate.setEditable(false);
         FTxtName.setText(App.getString("selectPrescription"));
@@ -591,7 +604,7 @@ public class PatientController {
         }
     }
 
-    // ----------------------------------------------------------------
+    // ---------------------- Sing up on visit ---------------------------
 
     @FXML
     private void startSignUpOnVisit() {
@@ -602,9 +615,9 @@ public class PatientController {
 //            FTxtName.setPromptText(App.getString("completeAndSend!"));
 //            FTxtDate.clear();
 //            FTxtDate.setPromptText(App.getString("completeAndSend!"));
-//            FTxtInfo.clear();
-//            FTxtInfo.setPromptText(App.getString("completeAndSend!"));
-//            FTxtInfo.setEditable(true);
+//            FTxtPersonelName.clear();
+//            FTxtPersonelName.setPromptText(App.getString("completeAndSend!"));
+//            FTxtPersonelName.setEditable(true);
 //            FTxtAmount.clear();
 //            FTxtAmount.setDisable(true);
 //            vBoxPay.setDisable(true);
@@ -614,21 +627,51 @@ public class PatientController {
 //            FTxtName.clear();
 //            FTxtDate.setPromptText(null);
 //            FTxtDate.clear();
-//            FTxtInfo.setPromptText(null);
-//            FTxtInfo.clear();
-//            FTxtInfo.setEditable(false);
+//            FTxtPersonelName.setPromptText(null);
+//            FTxtPersonelName.clear();
+//            FTxtPersonelName.setEditable(false);
 //            FTxtAmount.setDisable(false);
 //            vBoxPay.setDisable(false);
 //        }
     }
 
-    @FXML
-    private void signUpOnVisit() {
-        //System.out.println(FTxtDoctorName.getText());
-        //gPaneSignUp.setVisible(false);/////////////////////////////////////
-        //signUpCount--;
+    //--------------- Add referral to database ----------------------
 
-        // Można dopisać metodę wysyłania do lekarza
+    @FXML
+    private void sendReferral() {
+        if(ATxtReferralContents.getText() != "" && FTxtReferralDate.getText() != "") {
+
+        } else {
+            System.out.println("Puste pola");
+        }
+    }
+
+    @FXML
+    private void addReferralPhoto() {
+        try {
+            FileChooser fileChooser = new FileChooser();
+
+            //Set extension filter
+            FileChooser.ExtensionFilter extFilterJPG
+                    = new FileChooser.ExtensionFilter("JPG files (*.JPG)", "*.JPG");
+            FileChooser.ExtensionFilter extFilterjpg
+                    = new FileChooser.ExtensionFilter("jpg files (*.jpg)", "*.jpg");
+            FileChooser.ExtensionFilter extFilterPNG
+                    = new FileChooser.ExtensionFilter("PNG files (*.PNG)", "*.PNG");
+            FileChooser.ExtensionFilter extFilterpng
+                    = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+            fileChooser.getExtensionFilters()
+                    .addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
+
+            //Show open file dialog
+            File source = fileChooser.showOpenDialog(null);
+            File destination = new File("src\\main\\resources\\images\\referrals\\" + source.getName());
+            Files.copy(source.toPath(), destination.toPath());
+
+            System.out.println("File copied. Source: " + source + " Destination: " + destination);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

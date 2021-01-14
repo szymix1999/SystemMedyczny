@@ -78,7 +78,7 @@
                            <children>
                               <HBox prefHeight="27.0" prefWidth="442.0">
                                  <children>
-                                    <Text fx:id="txtList" strokeType="OUTSIDE" strokeWidth="0.0" text="%prescriptions" wrappingWidth="183.4677734375">
+                                    <Text fx:id="txtList" strokeType="OUTSIDE" strokeWidth="0.0" text="%prescriptions" wrappingWidth="124.4677734375">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -111,6 +111,57 @@
                         </VBox>
                      </children>
                   </HBox>
+                  <VBox prefHeight="296.0" prefWidth="367.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%addReferral" wrappingWidth="167.1787109375">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="214.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#sendReferral" text="%send" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <TextArea fx:id="ATxtReferralContents" prefHeight="294.0" prefWidth="367.0" promptText="%completeAndSend!" wrapText="true" />
+                        <GridPane fx:id="gridPaneReferral" alignment="CENTER_LEFT" hgap="10.0" prefHeight="214.0" prefWidth="347.0" vgap="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0000305175781" minWidth="10.0" prefWidth="146.2" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0000305175781" minWidth="10.0" prefWidth="210.19999999999996" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="36.4" minHeight="10.0" prefHeight="33.4" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="45.00000000000001" minHeight="10.0" prefHeight="41.00000000000001" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="326.0" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#addReferralPhoto" text="%addPhoto" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="329.0" spacing="10.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%date" />
+                                    <TextField fx:id="FTxtReferralDate" promptText="%completeAndSend!" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
