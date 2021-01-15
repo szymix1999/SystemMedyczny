@@ -13,8 +13,13 @@
          <HBox prefHeight="80.0" prefWidth="1237.0">
             <children>
                <fx:include fx:id="topMenu" source="bar.fxml" />
-               <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="640.0">
+               <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="640.0" spacing="10.0">
                   <children>
+                     <Button mnemonicParsing="false" onMouseClicked="#displayReferral" prefHeight="59.0" prefWidth="89.0" text="%referrals">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
                      <Button mnemonicParsing="false" onMouseClicked="#goToApothecary" prefHeight="59.0" prefWidth="89.0" text="%apothecary">
                         <cursor>
                            <Cursor fx:constant="HAND" />
@@ -126,7 +131,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <VBox prefHeight="296.0" prefWidth="367.0">
+                  <VBox fx:id="vBoxReferral" prefHeight="296.0" prefWidth="367.0" visible="false">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>

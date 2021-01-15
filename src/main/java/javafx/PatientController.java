@@ -39,6 +39,7 @@ public class PatientController {
     int adsIndex = 0;
     int signUpCount = 0;
     int lastChangeCount = 0;
+    int referralCount = 0;
     File source = null;
 
     @FXML
@@ -76,13 +77,11 @@ public class PatientController {
     @FXML
     private TextField FTxtPersonelName;
     @FXML
-    private VBox vBoxPay;
+    private VBox vBoxReferral;
     @FXML
     private TextArea ATxtReferralContents;
     @FXML
     private TextField FTxtReferralDate;
-    @FXML
-    private GridPane gridPaneReferral;
 
     //Klasa Wizyty
     private class Visit {
@@ -176,6 +175,7 @@ public class PatientController {
     private void initialize() {
         lastChangeCount = 0;
         curr_list = 0;
+        referralCount = 0;
         source = null;
 
         vpList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -645,18 +645,31 @@ public class PatientController {
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                File destination = new File("src\\main\\resources\\images\\referrals\\" + source.getName());
+                java.util.Date utilDate = format.parse(FTxtReferralDate.getText());
+                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+                File destination = new File("src\\main\\resources\\images\\referrals\\" +
+                        DbStatements.countReferralsRows(c) + "_" + source.getName());
                 Files.copy(source.toPath(), destination.toPath());
 
                 System.out.println("File copied. Source: " + source + " Destination: " + destination);
-
-                java.util.Date utilDate = format.parse(FTxtReferralDate.getText());
-                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                 DbStatements.addReferral(c, curr_patient.id, sqlDate, ATxtReferralContents.getText(), destination.toString());
-            } catch (SQLException | ParseException | IOException ex) {
+            } catch (SQLException | IOException ex) {
                 ex.printStackTrace();
+            } catch (ParseException ex) {
+                FTxtReferralDate.clear();
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning \"" + App.getString("referrals") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("badDataFormat"));
+
+                alert.showAndWait();
+                return;
             }
 
+            vBoxReferral.setVisible(false);
+            referralCount = 0;
             ATxtReferralContents.clear();
             FTxtReferralDate.clear();
             source = null;
@@ -687,6 +700,20 @@ public class PatientController {
 
         //Show open file dialog
         source = fileChooser.showOpenDialog(null);
+    }
+
+    @FXML
+    private void displayReferral() {
+        if(referralCount == 0) {
+            referralCount++;
+            vBoxReferral.setVisible(true);
+        } else {
+            referralCount = 0;
+            vBoxReferral.setVisible(false);
+        }
+        ATxtReferralContents.clear();
+        FTxtReferralDate.clear();
+        source = null;
     }
 
     // ------------------------- Go to apothecary -----------------------------

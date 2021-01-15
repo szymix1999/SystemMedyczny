@@ -392,4 +392,16 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    public static int countReferralsRows(Connection conn) throws SQLException {
+        String query = "select count(*) from referrals";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+
+        ResultSet rs = preparedStmt.executeQuery();
+        int count = 0;
+        while(rs.next())
+            count = rs.getInt("count(*)");
+        return count;
+    }
+
 }
