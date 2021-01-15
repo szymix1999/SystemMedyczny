@@ -42,9 +42,9 @@
   - ~~tabela mozliwych do kupienia leków~~
   - ~~wyszukiwarka leków~~
   - ~~stany magazynowe (dostawy, sprzedaz, zwroty, utylizacja)~~
-  - realizowanie recept
+  - ~~realizowanie recept~~
   - ~~znane zastepniki (na podstawie zapisów lub składu leków)~~
-  - zdjecia opakowan
+  - ~~zdjecia opakowan~~
   - tworzenie nowych zamówien (pacjent, aptekarz) i wydruk paragonów wraz z zatwierdzeniem
   - realizacji recepty/zamówienia (aptekarz)
 - Panel lekarza - **Maciej Rydzak**
