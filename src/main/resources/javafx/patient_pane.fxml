@@ -10,7 +10,22 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodybg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.PatientController">
    <top>
       <VBox BorderPane.alignment="CENTER">
-         <fx:include fx:id="topMenu" source="bar.fxml" />
+         <HBox prefHeight="80.0" prefWidth="1237.0">
+            <children>
+               <fx:include fx:id="topMenu" source="bar.fxml" />
+               <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="640.0">
+                  <children>
+                     <Button mnemonicParsing="false" onMouseClicked="#goToApothecary" prefHeight="59.0" prefWidth="89.0" text="%apothecary">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor></Button>
+                  </children>
+                  <padding>
+                     <Insets right="10.0" />
+                  </padding>
+               </HBox>
+            </children>
+         </HBox>
          <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1006.0" spacing="15.0">
             <children>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%user" />
@@ -122,7 +137,10 @@
                               </Text>
                               <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="214.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onMouseClicked="#sendReferral" text="%send" />
+                                    <Button mnemonicParsing="false" onMouseClicked="#sendReferral" text="%send">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
                                  </children>
                               </HBox>
                            </children>
@@ -143,7 +161,10 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="326.0" spacing="10.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onMouseClicked="#addReferralPhoto" text="%addPhoto" />
+                                    <Button mnemonicParsing="false" onMouseClicked="#addReferralPhoto" text="%addPhoto">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="329.0" spacing="10.0" GridPane.columnIndex="1">

@@ -378,4 +378,18 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    // ---------- Referral ------------------
+
+    public static void addReferral(Connection conn, int id_patients, Date order_date, String comments, String images) throws SQLException {
+        String query = "insert into referrals (id_patients, order_date, comments, images)" + " values (?, ?, ?, ?)";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id_patients);
+        preparedStmt.setDate(2, order_date);
+        preparedStmt.setString(3, comments);
+        preparedStmt.setString(4, images);
+
+        preparedStmt.execute();
+    }
+
 }

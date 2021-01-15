@@ -39,6 +39,7 @@ public class PatientController {
     int adsIndex = 0;
     int signUpCount = 0;
     int lastChangeCount = 0;
+    File source = null;
 
     @FXML
     private ListView vpList;
@@ -175,6 +176,7 @@ public class PatientController {
     private void initialize() {
         lastChangeCount = 0;
         curr_list = 0;
+        source = null;
 
         vpList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         randomAds();
@@ -417,7 +419,7 @@ public class PatientController {
                 }
             } else if (selectedItems.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Information Dialog \"" + App.getString("pay") + "\"");
+                alert.setTitle("Warning \"" + App.getString("pay") + "\"");
                 alert.setHeaderText(null);
                 alert.setContentText(App.getString("chooseTheOption!"));
 
@@ -452,7 +454,7 @@ public class PatientController {
                 }
             } else if (selectedItems.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Information Dialog \"" + App.getString("pay") + "\"");
+                alert.setTitle("Warning \"" + App.getString("pay") + "\"");
                 alert.setHeaderText(null);
                 alert.setContentText(App.getString("chooseTheOption!"));
 
@@ -490,7 +492,7 @@ public class PatientController {
                 alert.showAndWait();
             } else if (selectedItems.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
+                alert.setTitle("Warning \"" + App.getString("payForAll") + "\"");
                 alert.setHeaderText(null);
                 alert.setContentText(App.getString("chooseTheOption!"));
 
@@ -519,7 +521,7 @@ public class PatientController {
                 alert.showAndWait();
             } else if (selectedItems.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Information Dialog \"" + App.getString("payForAll") + "\"");
+                alert.setTitle("Warning \"" + App.getString("payForAll") + "\"");
                 alert.setHeaderText(null);
                 alert.setContentText(App.getString("chooseTheOption!"));
 
@@ -570,7 +572,7 @@ public class PatientController {
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Information Dialog \"" + App.getString("changeDate") + "\"");
+            alert.setTitle("Warning \"" + App.getString("changeDate") + "\"");
             alert.setHeaderText(null);
             alert.setContentText(App.getString("dateCannotBeChanged!"));
 
@@ -596,7 +598,7 @@ public class PatientController {
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Information Dialog \"" + App.getString("changeName") + "\"");
+            alert.setTitle("Warning \"" + App.getString("changeName") + "\"");
             alert.setHeaderText(null);
             alert.setContentText(App.getString("nameCannotBeChanged!"));
 
@@ -639,39 +641,61 @@ public class PatientController {
 
     @FXML
     private void sendReferral() {
-        if(ATxtReferralContents.getText() != "" && FTxtReferralDate.getText() != "") {
+        if(ATxtReferralContents.getText() != "" && FTxtReferralDate.getText() != "" && source != null) {
 
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                File destination = new File("src\\main\\resources\\images\\referrals\\" + source.getName());
+                Files.copy(source.toPath(), destination.toPath());
+
+                System.out.println("File copied. Source: " + source + " Destination: " + destination);
+
+                java.util.Date utilDate = format.parse(FTxtReferralDate.getText());
+                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+                DbStatements.addReferral(c, curr_patient.id, sqlDate, ATxtReferralContents.getText(), destination.toString());
+            } catch (SQLException | ParseException | IOException ex) {
+                ex.printStackTrace();
+            }
+
+            ATxtReferralContents.clear();
+            FTxtReferralDate.clear();
+            source = null;
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog \"" + App.getString("referrals") + "\"");
+            alert.setHeaderText(null);
+            alert.setContentText(App.getString("ReferralAdded"));
+
+            alert.showAndWait();
         } else {
-            System.out.println("Puste pola");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning \"" + App.getString("referrals") + "\"");
+            alert.setHeaderText(null);
+            alert.setContentText(App.getString("couldntSendReferral"));
+
+            alert.showAndWait();
         }
     }
 
     @FXML
     private void addReferralPhoto() {
-        try {
-            FileChooser fileChooser = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
 
-            //Set extension filter
-            FileChooser.ExtensionFilter extFilterJPG
-                    = new FileChooser.ExtensionFilter("JPG files (*.JPG)", "*.JPG");
-            FileChooser.ExtensionFilter extFilterjpg
-                    = new FileChooser.ExtensionFilter("jpg files (*.jpg)", "*.jpg");
-            FileChooser.ExtensionFilter extFilterPNG
-                    = new FileChooser.ExtensionFilter("PNG files (*.PNG)", "*.PNG");
-            FileChooser.ExtensionFilter extFilterpng
-                    = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-            fileChooser.getExtensionFilters()
-                    .addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
+        //Set extension filter
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image files", "*.JPG", "*.jpg", "*.PNG", "*.png"));
 
-            //Show open file dialog
-            File source = fileChooser.showOpenDialog(null);
-            File destination = new File("src\\main\\resources\\images\\referrals\\" + source.getName());
-            Files.copy(source.toPath(), destination.toPath());
+        //Show open file dialog
+        source = fileChooser.showOpenDialog(null);
+    }
 
-            System.out.println("File copied. Source: " + source + " Destination: " + destination);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    // ------------------------- Go to apothecary -----------------------------
+
+    @FXML
+    private void goToApothecary() {
+        // -----------------------------------------------
+        // ---------- Up to you Aleksander! --------------
+        // -----------------------------------------------
     }
 
 }
