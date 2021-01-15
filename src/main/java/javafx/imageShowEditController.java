@@ -3,10 +3,8 @@ package javafx;
 import database.DbConnector;
 import javafx.Medicines.MedicinesModel;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 
 import java.sql.Connection;
 
@@ -18,7 +16,11 @@ public class imageShowEditController {
 
     private MedicinesModel medicinesModel=new MedicinesModel();
 
-    Connection c = DbConnector.connect();
+    public void setC(Connection c) {
+        this.c = c;
+    }
+
+    Connection c;
 
     public MedicinesModel getMedicinesModel() {
         return medicinesModel;
@@ -33,14 +35,15 @@ public class imageShowEditController {
             }catch (IllegalArgumentException ex){
                 ImageMed.setImage(null);
             }
-
-            urlTextField.setText(this.medicinesModel.getMedicinesFxObjectProperty().getImage());
+            if(urlTextField!=null){
+                urlTextField.setText(this.medicinesModel.getMedicinesFxObjectProperty().getImage());
+            }
         }
     }
 
     public void confirmUrlButtonOnAction(){
         medicinesModel.getMedicinesFxObjectProperty().setImage(urlTextField.getText());
-        medicinesModel.editImage(c);
+        medicinesModel.editMed(c);
         if(this.medicinesModel.getMedicinesFxObjectProperty().getImage()!=null && !this.medicinesModel.getMedicinesFxObjectProperty().getImage().isEmpty()){
             try{
                 ImageView im=new ImageView(this.medicinesModel.getMedicinesFxObjectProperty().getImage());

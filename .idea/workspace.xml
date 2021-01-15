@@ -23,13 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/compositionShowEditController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/patientPharmacyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/compositionShowEdit_pane.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/compositionShow_pane.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/imageShow_pane.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/patientPharmacy_pane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/ApothecaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Medicines/MedicinesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Medicines/MedicinesModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/PharmacyGuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/PharmacyGuestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/imageShowEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/imageShowEditController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/apothecary_pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/imageShowEdit_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/imageShowEdit_pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/pharmacy_guest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/pharmacy_guest.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
@@ -92,6 +104,9 @@
     <property name="settings.editor.splitter.proportion" value="0.21221532" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\IdeaProjects\SystemMedyczny\src\main\resources\javafx" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Laptop\Desktop\SystemMedyczny\src\main\java\Medicines" />
       <recent name="D:\IntelliJProjects\Medyczne\src\main\resources\javafx" />
@@ -103,9 +118,6 @@
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="Medicines" />
       <recent name="Pharmacy" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\USER\IdeaProjects\SystemMedyczny\src\main\resources\javafx" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -459,75 +471,5 @@
     <MESSAGE value="[Patient] Referral beta." />
     <MESSAGE value="[Patient] Referral beta 2.0." />
     <option name="LAST_COMMIT_MESSAGE" value="[Patient] Referral beta 2.0." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="222" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610205308074">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="222" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1610205308074" />
-    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1610553807642">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1610553807642" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1610719658441">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1610719658441" />
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom" timestamp="1610723449538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610723449538" />
-    <state width="1493" height="185" key="GridCell.Tab.0.center" timestamp="1610723449538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610723449538" />
-    <state width="1493" height="185" key="GridCell.Tab.0.left" timestamp="1610723449538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610723449538" />
-    <state width="1493" height="185" key="GridCell.Tab.0.right" timestamp="1610723449538">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610723449538" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1610291919840">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610291919840" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1610291919839">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1610291919839" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1610291919839">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1610291919839" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1610291919839">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1610291919839" />
-    <state x="147" y="64" key="MergeDialog" timestamp="1610714500704">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1610714500704" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1610719662909">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1610719662909" />
-    <state x="585" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610278792777">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="585" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1610278792777" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610719636344">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1610719636344" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1610455145614">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1610455145614" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610443966320">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610443966320" />
   </component>
 </project>

@@ -48,7 +48,7 @@ public class ApothecaryController{
     @FXML
     private TableColumn<MedicinesFx, MedicinesFx> imageColumn;
     @FXML
-    private TableColumn<MedicinesFx, String> updateColumn;
+    private TableColumn<MedicinesFx, MedicinesFx> compositionColumn;
     @FXML
     private TableColumn<MedicinesFx, MedicinesFx> addColumn;
 //wyszukiwanie leku
@@ -69,6 +69,8 @@ public class ApothecaryController{
     private TextField alternativeTextAddition;
     @FXML
     private ChoiceBox prescriptionChoiceAddition;
+    @FXML
+    private TextField urlTextAddition;
     @FXML
     private Button addMedicineButton;
 //koszyk
@@ -162,6 +164,8 @@ public class ApothecaryController{
             protected void updateItem(MedicinesFx medicine, boolean empty) {
                 super.updateItem(medicine, empty);
 
+                if(empty)
+                    setGraphic(null);
                 if(!empty){
                     setGraphic(addButton);
                     setAlignment(Pos.CENTER);
@@ -208,6 +212,8 @@ public class ApothecaryController{
             protected void updateItem(MedicinesFx medicine, boolean empty) {
                 super.updateItem(medicine, empty);
 
+                if(empty)
+                    setGraphic(null);
                 if(!empty){
                     setGraphic(imgButton);
                     setAlignment(Pos.CENTER);
@@ -223,7 +229,44 @@ public class ApothecaryController{
                         }
                         imageShowEditController cont=fxmlLoader.getController();
                         cont.getMedicinesModel().setMedicinesFxObjectProperty(medicine);
+                        cont.setC(c);
                         cont.ImageMedLoad();
+                        Stage stage=new Stage();
+                        stage.setScene(scene);
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    });
+                }
+            }
+        });
+
+        //composition
+        this.compositionColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
+
+        this.compositionColumn.setCellFactory(param -> new TableCell<MedicinesFx, MedicinesFx>(){
+            Button txtButton=createButton("txt");
+            @Override
+            protected void updateItem(MedicinesFx medicine, boolean empty) {
+                super.updateItem(medicine, empty);
+
+                if(empty)
+                    setGraphic(null);
+                if(!empty){
+                    setGraphic(txtButton);
+                    setAlignment(Pos.CENTER);
+                    txtButton.setOnAction(event ->{
+                        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("compositionShowEdit_pane.fxml"));
+                        fxmlLoader.setResources(App.getBundle());
+                        Scene scene=null;
+                        try {
+                            scene=new Scene(fxmlLoader.load());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        compositionShowEditController cont=fxmlLoader.getController();
+                        cont.getMedicinesModel().setMedicinesFxObjectProperty(medicine);
+                        cont.setC(c);
+                        cont.compositionMedLoad();
                         Stage stage=new Stage();
                         stage.setScene(scene);
                         stage.initModality(Modality.APPLICATION_MODAL);
@@ -254,6 +297,8 @@ public class ApothecaryController{
             this.MedicinesAddition.setQuantity(Integer.parseInt(this.quantityTextAddition.getText()));
         if(!this.alternativeTextAddition.getText().isEmpty())
             this.MedicinesAddition.setAlternative(Integer.parseInt(this.alternativeTextAddition.getText()));
+        if(!this.urlTextAddition.getText().isEmpty())
+            this.MedicinesAddition.setImage(this.urlTextAddition.getText());
         if(this.prescriptionChoiceAddition.getValue()!=null){
             System.out.println(this.prescriptionChoiceAddition.getValue().equals(true));
             this.MedicinesAddition.setPrescription(this.prescriptionChoiceAddition.getValue().equals(true));
@@ -270,14 +315,39 @@ public class ApothecaryController{
                 " Price: "+this.MedicinesAddition.getPrice()+
                 " Quantity: "+this.MedicinesAddition.getQuantity()+
                 " Alternative: "+this.MedicinesAddition.getAlternative()+
-                " Prescription: "+this.MedicinesAddition.isPrescription());
+                " Prescription: "+this.MedicinesAddition.isPrescription()+
+                " Img: "+this.MedicinesAddition.getImage()+
+                " Composition: "+this.MedicinesAddition.getComposition());
 
         this.MedicinesAddition.addMedicineInDataBase(c);
         this.nameTextAddition.clear();
         this.priceTextAddition.clear();
         this.quantityTextAddition.clear();
         this.alternativeTextAddition.clear();
+        this.urlTextAddition.clear();
+        MedicinesAddition.setComposition("");
         this.medicinesModelList.nameSearchTable(c,"");
+    }
+
+    @FXML
+    private void compositionAddButtonOnAction(){
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("compositionShowEdit_pane.fxml"));
+        fxmlLoader.setResources(App.getBundle());
+        Scene scene=null;
+        try {
+            scene=new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        compositionShowEditController cont=fxmlLoader.getController();
+        cont.setMed(MedicinesAddition);
+        cont.compositionMedLoad();
+        cont.setC(c);
+        cont.compositionMedLoad();
+        Stage stage=new Stage();
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     public void OnEditCommitName(TableColumn.CellEditEvent<MedicinesFx, String> medicinesFxStringCellEditEvent){

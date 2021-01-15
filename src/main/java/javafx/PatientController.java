@@ -720,9 +720,7 @@ public class PatientController {
 
     @FXML
     private void goToApothecary() {
-        // -----------------------------------------------
-        // ---------- Up to you Aleksander! --------------
-        // -----------------------------------------------
+        App.setRoot("patientPharmacy_pane");
     }
 
 }

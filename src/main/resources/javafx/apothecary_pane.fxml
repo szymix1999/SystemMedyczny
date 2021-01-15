@@ -52,7 +52,7 @@
                               <TableColumn fx:id="disposedOfColumn" onEditCommit="#OnEditCommitDisposedOf" prefWidth="100.0" text="%disposedOf" />
                               <TableColumn fx:id="alternativeColumn" onEditCommit="#OnEditCommitAlternative" prefWidth="100.0" text="%alternative" />
                               <TableColumn fx:id="imageColumn" editable="false" minWidth="0.0" text="%image" />
-                              <TableColumn fx:id="updateColumn" editable="false" minWidth="0.0" prefWidth="126.0" text="%update" />
+                              <TableColumn fx:id="compositionColumn" editable="false" minWidth="0.0" prefWidth="126.0" text="%composition" />
                               <TableColumn fx:id="addColumn" editable="false" prefWidth="97.0" resizable="false" text="%add" />
                           </columns>
                            <GridPane.margin>
@@ -64,8 +64,9 @@
                         </TableView>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
                            <children>
-                              <TextField fx:id="nameTextAddition" maxHeight="30.0" prefHeight="30.0" prefWidth="535.0" promptText="%name" />
+                              <TextField fx:id="nameTextAddition" maxHeight="31.0" prefHeight="31.0" prefWidth="312.0" promptText="%name" />
                               <TextField fx:id="priceTextAddition" maxHeight="30.0" prefWidth="100.0" promptText="%price" />
+                              <TextField fx:id="urlTextAddition" prefHeight="31.0" prefWidth="107.0" promptText="%urlImage" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%prescription" wrappingWidth="95.4130859375">
                                  <HBox.margin>
                                     <Insets />
@@ -77,6 +78,7 @@
                               <ChoiceBox fx:id="prescriptionChoiceAddition" prefWidth="100.0" />
                               <TextField fx:id="quantityTextAddition" maxHeight="30.0" prefWidth="100.0" promptText="%quantity" />
                               <TextField fx:id="alternativeTextAddition" maxHeight="30.0" prefWidth="100.0" promptText="%alternative" />
+                              <Button mnemonicParsing="false" onAction="#compositionAddButtonOnAction" prefWidth="120.0" text="%composition" />
                               <Button fx:id="addMedicineButton" maxHeight="30.0" mnemonicParsing="false" onAction="#addMedicineAction" prefWidth="100.0" text="%add" />
                            </children>
                            <padding>

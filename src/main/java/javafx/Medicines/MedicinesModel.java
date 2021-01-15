@@ -59,7 +59,7 @@ public class MedicinesModel {
         }
     }
 
-    public void editImage(Connection c){
+    public void editMed(Connection c){
         try {
             Medicines med= new Medicines();
             med.setId(this.MedicinesFxObjectProperty.getValue().getId());
@@ -72,8 +72,8 @@ public class MedicinesModel {
             med.setReturns(this.MedicinesFxObjectProperty.getValue().getReturns());
             med.setDisposed_of(this.MedicinesFxObjectProperty.getValue().getDisposed_of());
             med.setAlternative(this.MedicinesFxObjectProperty.getValue().getAlternative());
-            System.out.println(this.MedicinesFxObjectProperty.getValue().getImage());
             med.setImage(this.MedicinesFxObjectProperty.getValue().getImage());
+            med.setComposition(this.MedicinesFxObjectProperty.getValue().getComposition());
             DbStatements.editMedicines(c, med);
         } catch (SQLException ex){
             ex.printStackTrace();
@@ -108,6 +108,7 @@ public class MedicinesModel {
                 medl.setDisposed_of(rs.getInt("disposed_of"));
                 medl.setAlternative(rs.getInt("alternative"));
                 medl.setImage(rs.getString("image"));
+                medl.setComposition(rs.getString("composition"));
                 this.medicinesFxObservableList.add(medl);
             }
         } catch (SQLException ex){
