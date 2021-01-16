@@ -4,8 +4,12 @@ import database.DbStatements;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
@@ -22,6 +26,10 @@ public class MenuController {
     private ChoiceBox languChange;
     @FXML
     private Button btnLogInOut;
+    @FXML
+    private Button btnNotes;
+    @FXML
+    private Button btnCalendar;
 
     @FXML
     private void initialize() {
@@ -85,6 +93,32 @@ public class MenuController {
     @FXML
     private void openCalendar() throws IOException, URISyntaxException {
         Desktop.getDesktop().browse(new URL("https://calendar.google.com/calendar").toURI());
+    }
+
+    @FXML
+    private void openNotes() {
+        if(DbStatements.id == -2 || DbStatements.id == -1) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog \"" + App.getString("notes") + "\"");
+            alert.setHeaderText(null);
+            alert.setContentText(App.getString("logInNotes"));
+
+            alert.showAndWait();
+            return;
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notes_window.fxml"));
+        fxmlLoader.setResources(App.getBundle());
+        try {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle(App.getString("notes"));
+            stage.setResizable(false);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

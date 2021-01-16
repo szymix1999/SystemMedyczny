@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 
 public class LoginController {
 
-    Connection c = DbConnector.connect();
+    Connection c;
 
     @FXML
     private TextField userLoginField;
@@ -33,6 +33,9 @@ public class LoginController {
 
     @FXML
     private void log_in() {
+        if(c == null)
+            c = DbConnector.connect();
+
         System.out.println("Login: " + userLoginField.getText() + " | Password: " + userPassField.getText());
         try {
             if((userLoginField.getText() != null && !userLoginField.getText().isEmpty() &&
@@ -89,6 +92,9 @@ public class LoginController {
 
     @FXML
     private void send_reg() {   //metoda po kliknieciu Create w Register
+        if(c == null)
+            c = DbConnector.connect();
+
         if(FTxtUsername.getText() != "" && FTxtPassword.getText() != "" && FTxtToken.getText() != "") {
             try {
                 if(DbStatements.getIdUser(c,FTxtToken.getText())!=0) {
@@ -97,6 +103,7 @@ public class LoginController {
                     notification.setText(App.getString("registered"));   //tutaj można wpisać co wyskoczy po wysłaniu
                     vboxReg.setVisible(false);
                     System.out.println("New user. Login:" + FTxtUsername.getText() + " | Password: " + FTxtPassword.getText());
+                    c.close();
                 } else {
                     notification.setFill(Color.FIREBRICK);
                     notification.setText(App.getString("badToken"));

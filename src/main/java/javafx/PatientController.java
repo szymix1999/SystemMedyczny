@@ -328,7 +328,7 @@ public class PatientController {
         int index = 0;
 
         try {
-            ResultSet rs = DbStatements.getVisitDate(c, curr_patient.id);
+            ResultSet rs = DbStatements.getVisitData(c, curr_patient.id);
             while (rs.next()) {
                 String stringCHD = "";
                 Date change_date = rs.getDate("change_date");
@@ -353,7 +353,7 @@ public class PatientController {
         int index = 0;
 
         try {
-            ResultSet rs = DbStatements.getPrescriptionDate(c, curr_patient.id);
+            ResultSet rs = DbStatements.getPrescriptionData(c, curr_patient.id);
             while (rs.next()) {
                 Prescription v = new Prescription(rs.getInt("id"), rs.getInt("id_personel"),
                         rs.getInt("id_medicine"), index, rs.getString("name"),

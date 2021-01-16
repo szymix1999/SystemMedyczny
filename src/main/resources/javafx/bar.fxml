@@ -35,7 +35,7 @@
                 <Insets />
             </HBox.margin>
         </GridPane>
-      <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="89.0" text="%notes">
+      <Button fx:id="btnNotes" mnemonicParsing="false" onMouseClicked="#openNotes" prefHeight="59.0" prefWidth="89.0" text="%notes">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

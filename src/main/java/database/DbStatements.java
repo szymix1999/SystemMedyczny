@@ -248,7 +248,7 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
-    public static ResultSet getVisitDate(Connection conn, int id) throws SQLException {
+    public static ResultSet getVisitData(Connection conn, int id) throws SQLException {
         String query = "select id, id_personel, visit_name, change_name, visit_date, change_date, cost from visits where id_patients = ?";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -307,7 +307,7 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
-    public static ResultSet getPrescriptionDate(Connection conn, int id) throws SQLException {
+    public static ResultSet getPrescriptionData(Connection conn, int id) throws SQLException {
         String query = "select id, id_personel, id_medicine, name, cost, end_date from prescriptions where id_patients = ?";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -429,6 +429,54 @@ public class DbStatements {
         return count;
     }
 
+
+    // ------------------ Notes ------------------------
+
+    public static ResultSet getNotes(Connection conn, int id) throws  SQLException {
+        String query = "select id, comments from notes where id_users = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        ResultSet rs = preparedStmt.executeQuery();
+        return rs;
+    }
+
+    public static int addNote(Connection conn, int id_users, String contents) throws SQLException {
+        String query = "insert into notes (id_users, comments)" + " values (?, ?)";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+        preparedStmt.setInt(1, id_users);
+        preparedStmt.setString(2, contents);
+
+        preparedStmt.execute();
+
+        ResultSet rs = preparedStmt.getGeneratedKeys();
+        int auto_inc = 0;
+        while(rs.next()) {
+            auto_inc = rs.getInt(1);
+        }
+        return auto_inc;
+    }
+
+    public static void deleteNote(Connection conn, int id) throws SQLException {
+        String query = "delete from notes where id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        preparedStmt.execute();
+    }
+
+    public static void updateNote(Connection conn, int id, String contents) throws SQLException {
+        String query = "update notes set comments = ? where id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, contents);
+        preparedStmt.setInt(2, id);
+
+        preparedStmt.execute();
+    }
 
 
 }
