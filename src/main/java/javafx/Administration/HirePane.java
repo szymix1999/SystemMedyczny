@@ -61,7 +61,7 @@ public class HirePane {
 
         if(list.size()==4){
             System.out.println("DODAWANIE PRACOWNIKA DO BAZY");
-            DbStatements.addPersonel(db,-1, list.get(0),list.get(1),list.get(2),list.get(3));
+            DbStatements.addPersonel(db,1, list.get(0),list.get(1),list.get(2),list.get(3));
             back();
         }else{
             infoLabel.setVisible(true);

@@ -1,6 +1,8 @@
 package database;
 
 import javafx.Medicines.Medicines;
+
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -11,16 +13,31 @@ public class DbStatements {
 
     // ----------- Users --------------
 
-    public static void addUser(Connection conn, String name, String pass, int id) throws SQLException {
-        String query = "insert into users (id_type, login, password)" + " values (?, ?, ?)";
+    public static void addUser(Connection conn, String name, String pass, int id, String token) throws SQLException {
+        String query = "insert into users (id_type, login, password, token)" + " values (?, ?, ?, ?)";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt (1, id);
         preparedStmt.setString (2, name);
         preparedStmt.setString  (3, String.valueOf(pass.hashCode()));
+        preparedStmt.setString (4, token);
 
         // execute the preparedstatement
         preparedStmt.execute();
+    }
+
+    public static int getIdUser(Connection conn, String token) throws SQLException {
+        String query = "SELECT * FROM users WHERE token = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString (1, token);
+
+        ResultSet rs = preparedStmt.executeQuery();
+        if(rs.next())
+            return Integer.parseInt(rs.getString(1));
+        else
+            return 0;
+
     }
 
     public static int checkUser(Connection conn, String log, String pass) throws SQLException {
@@ -45,7 +62,7 @@ public class DbStatements {
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, login);
-        preparedStmt.setString(2, password);
+        preparedStmt.setString(2, String.valueOf(password.hashCode()));
         preparedStmt.setString(3, token);
 
         return preparedStmt.execute();
@@ -341,7 +358,7 @@ public class DbStatements {
     }
 
     public static ArrayList<String> getPersonel(Connection conn) throws  SQLException{
-        String query = "SELECT id, first_name ,last_name, profession FROM personel";
+        String query = "SELECT id, first_name ,last_name, profession FROM personel WHERE salary != -1";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         ResultSet result = preparedStmt.executeQuery();
@@ -364,6 +381,25 @@ public class DbStatements {
 
         ResultSet r = preparedStmt.executeQuery();
         return r;
+    }
+
+    public static void setSalary(Connection conn, int id, String salary) throws SQLException {
+        String query = "UPDATE personel set salary = ? where id = ?";;
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setFloat(1, Float.valueOf(salary));
+        preparedStmt.setFloat(2, id);
+
+        preparedStmt.execute();
+    }
+
+    public static void kickPerson(Connection conn, int id) throws SQLException {
+        String query = "UPDATE personel SET salary = -1 WHERE id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        preparedStmt.execute();
     }
 
 

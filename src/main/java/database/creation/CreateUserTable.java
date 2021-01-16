@@ -39,7 +39,7 @@ public class CreateUserTable {
         int i=0;
         while(true){
             System.out.println((i++) + " " + arr[0]);
-            DbStatements.addUser(c, arr[0],arr[1], id);
+            DbStatements.addUser(c, arr[0],arr[1], id, "null");
 
             if(!scanner.hasNext()){
                 break;

@@ -67,10 +67,10 @@ public class LoginController {
                 App.setRoot("admin_pane");
                 break;
             case 5: //kierownik
-                App.setRoot("patient_pane");
+                App.setRoot("administration_pane");
                 break;
             case 6: //recepcja
-                App.setRoot("patient_pane");
+                App.setRoot("administration_pane");
                 break;
         }
     }
@@ -91,7 +91,8 @@ public class LoginController {
     private void send_reg() {   //metoda po kliknieciu Create w Register
         if(FTxtUsername.getText() != "" && FTxtPassword.getText() != "" && FTxtToken.getText() != "") {
             try {
-                if(DbStatements.registerUser(c, FTxtUsername.getText(), FTxtPassword.getText(), FTxtToken.getText())) {
+                if(DbStatements.getIdUser(c,FTxtToken.getText())!=0) {
+                    DbStatements.registerUser(c, FTxtUsername.getText(), FTxtPassword.getText(), FTxtToken.getText());
                     notification.setFill(Color.GREEN);
                     notification.setText(App.getString("registered"));   //tutaj można wpisać co wyskoczy po wysłaniu
                     vboxReg.setVisible(false);
