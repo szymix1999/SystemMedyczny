@@ -119,9 +119,9 @@ public class PatientController {
     private class Prescription {
         public int id;          //index w bazie
         public int index;       //index w liscie
-        private int id_personel;
+        private final int id_personel;
         public String name_personel;
-        private int id_medicine;
+        private final int id_medicine;
         public String name_medicine;
         public String name;
         public String date;

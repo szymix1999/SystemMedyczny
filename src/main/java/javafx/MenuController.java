@@ -10,8 +10,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -23,7 +24,7 @@ public class MenuController {
     ObservableList<String> languList = FXCollections.observableArrayList(App.getString("eng"), App.getString("pl"));
 
     @FXML
-    private ChoiceBox languChange;
+    private ChoiceBox<String> languChange;
     @FXML
     private Button btnLogInOut;
     @FXML
@@ -47,11 +48,18 @@ public class MenuController {
         alert.setHeaderText(null);
 
         Optional<ButtonType> result = alert.showAndWait();
+
+        File languageFile = new File("src\\main\\resources\\config\\language");
+        FileWriter fileOut = new FileWriter(languageFile, false);
         if (result.get() == ButtonType.OK){
-            if(languChange.getValue() == App.getString("pl"))
+            if(languChange.getValue().equals(App.getString("pl"))) {
                 Locale.setDefault(new Locale("pl"));
-            else
+                fileOut.write("pl");
+            } else {
                 Locale.setDefault(new Locale("en"));
+                fileOut.write("en");
+            }
+            fileOut.close();
             App.reopen();
         } else {
             check_language();

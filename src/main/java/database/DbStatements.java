@@ -1,8 +1,6 @@
 package database;
 
 import javafx.Medicines.Medicines;
-
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -115,8 +113,7 @@ public class DbStatements {
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
 
-        ResultSet rs = preparedStmt.executeQuery();
-        return rs;
+        return preparedStmt.executeQuery();
     }
 
     // ----------- Medicines --------------
@@ -154,18 +151,16 @@ public class DbStatements {
         String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative, image, composition from medicines where name LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setString(1, "%"+name+"%");
-        ResultSet rs = preparedStmt.executeQuery();
 
-        return rs;
+        return preparedStmt.executeQuery();
     }
 
     public static ResultSet SearchIdMedicines(Connection conn, int id) throws SQLException {
         String query = "select id, name, price, prescription, quantity, ordered, sold, returns, disposed_of, alternative, image, composition from medicines where id LIKE ? ";
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
-        ResultSet rs = preparedStmt.executeQuery();
 
-        return rs;
+        return preparedStmt.executeQuery();
     }
 
     public static void AddMedicine(Connection conn, Medicines med) throws  SQLException {
@@ -254,8 +249,7 @@ public class DbStatements {
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
 
-        ResultSet rs = preparedStmt.executeQuery();
-        return rs;
+        return preparedStmt.executeQuery();
     }
 
     public static void updateVisitCost(Connection conn, int id, float value) throws SQLException {
@@ -313,8 +307,7 @@ public class DbStatements {
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
 
-        ResultSet rs = preparedStmt.executeQuery();
-        return rs;
+        return preparedStmt.executeQuery();
     }
 
     public static void updatePrescriptionCost(Connection conn, int id, float value) throws SQLException {
@@ -438,8 +431,7 @@ public class DbStatements {
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id);
 
-        ResultSet rs = preparedStmt.executeQuery();
-        return rs;
+        return preparedStmt.executeQuery();
     }
 
     public static int addNote(Connection conn, int id_users, String contents) throws SQLException {

@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -24,7 +26,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //Ustawianie jezyka
-        Locale.setDefault(new Locale("en"));
+        Scanner scanner = new Scanner(new File("src\\main\\resources\\config\\language"));
+        String language = scanner.nextLine();
+        Locale.setDefault(new Locale(language));
         //Przypisanie stage do zmiennej
         curr_stage = stage;
         //Otworzenie aplikacji

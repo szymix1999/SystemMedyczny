@@ -2,7 +2,6 @@ package javafx;
 
 import database.DbConnector;
 import database.DbStatements;
-import javafx.Administration.SQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 public class NotesController {
 
     Connection c = DbConnector.connect();
-    ObservableList notes = FXCollections.observableArrayList();
+    ObservableList<Note> notes = FXCollections.observableArrayList();
 
     @FXML
     private ListView<Note> notesListView;
