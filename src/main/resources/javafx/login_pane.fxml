@@ -15,55 +15,29 @@
    <bottom>
       <VBox fx:id="vboxReg" alignment="TOP_RIGHT" prefHeight="240.0" prefWidth="1280.0" spacing="10.0" visible="false" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="402.0">
                <children>
-                  <VBox prefHeight="100.0" prefWidth="280.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%username" />
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%firstName" />
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%birthdate" />
-                              <TextField />
-                           </children>
-                        </HBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%username" />
+                        <TextField fx:id="FTxtUsername" promptText="username" />
                      </children>
-                  </VBox>
-                  <VBox prefHeight="100.0" prefWidth="280.0">
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%password" />
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lastName" />
-                              <TextField />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%gender" />
-                              <TextField />
-                           </children>
-                        </HBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%password" />
+                        <TextField fx:id="FTxtPassword" promptText="password" />
                      </children>
-                  </VBox>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Token:" />
+                        <TextField fx:id="FTxtToken" promptText="token" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <Button mnemonicParsing="false" onMouseClicked="#send_reg" text="%send">
+            </VBox>
+            <Button mnemonicParsing="false" onMouseClicked="#send_reg" text="%createAcc">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -72,7 +46,7 @@
                </cursor></Button>
          </children>
          <padding>
-            <Insets bottom="60.0" left="320.0" right="400.0" top="10.0" />
+            <Insets bottom="60.0" left="320.0" right="535.0" top="10.0" />
          </padding>
          <BorderPane.margin>
             <Insets />
@@ -102,9 +76,9 @@
               </rowConstraints>
                <children>
                      <Label text="%username" />
-                     <TextField fx:id="userLoginField" promptText="admin" GridPane.columnIndex="1" />
+                     <TextField fx:id="userLoginField" promptText="username" GridPane.columnIndex="1" />
                      <Label text="%password" GridPane.rowIndex="1" />
-                     <PasswordField fx:id="userPassField" promptText="admin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <PasswordField fx:id="userPassField" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <HBox alignment="TOP_CENTER" prefHeight="91.0" prefWidth="280.0" spacing="10.0">

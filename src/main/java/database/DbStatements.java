@@ -1,11 +1,7 @@
 package database;
 
 import javafx.Medicines.Medicines;
-import javafx.beans.property.StringProperty;
-
-import java.math.BigDecimal;
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class DbStatements {
@@ -42,6 +38,17 @@ public class DbStatements {
         System.out.println("User id: " + id + " | User type: " + type);
 
         return type;
+    }
+
+    public static boolean registerUser(Connection conn, String login, String password, String token) throws SQLException {
+        String query = "update users set login = ?, password = ?, token = null where token = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, login);
+        preparedStmt.setString(2, password);
+        preparedStmt.setString(3, token);
+
+        return preparedStmt.execute();
     }
 
     // ----------- ICD10 --------------
@@ -360,27 +367,6 @@ public class DbStatements {
     }
 
 
-
-    // ----------- Tables --------------
-
-    public static void deleteTable(Connection conn, String name) throws SQLException {
-        String query = "drop table if exists ?";
-
-        PreparedStatement preparedStmt = conn.prepareStatement(query);
-        preparedStmt.setString(1, name);
-
-        preparedStmt.execute();
-    }
-
-    public static void createTable(Connection conn, String Q) throws SQLException {
-        String query = "?";
-
-        PreparedStatement preparedStmt = conn.prepareStatement(query);
-        preparedStmt.setString(1, Q);
-
-        preparedStmt.execute();
-    }
-
     // ---------- Referral ------------------
 
     public static void addReferral(Connection conn, int id_patients, Date order_date, String comments, String images) throws SQLException {
@@ -406,5 +392,7 @@ public class DbStatements {
             count = rs.getInt("count(*)");
         return count;
     }
+
+
 
 }
