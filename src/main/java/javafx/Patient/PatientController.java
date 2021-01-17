@@ -653,4 +653,22 @@ public class PatientController {
         App.setRoot("patientPharmacy_pane");
     }
 
+    // --------- Display doctors window --------------
+
+    @FXML
+    private void displayDoctors() {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("doctors_window.fxml"));
+        fxmlLoader.setResources(App.getBundle());
+        try {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle(App.getString("guestButtonDoctors"));
+            stage.setResizable(false);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

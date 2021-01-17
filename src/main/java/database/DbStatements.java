@@ -372,8 +372,7 @@ public class DbStatements {
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, Integer.parseInt(id));
 
-        ResultSet r = preparedStmt.executeQuery();
-        return r;
+        return preparedStmt.executeQuery();
     }
 
     public static void setSalary(Connection conn, int id, String salary) throws SQLException {
@@ -393,6 +392,22 @@ public class DbStatements {
         preparedStmt.setInt(1, id);
 
         preparedStmt.execute();
+    }
+
+    public static ResultSet getOnlyDoctors(Connection conn) throws SQLException {
+        String query = "select id from users WHERE id_type = 1";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        return preparedStmt.executeQuery();
+    }
+
+    public static ResultSet getDoctorData(Connection conn, int id) throws SQLException {
+        String query = "select * from personel WHERE id_users = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1, id);
+
+        return preparedStmt.executeQuery();
     }
 
 

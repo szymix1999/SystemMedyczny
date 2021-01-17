@@ -15,6 +15,11 @@
                <fx:include fx:id="topMenu" source="bar.fxml" />
                <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="640.0" spacing="10.0">
                   <children>
+                     <Button layoutX="450.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#displayDoctors" prefHeight="59.0" prefWidth="89.0" text="%guestButtonDoctors">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
                      <Button mnemonicParsing="false" onMouseClicked="#displayReferral" prefHeight="59.0" prefWidth="89.0" text="%referrals">
                         <cursor>
                            <Cursor fx:constant="HAND" />
