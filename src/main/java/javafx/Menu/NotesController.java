@@ -1,4 +1,4 @@
-package javafx;
+package javafx.Menu;
 
 import database.DbConnector;
 import database.DbStatements;

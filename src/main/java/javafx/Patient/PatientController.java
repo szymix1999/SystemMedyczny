@@ -1,25 +1,26 @@
-package javafx;
+package javafx.Patient;
 
 import database.DbConnector;
 import database.DbStatements;
+import javafx.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,15 +31,14 @@ import java.util.Random;
 
 public class PatientController {
 
-    Connection c = DbConnector.connect();
+    static Connection c = DbConnector.connect();
     ObservableList list = FXCollections.observableArrayList();
-    Patient curr_patient;
+    static Patient curr_patient;
     int curr_list = 0;
     int adsIndex = 0;
     int signUpCount = 0;
     int lastChangeCount = 0;
     int referralCount = 0;
-    File source = null;
 
     @FXML
     private ListView vpList;
@@ -74,12 +74,6 @@ public class PatientController {
     private Button btnStartSignUp;
     @FXML
     private TextField FTxtPersonelName;
-    @FXML
-    private VBox vBoxReferral;
-    @FXML
-    private TextArea ATxtReferralContents;
-    @FXML
-    private TextField FTxtReferralDate;
 
     //Klasa Wizyty
     private class Visit {
@@ -150,7 +144,7 @@ public class PatientController {
     }
 
     //Klasa pacjent
-    private static class Patient {
+    public static class Patient {
         public int id = 0;
         public String first_name;
         public String last_name;
@@ -174,7 +168,6 @@ public class PatientController {
         lastChangeCount = 0;
         curr_list = 0;
         referralCount = 0;
-        source = null;
 
         vpList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         randomAds();
@@ -635,83 +628,22 @@ public class PatientController {
 //        }
     }
 
-    //--------------- Add referral to database ----------------------
-
-    @FXML
-    private void sendReferral() {
-        if(ATxtReferralContents.getText() != "" && FTxtReferralDate.getText() != "" && source != null) {
-
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            try {
-                java.util.Date utilDate = format.parse(FTxtReferralDate.getText());
-                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-
-                File destination = new File("src\\main\\resources\\images\\referrals\\" +
-                        DbStatements.countReferralsRows(c) + "_" + source.getName());
-                Files.copy(source.toPath(), destination.toPath());
-
-                System.out.println("File copied. Source: " + source + " Destination: " + destination);
-                DbStatements.addReferral(c, curr_patient.id, sqlDate, ATxtReferralContents.getText(), destination.toString());
-            } catch (SQLException | IOException ex) {
-                ex.printStackTrace();
-            } catch (ParseException ex) {
-                FTxtReferralDate.clear();
-
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning \"" + App.getString("referrals") + "\"");
-                alert.setHeaderText(null);
-                alert.setContentText(App.getString("badDataFormat"));
-
-                alert.showAndWait();
-                return;
-            }
-
-            vBoxReferral.setVisible(false);
-            referralCount = 0;
-            ATxtReferralContents.clear();
-            FTxtReferralDate.clear();
-            source = null;
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog \"" + App.getString("referrals") + "\"");
-            alert.setHeaderText(null);
-            alert.setContentText(App.getString("ReferralAdded"));
-
-            alert.showAndWait();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning \"" + App.getString("referrals") + "\"");
-            alert.setHeaderText(null);
-            alert.setContentText(App.getString("couldntSendReferral"));
-
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void addReferralPhoto() {
-        FileChooser fileChooser = new FileChooser();
-
-        //Set extension filter
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image files", "*.JPG", "*.jpg", "*.PNG", "*.png"));
-
-        //Show open file dialog
-        source = fileChooser.showOpenDialog(null);
-    }
+    //--------------- Display referral ----------------------
 
     @FXML
     private void displayReferral() {
-        if(referralCount == 0) {
-            referralCount++;
-            vBoxReferral.setVisible(true);
-        } else {
-            referralCount = 0;
-            vBoxReferral.setVisible(false);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("referral_window.fxml"));
+        fxmlLoader.setResources(App.getBundle());
+        try {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle(App.getString("referrals"));
+            stage.setResizable(false);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        ATxtReferralContents.clear();
-        FTxtReferralDate.clear();
-        source = null;
     }
 
     // ------------------------- Go to apothecary -----------------------------

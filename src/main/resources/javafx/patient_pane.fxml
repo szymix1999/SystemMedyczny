@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodybg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.PatientController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodybg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Patient.PatientController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <HBox prefHeight="80.0" prefWidth="1237.0">
@@ -131,63 +131,6 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <VBox fx:id="vBoxReferral" prefHeight="296.0" prefWidth="367.0" visible="false">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%addReferral" wrappingWidth="167.1787109375">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                              </Text>
-                              <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="214.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onMouseClicked="#sendReferral" text="%send">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor></Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="8.0" top="5.0" />
-                           </padding>
-                        </HBox>
-                        <TextArea fx:id="ATxtReferralContents" prefHeight="294.0" prefWidth="367.0" promptText="%completeAndSend!" wrapText="true" />
-                        <GridPane fx:id="gridPaneReferral" alignment="CENTER_LEFT" hgap="10.0" prefHeight="214.0" prefWidth="347.0" vgap="10.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0000305175781" minWidth="10.0" prefWidth="146.2" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0000305175781" minWidth="10.0" prefWidth="210.19999999999996" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="36.4" minHeight="10.0" prefHeight="33.4" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="45.00000000000001" minHeight="10.0" prefHeight="41.00000000000001" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="326.0" spacing="10.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onMouseClicked="#addReferralPhoto" text="%addPhoto">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor></Button>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="329.0" spacing="10.0" GridPane.columnIndex="1">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%date" />
-                                    <TextField fx:id="FTxtReferralDate" promptText="%completeAndSend!" />
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </GridPane>
-                     </children>
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </VBox>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
