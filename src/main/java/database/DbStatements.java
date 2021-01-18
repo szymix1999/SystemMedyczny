@@ -82,6 +82,40 @@ public class DbStatements {
 
     // ----------- Patients --------------
 
+    public static int userNamePatientIdCheck(Connection conn, String userName) throws SQLException{
+        String query = "select id, id_type from users where login = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setString(1, userName);
+
+        System.out.println("Sprawdzanie id users");
+        ResultSet rs = preparedStmt.executeQuery();
+        int idUP=-1;
+        int typeUP = -2;
+
+        while (rs.next()) {
+            idUP = rs.getInt("id");
+            typeUP = rs.getInt("id_type");
+        }
+        System.out.println("User id: " + idUP + " | User type: " + typeUP);
+
+        if(idUP!=-1 && typeUP==0){
+            query = "select id from patients where id_users = ?";
+            System.out.println("Sprawdzanie id patients");
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1, idUP);
+
+            rs = preparedStmt.executeQuery();
+            int userId = -1;
+            while (rs.next()) {
+                userId = rs.getInt("id");
+            }
+            return userId;
+        }else{
+            return -1;
+        }
+    }
+
     public static void addPatient(Connection conn, int id_users, String first_name, String last_name, Date birth_date, String sex, String health) throws  SQLException {
         String query = "insert into patients (id_users, first_name, last_name, birth_date, sex, health)" + " values (?, ?, ?, ?, ?, ?)";
 

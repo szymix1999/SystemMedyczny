@@ -117,4 +117,9 @@ public class LoginController {
         }
     }
 
+    @FXML
+    private void back(){
+        DbStatements.type=-2;
+        App.setRoot("guest_pane");
+    }
 }

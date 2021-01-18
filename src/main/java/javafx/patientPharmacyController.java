@@ -1,8 +1,10 @@
 package javafx;
 
 import database.DbConnector;
+import database.DbStatements;
 import javafx.Medicines.MedicinesFx;
 import javafx.Medicines.MedicinesModel;
+import javafx.Patient.PatientController;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class patientPharmacyController {
     //tabela leków
@@ -85,6 +91,7 @@ public class patientPharmacyController {
     private MedicinesModel medicinesModelList;
     private MedicinesModel medicinesModelShopList;
     Connection c = DbConnector.connect();
+    private List<PatientController.Prescription> patientPrescriptionList=new ArrayList<PatientController.Prescription>();
 
     @FXML
     void initialize(){
@@ -234,6 +241,18 @@ public class patientPharmacyController {
                 }
             }
         });
+
+        try {
+            ResultSet rs=DbStatements.getPrescriptionData(c, PatientController.getCurr_patient().id);
+            while (rs.next()) {
+                System.out.println(rs.getInt("id_medicine"));
+                patientPrescriptionList.add(new PatientController.Prescription(rs.getInt("id"), rs.getInt("id_personel"),
+                        rs.getInt("id_medicine"), 0, rs.getString("name"),
+                        rs.getDate("end_date").toString(), rs.getInt("amount")));
+            }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
     @FXML
@@ -269,7 +288,7 @@ public class patientPharmacyController {
 
     @FXML
     private void back(){
-        App.setRoot("guest_pane");
+        App.setRoot("patient_pane");
     }
 
     private Button createButton(String s){
@@ -279,4 +298,48 @@ public class patientPharmacyController {
         return addButton;
     }
 
+    @FXML
+    private void buyButtonOnAction() throws SQLException {
+        List<PatientController.Prescription> patientPrescriptionListMinus=new ArrayList<PatientController.Prescription>();
+        boolean exists=false, sell=true;
+        for(int i=0; i<medicinesModelShopList.getMedicinesFxObservableList().size(); i++){
+            if(medicinesModelShopList.getMedicinesFxObservableList().get(i).isPrescription()){
+                exists=false;
+                for(int j=0; j<patientPrescriptionList.size(); j++){
+                    if(patientPrescriptionList.get(j).id_medicine==medicinesModelShopList.getMedicinesFxObservableList().get(i).getId()
+                            && patientPrescriptionList.get(j).amount>=medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity()){
+                        patientPrescriptionListMinus.add(new PatientController.Prescription(patientPrescriptionList.get(j).id, 0,
+                                patientPrescriptionList.get(j).id_medicine, 0, patientPrescriptionList.get(j).name,
+                                patientPrescriptionList.get(j).date, patientPrescriptionList.get(j).amount-medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity()));
+                        exists=true;
+                        break;
+                    }
+                }
+                if(!exists){
+                    //tutaj wyświetli błąd i nie pozwoli sprzedać
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog \"" + App.getString("prescription") + "\"");
+                    alert.setHeaderText(null);
+                    alert.setContentText(App.getString("noPrescription"));
+                    alert.showAndWait();
+                    sell=false;
+                }
+            }
+        }
+
+        if(sell){
+            System.out.println("Sprzedaje leki");
+            for(int i=0; i<medicinesModelShopList.getMedicinesFxObservableList().size(); i++){
+                medicinesModelShopList.getMedicinesFxObservableList().get(i).setQuantity(medicinesModelShopList.getMedicinesFxObservableList().get(i).getQuantity()-medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity());
+                medicinesModelShopList.getMedicinesFxObservableList().get(i).setSold(medicinesModelShopList.getMedicinesFxObservableList().get(i).getSold()+medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity());
+            }
+            for (int j = 0; j < patientPrescriptionListMinus.size(); j++) {
+                DbStatements.updatePrescriptionAmount(c, patientPrescriptionListMinus.get(j).id, patientPrescriptionListMinus.get(j).amount);
+            }
+            medicinesModelShopList.sellMed(c);
+            patientPrescriptionList.clear();
+            medicinesModelShopList.getMedicinesFxObservableList().clear();
+            totalPrice.setText("0.00");
+        }
+    }
 }

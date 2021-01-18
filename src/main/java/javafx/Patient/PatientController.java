@@ -110,11 +110,11 @@ public class PatientController {
     }
 
     //Klasa recepty
-    private static class Prescription {
+    public static class Prescription {
         public int id;          //index w bazie
         public int index;       //index w liscie
         public String name_personel;
-        private final int id_medicine;
+        public final int id_medicine;
         public String name_medicine;
         private float cost_medicine;
         public String name;
@@ -165,6 +165,7 @@ public class PatientController {
             this.gender = gender;
             this.health = health;
         }
+
     }
     
 
@@ -679,4 +680,7 @@ public class PatientController {
         }
     }
 
+    public static Patient getCurr_patient() {
+        return curr_patient;
+    }
 }

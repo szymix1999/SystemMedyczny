@@ -135,16 +135,26 @@
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin></Button>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <VBox prefWidth="180.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <TextField fx:id="userNameField" prefHeight="40.0" promptText="%userName">
+                                 <VBox.margin>
+                                    <Insets right="20.0" top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button fx:id="checkUserButton" mnemonicParsing="false" onAction="#checkUsernameOnAction" prefHeight="40.0" prefWidth="200.0" text="%check">
+                                 <VBox.margin>
+                                    <Insets bottom="225.0" right="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <HBox prefHeight="10.0" prefWidth="200.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%price" wrappingWidth="34.6708984375" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="5.251953125" />
                                     <Text fx:id="totalPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="70.6708984375" />
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="%sell">
+                              <Button mnemonicParsing="false" onAction="#sellButtonOnAction" prefHeight="40.0" prefWidth="160.0" text="%sell">
                                  <VBox.margin>
                                     <Insets bottom="20.0" />
                                  </VBox.margin></Button>
@@ -152,9 +162,6 @@
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
-                           <padding>
-                              <Insets top="359.0" />
-                           </padding>
                         </VBox>
                      </children>
                   </GridPane>

@@ -51,6 +51,8 @@ public class MedicinesModel {
             med.setReturns(this.MedicinesFxObjectPropertyEdit.getValue().getReturns());
             med.setDisposed_of(this.MedicinesFxObjectPropertyEdit.getValue().getDisposed_of());
             med.setAlternative(this.MedicinesFxObjectPropertyEdit.getValue().getAlternative());
+            med.setImage(this.MedicinesFxObjectPropertyEdit.getValue().getImage());
+            med.setComposition(this.MedicinesFxObjectPropertyEdit.getValue().getComposition());
             DbStatements.editMedicines(c, med);
             medicinesFxObservableList.clear();
             this.nameSearchTable(c,"");
@@ -75,6 +77,29 @@ public class MedicinesModel {
             med.setImage(this.MedicinesFxObjectProperty.getValue().getImage());
             med.setComposition(this.MedicinesFxObjectProperty.getValue().getComposition());
             DbStatements.editMedicines(c, med);
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public void sellMed(Connection c){
+        try {
+            Medicines med= new Medicines();
+            for(int i=0; i<this.medicinesFxObservableList.size(); i++){
+                med.setId(this.medicinesFxObservableList.get(i).getId());
+                med.setName(this.medicinesFxObservableList.get(i).getName());
+                med.setPrice(this.medicinesFxObservableList.get(i).getPrice());
+                med.setPrescription(this.medicinesFxObservableList.get(i).isPrescription());
+                med.setQuantity(this.medicinesFxObservableList.get(i).getQuantity());
+                med.setOrdered(this.medicinesFxObservableList.get(i).getOrdered());
+                med.setSold(this.medicinesFxObservableList.get(i).getSold());
+                med.setReturns(this.medicinesFxObservableList.get(i).getReturns());
+                med.setDisposed_of(this.medicinesFxObservableList.get(i).getDisposed_of());
+                med.setAlternative(this.medicinesFxObservableList.get(i).getAlternative());
+                med.setImage(this.medicinesFxObservableList.get(i).getImage());
+                med.setComposition(this.medicinesFxObservableList.get(i).getComposition());
+                DbStatements.editMedicines(c, med);
+            }
         } catch (SQLException ex){
             ex.printStackTrace();
         }
