@@ -1,7 +1,5 @@
 # System obsługi przychodni "MedApp"
-
-## Przedmiot
-- Medyczne systemy informacyjne
+## Medyczne systemy informacyjne
 
 ## Zespół
 - Przemysław Sałek
