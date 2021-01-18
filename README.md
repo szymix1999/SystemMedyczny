@@ -1,4 +1,5 @@
-# System obsługi przychodni "MedApp" / Medyczne systemy informacyjne
+# System obsługi przychodni "MedApp"  
+Medyczne systemy informacyjne
 
 ## Zespół
 - Przemysław Sałek
@@ -14,7 +15,7 @@
 
 ## Technologie
 - IntelliJ IDEA Community Edition 2019.2.3+
-- Java 15.0.1
+- Java 15.0.1 (Apache Maven, JavaFX, JDBC)
 - Azure Database for MySQL
 
 ## Opis
@@ -36,8 +37,8 @@
   - baza medycznych danych pacjentów wg klasyfikacji ICD-10
   - aktualizacja informacji o danych na podstawie komunikacji z innymi bazami (poprzez projekt komunikacji z pozostałymi projektami)
   - analiza diagnostyczna (np. czy ten pacjent nie ma leków kumulujacych nadmiernie efekty, znoszacych sie, zdiagnozowane uczulenia)
-  - obrazy moga byc w postaci jpg, ale dla chetnych takze do opracowania DICOM lub jego elementy
-  - zapewnienie anonimizacji (~~np. posrednio: nazwisk-¿id, id-¿dane;~~ kodowanie tresci diagnoz i danych uniejednoznaczniajacych), ~~nie nalezy pobierac ani wysyłac danych identyfikacyjnych z obcych baz - jedynie jako zapytania~~, ~~ew. przesyłac ich uogólnienie (np. 27 lat -> zakres 20-29 lat)~~, identyfikatory unikalne dla kazdego z pytajacych.
+  - ~~obrazy moga byc w postaci jpg, ale dla chetnych takze do opracowania DICOM lub jego elementy~~
+  - ~~zapewnienie anonimizacji~~ (~~np. posrednio: nazwisk-¿id, id-¿dane;~~ kodowanie tresci diagnoz i danych uniejednoznaczniajacych), ~~nie nalezy pobierac ani wysyłac danych identyfikacyjnych z obcych baz - jedynie jako zapytania~~, ~~ew. przesyłac ich uogólnienie (np. 27 lat -> zakres 20-29 lat)~~, identyfikatory unikalne dla kazdego z pytajacych.
 - Apteka - **Aleksander Pitucha**
   - ~~tabela mozliwych do kupienia leków~~
   - ~~wyszukiwarka leków~~
@@ -63,7 +64,7 @@
   - ~~zapisane recepty~~
   - ~~mozliwosc dołaczenia nowych badan (zdjecia rentgenowskie), skierowan~~
   - ~~mozliwosc zbiorczej opłaty za wizyty~~, ~~badania~~, ~~leki~~
-  - mozliwosc wyszukania specjalisty w róznych przychodniach (na bazie projektu komunikacji miedzy bazami)
+  - ~~mozliwosc wyszukania specjalisty w róznych przychodniach~~ (~~na bazie projektu komunikacji miedzy bazami~~)
 - Administracja przychodni - **Szymon Sala**
   - telefoniczna rejestracja pacjentów
   - baza pracowników
@@ -75,13 +76,13 @@
   - nadawanie uprawnien
   - modyfikacje kont
   - blokady systemu/uzytkowników
-- Ksiegowosc  **nie przydzielone**
+- Ksiegowosc - **nie przydzielone**
   - przychody, dochody, koszty, odpisy, amortyzacja
   - składki
   - raporty okresowe
   - forma: tabelaryczna + druga, dowolnie wybrana - wybór techniki na poziomie przychodni Formy i techniki ksiegowosci
-- Komunikacja **nie przydzielone**
+- Komunikacja - **nie przydzielone**
   - wyszukiwanie danych o pacjentach (+wizyty, leki, skierowania, badania) i przekazywanie informacji o istnieniu/zródle tych danych
-  - wyszukiwanie danych o dostepnosci leków w aptekach róznych przychodni
+  - ~~wyszukiwanie danych o dostepnosci leków w aptekach róznych przychodni~~
   - wyszukiwanie danych o wolnych terminach specjalistów w danej dziedzinie w innych przychodniach
   - wyszukiwanie danych o wolnych etatach/zapotrzebowaniach na specjalistów w danej dziedzinie
