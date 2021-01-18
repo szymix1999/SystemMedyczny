@@ -69,7 +69,7 @@ CREATE TABLE prescriptions (
     id_personel BIGINT UNSIGNED NOT NULL,
     id_medicine BIGINT UNSIGNED NOT NULL,
 	name VARCHAR(30) NOT NULL,
-    cost FLOAT(15,2) NOT NULL,
+    amount INT NOT NULL,
     end_date DATE NOT NULL,
     FOREIGN KEY (id_medicine) REFERENCES medicines(id),
 	FOREIGN KEY (id_patients) REFERENCES patients(id),
@@ -81,7 +81,7 @@ CREATE TABLE referrals (
 	id_patients BIGINT UNSIGNED NOT NULL,
 	order_date DATE NOT NULL,
 	comments TEXT(65535) NOT NULL,
-	images VARCHAR(60),
+	images VARCHAR(120),
 	FOREIGN KEY (id_patients) REFERENCES patients(id),
 );
 

@@ -28,7 +28,7 @@ public class CreatePrescriptions {
                 String[] arr = line.split(";");
                 java.util.Date utilDate = format.parse(arr[2]);
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-                DbStatements.addPrescription(c, patient_index, personel_index, medicine_index, arr[0], Float.parseFloat(arr[1]), sqlDate);
+                DbStatements.addPrescription(c, patient_index, personel_index, medicine_index, arr[0], Integer.parseInt(arr[1]), sqlDate);
                 System.out.println(patient_index + " " + medicine_index + " " + arr[0] + " " + arr[1] + " " + sqlDate);
                 medicine_index++;
                 personel_index++;

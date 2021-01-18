@@ -110,36 +110,41 @@ public class PatientController {
     }
 
     //Klasa recepty
-    private class Prescription {
+    private static class Prescription {
         public int id;          //index w bazie
         public int index;       //index w liscie
-        private final int id_personel;
         public String name_personel;
         private final int id_medicine;
         public String name_medicine;
+        private float cost_medicine;
         public String name;
         public String date;
         public float cost;
+        public int amount;
 
-        public Prescription(int id, int id_personel, int id_medicine, int index, String name, String date, float cost) {
+        public Prescription(int id, int id_personel, int id_medicine, int index, String name, String date, int amount) {
             this.id = id;
             this.index = index;
-            this.id_personel = id_personel;
             try {
                 this.name_personel = DbStatements.getPersonelName(c, id_personel);
-                this.name_medicine = DbStatements.getMedicineName(c, id_medicine);
+                ResultSet rs = DbStatements.getMedicineData(c, id_medicine);
+                while(rs.next()) {
+                    this.name_medicine = rs.getString("name");
+                    this.cost_medicine = rs.getFloat("price");
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
             this.id_medicine = id_medicine;
             this.name = name;
             this.date = date;
-            this.cost = cost;
+            this.amount  = amount ;
+            cost = (float) (Math.round(cost_medicine * amount * 100.0) / 100.0);
         }
 
         @Override
         public String toString() {
-            return (String.format("%03d", this.index) + " - " + this.name + " - " + this.name_medicine);
+            return (String.format("%03d", this.index) + " - " + this.name + " - " + this.name_medicine + " * " + this.amount);
         }
     }
 
@@ -350,7 +355,7 @@ public class PatientController {
             while (rs.next()) {
                 Prescription v = new Prescription(rs.getInt("id"), rs.getInt("id_personel"),
                         rs.getInt("id_medicine"), index, rs.getString("name"),
-                        rs.getDate("end_date").toString(), rs.getFloat("cost"));
+                        rs.getDate("end_date").toString(), rs.getInt("amount"));
                 list.add(v);
                 index++;
             }
@@ -432,10 +437,11 @@ public class PatientController {
 
             if (selectedItems.size() == 1) {
                 try {
-                    if(DbStatements.updateMedicineQuantity(c, selectedItems.get(0).id_medicine)) {
+                    if(DbStatements.updateMedicineQuantity(c, selectedItems.get(0).id_medicine, selectedItems.get(0).amount)) {
                         System.out.println("Paid");
-                        DbStatements.updatePrescriptionCost(c, selectedItems.get(0).id, 0);
+                        DbStatements.updatePrescriptionAmount(c, selectedItems.get(0).id, 0);
                         selectedItems.get(0).cost = 0;
+                        selectedItems.get(0).amount = 0;
                         FTxtAmount.setText("0.0");
                     } else  {
                         FTxtAmount.setText(App.getString("noDrug!"));
@@ -454,10 +460,11 @@ public class PatientController {
                 try {
                     float sum = 0;
                     for (Prescription v : selectedItems) {
-                        if(DbStatements.updateMedicineQuantity(c, v.id_medicine)) {
+                        if(DbStatements.updateMedicineQuantity(c, v.id_medicine, v.amount)) {
                             System.out.println("Paid");
-                            DbStatements.updatePrescriptionCost(c, v.id, (float) 0);
-                            v.cost = (float) 0;
+                            DbStatements.updatePrescriptionAmount(c, v.id, 0);
+                            v.cost = 0;
+                            v.amount = 0;
                         }
                         sum += v.cost;
                     }
@@ -521,10 +528,11 @@ public class PatientController {
                 try {
                     float sum = 0;
                     for (Prescription v : selectedItems) {
-                        if(DbStatements.updateMedicineQuantity(c, v.id_medicine)) {
+                        if(DbStatements.updateMedicineQuantity(c, v.id_medicine, v.amount)) {
                             System.out.println("Paid");
-                            DbStatements.updatePrescriptionCost(c, v.id, (float) 0);
-                            v.cost = (float) 0;
+                            DbStatements.updatePrescriptionAmount(c, v.id, 0);
+                            v.cost = 0;
+                            v.amount = 0;
                         }
                         sum += v.cost;
                     }

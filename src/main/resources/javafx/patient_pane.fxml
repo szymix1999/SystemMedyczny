@@ -25,7 +25,7 @@
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </Button>
-                     <Button mnemonicParsing="false" onMouseClicked="#goToApothecary" prefHeight="59.0" prefWidth="89.0" text="%apothecary">
+                     <Button mnemonicParsing="false" onMouseClicked="#goToApothecary" prefHeight="59.0" prefWidth="89.0" text="%guestButtonPharmacy">
                         <cursor>
                            <Cursor fx:constant="HAND" />
                         </cursor></Button>
