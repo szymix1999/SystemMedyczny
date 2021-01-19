@@ -2,7 +2,6 @@ package javafx.Patient;
 
 import database.DbStatements;
 import javafx.App;
-import javafx.Patient.PatientController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -26,7 +25,7 @@ public class ReferralController {
 
     @FXML
     private void addReferral() {
-        if(ATxtReferralContents.getText() != "" && FTxtReferralDate.getText() != "" && source != null) {
+        if(ATxtReferralContents.getText().equals("") && FTxtReferralDate.getText().equals("") && source != null) {
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             try {

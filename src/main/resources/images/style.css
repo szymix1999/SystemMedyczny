@@ -1,19 +1,19 @@
-.bodybg {
- -fx-background-image: url('background.png');
+.guestbg {
+ -fx-background-image: url('screen_6.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.loginbg {
+ -fx-background-image: url('screen_1.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.patientbg {
+ -fx-background-image: url('screen_2.png');
  -fx-background-size: 100% 100%;
 }
 
 .refresh {
  -fx-background-image: url('refresh.png');
- -fx-background-size: 100% 100%;
-}
-
-.loginbg {
- -fx-background-image: url('waterfall.jpg');
- -fx-background-size: 100% 100%;
-}
-
-.ads {
- -fx-background-image: url('03_pharmacy_ads.gif');
  -fx-background-size: 100% 100%;
 }

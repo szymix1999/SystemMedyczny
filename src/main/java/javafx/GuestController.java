@@ -43,13 +43,13 @@ public class GuestController {
 
     @FXML
     private void openWebAds_1() throws IOException, URISyntaxException {
-        String url[] = {"https://google.com", "https://facebook.com", "https://github.com", "https://youtube.com"};
+        String[] url = {"https://google.com", "https://facebook.com", "https://github.com", "https://youtube.com"};
         Desktop.getDesktop().browse(new URL(url[adsIndex_1]).toURI());
     }
 
     @FXML
     private void openWebAds_2() throws IOException, URISyntaxException {
-        String url[] = {"https://google.com", "https://facebook.com", "https://github.com", "https://youtube.com"};
+        String[] url = {"https://google.com", "https://facebook.com", "https://github.com", "https://youtube.com"};
         Desktop.getDesktop().browse(new URL(url[adsIndex_2]).toURI());
     }
 
