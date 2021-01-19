@@ -267,8 +267,8 @@ public class DbStatements {
 
     // ----------- Visits --------------
 
-    public static void addVisit(Connection conn, int id_patients, int id_personel, String visit_name, String change_name, Date visit_date, Date change_date, float cost) throws  SQLException {
-        String query = "insert into visits (id_patients, id_personel, visit_name, change_name, visit_date, change_date, cost)" + " values (?, ?, ?, ?, ?, ?, ?)";
+    public static void addVisit(Connection conn, int id_patients, int id_personel, String visit_name, String change_name, Date visit_date, Date change_date, float cost, float paid) throws  SQLException {
+        String query = "insert into visits (id_patients, id_personel, visit_name, change_name, visit_date, change_date, cost, paid)" + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setInt(1, id_patients);
@@ -278,6 +278,7 @@ public class DbStatements {
         preparedStmt.setDate(5, visit_date);
         preparedStmt.setDate(6, change_date);
         preparedStmt.setFloat(7, cost);
+        preparedStmt.setFloat(8, paid);
 
         preparedStmt.execute();
     }

@@ -15,7 +15,7 @@ public class DoctorsController {
     @FXML
     private ListView<Doctor> doctorsListView;
 
-    private static class Doctor {
+    public static class Doctor {
         public int id;
         public String first_name;
         public String last_name;
@@ -44,7 +44,7 @@ public class DoctorsController {
             ResultSet rs = DbStatements.getOnlyDoctors(PatientController.c);
             while(rs.next()) {
                 ResultSet rsP = DbStatements.getDoctorData(PatientController.c, rs.getInt("id"));
-                System.out.println("Doctor id: " + rs.getInt("id"));
+                //System.out.println("Doctor id: " + rs.getInt("id"));
                 while(rsP.next()) {
                     Doctor d = new Doctor(rsP.getInt("id"), rsP.getString("first_name"),
                             rsP.getString("last_name"), rsP.getString("profession"));

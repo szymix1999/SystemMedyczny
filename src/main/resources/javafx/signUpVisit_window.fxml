@@ -31,19 +31,19 @@
               </rowConstraints>
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%nameVisit" />
-                  <TextField GridPane.columnIndex="1" />
+                  <TextField fx:id="FTxtName" promptText="Visit 1" GridPane.columnIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%chooseDoctor" GridPane.rowIndex="1" />
-                  <ChoiceBox prefHeight="26.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ChoiceBox fx:id="choiceBoxDoctor" prefHeight="26.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></ChoiceBox>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%visitDate" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="FTxtDate" promptText="2021-03-04" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <HBox alignment="CENTER" prefHeight="71.0" prefWidth="300.0">
                <children>
-                  <Button mnemonicParsing="false" text="%send">
+                  <Button mnemonicParsing="false" onMouseClicked="#sendSignVisit" text="%send">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>

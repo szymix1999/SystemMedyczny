@@ -23,22 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ed0013-06d6-4cb7-92a0-ccd4e7c5379d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/javafx/Patient/SignUpVisitController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/signUpVisit_window.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DbStatements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Patient/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/creation/CreateVisits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/creation/CreateVisits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/GuestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Patient/DoctorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Patient/DoctorsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javafx/Patient/SignUpVisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javafx/Patient/SignUpVisitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/language" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/language" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/strings_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/patient_pane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/txtfile/Database/SQL_tables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfile/Database/SQL_tables.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/guest_pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/guest_pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/signUpVisit_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/signUpVisit_window.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/strings_pl.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/database/DbStatements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DbStatements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/txtfile/Database/SQL_tables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/txtfile/Database/SQL_tables.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610996161638</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="[Patient] SignUp/Database changes.">
+      <created>1611054324572</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1611054324572</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -487,7 +494,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="poprawka aaa" />
     <MESSAGE value="administration pane" />
     <MESSAGE value="language_change" />
     <MESSAGE value="ads_system" />
@@ -512,7 +518,8 @@
     <MESSAGE value="[Patient] Referral window." />
     <MESSAGE value="[Patient] Doctors window." />
     <MESSAGE value="[Patient] &quot;Maly krok dla pacjenta wielki dla przychodni&quot; ~ Aptekarz" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Patient] &quot;Maly krok dla pacjenta wielki dla przychodni&quot; ~ Aptekarz" />
+    <MESSAGE value="[Patient] SignUp/Database changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="[Patient] SignUp/Database changes." />
   </component>
   <component name="WindowStateProjectService">
     <state x="528" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610817032470">
@@ -531,26 +538,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1610553807642" />
-    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1610996159825">
+    <state x="395" y="0" key="CommitChangelistDialog2" timestamp="1611054322249">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1610996159825" />
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom" timestamp="1611054069692">
+    <state x="395" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1611054322249" />
+    <state width="1493" height="183" key="GridCell.Tab.0.bottom" timestamp="1611060548302">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611054069692" />
-    <state width="1493" height="185" key="GridCell.Tab.0.center" timestamp="1611054069691">
+    <state width="1493" height="183" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611060548302" />
+    <state width="1493" height="183" key="GridCell.Tab.0.center" timestamp="1611060548302">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611054069691" />
-    <state width="1493" height="185" key="GridCell.Tab.0.left" timestamp="1611054069691">
+    <state width="1493" height="183" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611060548302" />
+    <state width="1493" height="183" key="GridCell.Tab.0.left" timestamp="1611060548302">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611054069691" />
-    <state width="1493" height="185" key="GridCell.Tab.0.right" timestamp="1611054069691">
+    <state width="1493" height="183" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611060548302" />
+    <state width="1493" height="183" key="GridCell.Tab.0.right" timestamp="1611060548302">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611054069691" />
+    <state width="1493" height="183" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611060548302" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1611000876452">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -567,33 +574,33 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611000876452" />
-    <state x="147" y="64" key="MergeDialog" timestamp="1611049142335">
+    <state x="147" y="64" key="MergeDialog" timestamp="1611060572570">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1611049142335" />
+    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1611060572570" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1610999150186">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610999150186" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1610996165930">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1611054331066">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1610996165930" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611054331066" />
     <state x="585" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610278792777">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="585" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1610278792777" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611049128440">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611060547347">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1611049128440" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1611060547347" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1610995895946">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1610995895946" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610443966320">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1611058578637">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610443966320" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611058578637" />
   </component>
 </project>
