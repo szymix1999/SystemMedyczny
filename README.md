@@ -66,10 +66,10 @@
   - ~~mozliwosc zbiorczej opłaty za wizyty~~, ~~badania~~, ~~leki~~
   - ~~mozliwosc wyszukania specjalisty w róznych przychodniach~~ (~~na bazie projektu komunikacji miedzy bazami~~)
 - Administracja przychodni - **Szymon Sala**
-  - telefoniczna rejestracja pacjentów
-  - baza pracowników
-  - zatrudnianie/zwalnianie/wolne etaty
-  - wynagrodzenia/podwyzki/ciecia
+  - ~~telefoniczna rejestracja pacjentów~~
+  - ~~baza pracowników~~
+  - ~~zatrudnianie/zwalnianie/~~wolne etaty
+  - ~~wynagrodzenia/podwyzki/ciecia~~
   - umowy/typy umów/czesci etatów
   - inwentaryzacja
 - Administracja systemem - **Jan Starosta**
