@@ -36,7 +36,6 @@ public class PatientController {
     static Patient curr_patient;
     int curr_list = 0;
     int adsIndex = 0;
-    int signUpCount = 0;
     int lastChangeCount = 0;
     int referralCount = 0;
 
@@ -408,8 +407,9 @@ public class PatientController {
             if (selectedItems.size() == 1) {
                 try {
                     System.out.println("Paid");
+                    DbStatements.updateVisitPaid(c, selectedItems.get(0).id, selectedItems.get(0).cost);
                     DbStatements.updateVisitCost(c, selectedItems.get(0).id, (float) 0);
-                    selectedItems.get(0).cost = (float) 0;
+                    selectedItems.get(0).cost = 0;
                     FTxtAmount.setText(String.valueOf(selectedItems.get(0).cost));
                 } catch (SQLException ex) {
                     ex.printStackTrace();
@@ -425,8 +425,9 @@ public class PatientController {
                 try {
                     System.out.println("Paid");
                     for (Visit v : selectedItems) {
+                        DbStatements.updateVisitPaid(c, v.id, v.cost);
                         DbStatements.updateVisitCost(c, v.id, (float) 0);
-                        v.cost = (float) 0;
+                        v.cost = 0;
                     }
                     FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
@@ -500,8 +501,9 @@ public class PatientController {
                 try {
                     System.out.println("Paid");
                     for (Visit v : selectedItems) {
+                        DbStatements.updateVisitPaid(c, v.id, v.cost);
                         DbStatements.updateVisitCost(c, v.id, (float) 0);
-                        v.cost = (float) 0;
+                        v.cost = 0;
                     }
                     FTxtAmount.setText("0.0");
                 } catch (SQLException ex) {
@@ -608,51 +610,31 @@ public class PatientController {
 
     // ---------------------- Sing up on visit ---------------------------
 
+    private void openWindow(String fxml_name, String window_name) {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml_name));
+        fxmlLoader.setResources(App.getBundle());
+        try {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle(App.getString(window_name));
+            stage.setResizable(false);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
-    private void startSignUpOnVisit() {
-//        if(signUpCount == 0) {
-//            signUpCount++;
-//            vpList.getSelectionModel().clearSelection();
-//            FTxtName.clear();
-//            FTxtName.setPromptText(App.getString("completeAndSend!"));
-//            FTxtDate.clear();
-//            FTxtDate.setPromptText(App.getString("completeAndSend!"));
-//            FTxtPersonelName.clear();
-//            FTxtPersonelName.setPromptText(App.getString("completeAndSend!"));
-//            FTxtPersonelName.setEditable(true);
-//            FTxtAmount.clear();
-//            FTxtAmount.setDisable(true);
-//            vBoxPay.setDisable(true);
-//        } else {
-//            signUpCount--;
-//            FTxtName.setPromptText(null);
-//            FTxtName.clear();
-//            FTxtDate.setPromptText(null);
-//            FTxtDate.clear();
-//            FTxtPersonelName.setPromptText(null);
-//            FTxtPersonelName.clear();
-//            FTxtPersonelName.setEditable(false);
-//            FTxtAmount.setDisable(false);
-//            vBoxPay.setDisable(false);
-//        }
+    private void displaySignUpOnVisit() {
+        openWindow("signUpVisit_window.fxml", "visits");
     }
 
     //--------------- Display referral ----------------------
 
     @FXML
     private void displayReferral() {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("referral_window.fxml"));
-        fxmlLoader.setResources(App.getBundle());
-        try {
-            Stage stage = new Stage();
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle(App.getString("referrals"));
-            stage.setResizable(false);
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        openWindow("referral_window.fxml", "referrals");
     }
 
     // ------------------------- Go to apothecary -----------------------------

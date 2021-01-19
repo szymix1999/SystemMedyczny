@@ -36,6 +36,7 @@ CREATE TABLE visits (
 	visit_date DATE NOT NULL,
 	change_date DATE,
 	cost FLOAT(15,2) NOT NULL,
+	paid FLOAT(15,2),
 	FOREIGN KEY (id_personel) REFERENCES personel(id),
 	FOREIGN KEY (id_patients) REFERENCES patients(id)
 );
@@ -94,7 +95,6 @@ CREATE TABLE contracts (
 	FOREIGN KEY (id_personel) REFERENCES personel(id)
 );
 
-
 CREATE TABLE icd10 (
 	id serial PRIMARY KEY,
 	index VARCHAR(30) NOT NULL,
@@ -117,7 +117,6 @@ CREATE TABLE illness (
 	FOREIGN KEY (id_icd10) REFERENCES icd10(id),
 	FOREIGN KEY (id_patient) REFERENCES patients(id)
 );
-
 
 CREATE TABLE diagnosis (
 	id serial PRIMARY KEY,

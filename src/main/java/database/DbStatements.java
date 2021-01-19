@@ -292,7 +292,7 @@ public class DbStatements {
         preparedStmt.setFloat(1, value);
         preparedStmt.setInt(2, id);
 
-        //preparedStmt.execute();   --żeby nie zmieniać co chwilę rekordów
+        preparedStmt.execute();
     }
 
     public static void updateVisitName(Connection conn, int id, String old_name, String new_name) throws SQLException {
@@ -313,6 +313,16 @@ public class DbStatements {
         preparedStmt.setDate(1, new_date);
         preparedStmt.setDate(2, old_date);
         preparedStmt.setInt(3, id);
+
+        preparedStmt.execute();
+    }
+
+    public static void updateVisitPaid(Connection conn, int id, float cost) throws SQLException {
+        String query = "update visits set paid = ? where id = ?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setFloat(1, cost);
+        preparedStmt.setInt(2, id);
 
         preparedStmt.execute();
     }

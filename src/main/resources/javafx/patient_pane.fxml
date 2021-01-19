@@ -150,7 +150,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnStartSignUp" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#startSignUpOnVisit" text="%signUp!">
+                        <Button fx:id="btnStartSignUp" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#displaySignUpOnVisit" text="%signUp!">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
