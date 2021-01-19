@@ -259,6 +259,12 @@ public class DbStatements {
         return true;
     }
 
+    public static ResultSet getCost(Connection conn) throws SQLException {
+        String getQuery = "SELECT sold, ordered, disposed_of, price from medicines";
+        PreparedStatement preparedStmt = conn.prepareStatement(getQuery);
+        return preparedStmt.executeQuery();
+    }
+
     // ----------- Visits --------------
 
     public static void addVisit(Connection conn, int id_patients, int id_personel, String visit_name, String change_name, Date visit_date, Date change_date, float cost) throws  SQLException {
@@ -364,7 +370,16 @@ public class DbStatements {
     }
 
     // ----------- Personel --------------
-    
+
+    public static int getIdPersonel(Connection conn, int id) throws SQLException {
+        String query = "SELECT id FROM personel WHERE id_users = 207";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        ResultSet r = preparedStmt.executeQuery();
+        r.next();
+        return r.getInt(1);
+    }
+
     public static void addPersonel (Connection conn, int id_users, String first_name, String last_name, String profession, String salary) throws  SQLException {
         String query = "insert into personel (id_users, first_name, last_name, profession, salary)" + " values (?, ?, ?, ?, ?)";
 
@@ -451,6 +466,29 @@ public class DbStatements {
         preparedStmt.setInt(1, id);
 
         return preparedStmt.executeQuery();
+    }
+
+    public static float getAllSalary(Connection conn) throws SQLException {
+        String query = "SELECT salary FROM personel";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+
+        ResultSet r = preparedStmt.executeQuery();
+        float sum = 0;
+        while(r.next()){
+            sum += r.getFloat("salary");
+        }
+        return sum;
+    }
+
+    public static float getPersonelAmount(Connection conn) throws SQLException {
+        String query = "SELECT count(*) FROM personel";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+
+        ResultSet r = preparedStmt.executeQuery();
+        r.next();
+        return r.getInt(1);
     }
 
 

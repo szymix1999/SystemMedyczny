@@ -7,6 +7,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Administration.AdministrationPane">
     <top>
@@ -17,6 +19,16 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <Text fx:id="postLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Kierownik">
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Text>
+            <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Text>
             <GridPane alignment="BOTTOM_RIGHT" cache="true" hgap="64.0" layoutX="10.0" snapToPixel="false" vgap="100.0">
               <columnConstraints>
                 <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" prefWidth="100.0" />
@@ -28,8 +40,8 @@
                   <RowConstraints minHeight="64.0" prefHeight="64.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#hire_btn" prefHeight="64.0" prefWidth="600.0" text="%hire" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#staff_btn" prefHeight="64.0" prefWidth="600.0" text="%personel" GridPane.rowIndex="1" />
+                  <Button fx:id="hire" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#hire_btn" prefHeight="64.0" prefWidth="600.0" text="%hire" />
+                  <Button fx:id="staff" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#staff_btn" prefHeight="64.0" prefWidth="600.0" text="%personel" GridPane.rowIndex="1" />
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#reg_btn" prefHeight="64.0" prefWidth="600.0" text="%registerPatient" GridPane.columnIndex="1" />
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#inventory_btn" prefHeight="64.0" prefWidth="600.0" text="%inventory" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#news_btn" prefHeight="91.0" prefWidth="599.0" text="%news" textAlignment="CENTER" GridPane.rowIndex="2" />

@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.sql.Connection;
@@ -25,6 +26,8 @@ public class HirePane {
     private ChoiceBox postBox;
     @FXML
     private Label infoLabel;
+    @FXML
+    private TextArea token;
 
     ObservableList<String> postList;
     Connection db;
@@ -61,12 +64,30 @@ public class HirePane {
 
         if(list.size()==4){
             System.out.println("DODAWANIE PRACOWNIKA DO BAZY");
-            DbStatements.addPersonel(db,1, list.get(0),list.get(1),list.get(2),list.get(3));
-            back();
+
+            String ts = String.valueOf(list.hashCode());
+            token.setText(ts);
+            DbStatements.addUser(db, "NotRegistetYet", "ahf3467344g3hg4oeug", type(list.get(2)), ts);
+
+            DbStatements.addPersonel(db,DbStatements.getIdUser(db,ts), list.get(0),list.get(1),list.get(2),list.get(3));
         }else{
             infoLabel.setVisible(true);
             System.out.println("NIE MA DANYCH");
         }
 
+    }
+
+    private int type(String s){
+        if(s.equals(App.getString("manager")))
+            return 5;
+        if(s.equals(App.getString("doctor")))
+            return 1;
+        if(s.equals(App.getString("apothecary")))
+            return 2;
+        if(s.equals(App.getString("accountant")))
+            return 3;
+        if(s.equals(App.getString("receptionist")))
+            return 6;
+        return 0;
     }
 }

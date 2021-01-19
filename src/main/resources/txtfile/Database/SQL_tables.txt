@@ -2,7 +2,8 @@ CREATE TABLE users (
     id serial PRIMARY KEY,
     id_type INT NOT NULL,
     login VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL
+    password VARCHAR(30) NOT NULL,
+    token VARCHAR(16)
 );
 
 CREATE TABLE personel (
@@ -86,14 +87,6 @@ CREATE TABLE referrals (
 	FOREIGN KEY (id_patients) REFERENCES patients(id),
 );
 
-CREATE TABLE contracts (
-	id serial PRIMARY KEY,
-	id_personel BIGINT UNSIGNED NOT NULL,
-	salary FLOAT(15,2) NOT NULL,
-	emp_from DATE NOT NULL,
-	emp_until DATE NOT NULL,
-	FOREIGN KEY (id_personel) REFERENCES personel(id)
-);
 
 CREATE TABLE icd10 (
 	id serial PRIMARY KEY,

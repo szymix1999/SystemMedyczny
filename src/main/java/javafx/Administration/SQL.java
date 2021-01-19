@@ -12,14 +12,15 @@ public class SQL {
         Connection c = DbConnector.connect();
 
 
-        String query = "SELECT * FROM users";
+        String query = "SELECT last_name FROM personel WHERE id_users = 207";
 
         PreparedStatement preparedStmt = c.prepareStatement(query);
         ResultSet r = preparedStmt.executeQuery();
 
         while(r.next()){
             System.out.println(r.getString(1));
-            System.out.println(" "+r.getString("login"));
+            break;
+            //System.out.println(" "+r.getString("login"));
         }
 
     }
