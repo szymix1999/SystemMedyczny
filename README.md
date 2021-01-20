@@ -68,18 +68,18 @@
 - Administracja przychodni - **Szymon Sala**
   - ~~telefoniczna rejestracja pacjentów~~
   - ~~baza pracowników~~
-  - ~~zatrudnianie/zwalnianie/~~wolne etaty
+  - ~~zatrudnianie/zwalnianie/wolne etaty~~
   - ~~wynagrodzenia/podwyzki/ciecia~~
   - umowy/typy umów/czesci etatów
-  - inwentaryzacja
+  - ~~inwentaryzacja~~
 - Administracja systemem - **Jan Starosta**
   - nadawanie uprawnien
   - modyfikacje kont
   - blokady systemu/uzytkowników
 - Ksiegowosc - **nie przydzielone**
-  - przychody, dochody, koszty, odpisy, amortyzacja
+  - ~~przychody, dochody, koszty, odpisy, amortyzacja~~
   - składki
-  - raporty okresowe
+  - ~~raporty okresowe~~
   - forma: tabelaryczna + druga, dowolnie wybrana - wybór techniki na poziomie przychodni Formy i techniki ksiegowosci
 - Komunikacja - **nie przydzielone**
   - wyszukiwanie danych o pacjentach (+wizyty, leki, skierowania, badania) i przekazywanie informacji o istnieniu/zródle tych danych
