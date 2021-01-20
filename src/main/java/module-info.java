@@ -3,6 +3,7 @@ module javafx {
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;
+    requires itextpdf;
 
 
     opens javafx to javafx.fxml;

@@ -33,15 +33,15 @@
          <content>
             <VBox fx:id="boxList" prefHeight="143.0" prefWidth="1272.0">
                <children>
-                  <Label text="%personel" />
+                  <Label fx:id="staffLabel" text="%personel" />
                   <TextArea fx:id="personel" editable="false" prefHeight="38.0" prefWidth="96.0" style="-fx-border-color: RED;" />
-                  <Label text="%disposalDrugs" />
+                  <Label fx:id="disLabel" text="%disposalDrugs" />
                   <TextArea fx:id="disposal" editable="false" prefHeight="30.0" prefWidth="694.0" style="-fx-border-color: RED;" />
-                  <Label text="%orderDrugs" />
+                  <Label fx:id="orderLabel" text="%orderDrugs" />
                   <TextArea fx:id="orderDrugs" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: RED;" />
-                  <Label text="%soldDrugs" />
+                  <Label fx:id="soldLabel" text="%soldDrugs" />
                   <TextArea fx:id="soldDrugs" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: GREEN;" />
-                  <Label text="%visits" />
+                  <Label fx:id="visitLabel" text="%visits" />
                   <TextArea fx:id="visits" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: GREEN;" />
                </children>
             </VBox>
@@ -54,7 +54,7 @@
             <VBox prefHeight="127.0" prefWidth="694.0" spacing="20.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="134.0" text="%add" />
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="%cancel" />
+                  <Button fx:id="generate_btn" mnemonicParsing="false" onAction="#generate" prefHeight="26.0" prefWidth="135.0" text="%generate" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="1482.0" spacing="20.0">
