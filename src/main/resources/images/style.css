@@ -1,15 +1,35 @@
 .guestbg {
- -fx-background-image: url('screen_6.jpg');
+ -fx-background-image: url('backgrounds/guest_pane.jpg');
  -fx-background-size: 100% 100%;
 }
 
 .loginbg {
- -fx-background-image: url('screen_1.jpg');
+ -fx-background-image: url('backgrounds/login_pane.jpg');
  -fx-background-size: 100% 100%;
 }
 
 .patientbg {
- -fx-background-image: url('screen_2.png');
+ -fx-background-image: url('backgrounds/patient_pane.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.adminbg {
+ -fx-background-image: url('backgrounds/admin_pane.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.administrationbg {
+ -fx-background-image: url('backgrounds/administration_pane.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.apothecarybg {
+ -fx-background-image: url('backgrounds/apothecary_pane.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.doctorbg {
+ -fx-background-image: url('backgrounds/doctor_pane.jpg');
  -fx-background-size: 100% 100%;
 }
 

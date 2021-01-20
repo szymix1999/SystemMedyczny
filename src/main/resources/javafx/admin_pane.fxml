@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="601.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="601.0" prefWidth="815.0" styleClass="adminbg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox fx:id="userList" prefHeight="58.0" prefWidth="815.0">
             <fx:include fx:id="topMenu" source="bar.fxml" />
