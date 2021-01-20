@@ -46,8 +46,8 @@
   - ~~realizowanie recept~~
   - ~~znane zastepniki (na podstawie zapisów lub składu leków)~~
   - ~~zdjecia opakowan~~
-  - tworzenie nowych zamówien (pacjent, aptekarz) i wydruk paragonów wraz z zatwierdzeniem
-  - realizacji recepty/zamówienia (aptekarz)
+  - ~~tworzenie nowych zamówien (pacjent, aptekarz) i wydruk paragonów~~ wraz z zatwierdzeniem
+  - ~~realizacji recepty/zamówienia (aptekarz)~~
 - Panel lekarza - **Maciej Rydzak**
   - ~~tabela lekarzy~~
   - wizyty zintegrowane z kalendarzem
