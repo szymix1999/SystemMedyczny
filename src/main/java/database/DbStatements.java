@@ -1,6 +1,8 @@
 package database;
 
 import javafx.Medicines.Medicines;
+import javafx.Patient.PatientController;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -82,7 +84,7 @@ public class DbStatements {
 
     // ----------- Patients --------------
 
-    public static int userNamePatientIdCheck(Connection conn, String userName) throws SQLException{
+    public static PatientController.Patient userNamePatientIdCheck(Connection conn, String userName) throws SQLException{
         String query = "select id, id_type from users where login = ?";
 
         PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -99,20 +101,22 @@ public class DbStatements {
         }
         System.out.println("User id: " + idUP + " | User type: " + typeUP);
 
+        PatientController.Patient patient=new PatientController.Patient(-1, "","","","","");
         if(idUP!=-1 && typeUP==0){
-            query = "select id from patients where id_users = ?";
+            query = "select id, first_name, last_name from patients where id_users = ?";
             System.out.println("Sprawdzanie id patients");
             preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, idUP);
 
             rs = preparedStmt.executeQuery();
-            int userId = -1;
             while (rs.next()) {
-                userId = rs.getInt("id");
+                patient.id = rs.getInt("id");
+                patient.first_name = rs.getString("first_name");
+                patient.last_name = rs.getString("last_name");
             }
-            return userId;
+            return patient;
         }else{
-            return -1;
+            return patient;
         }
     }
 

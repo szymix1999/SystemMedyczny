@@ -13,15 +13,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class patientPharmacyController {
     //tabela leków
@@ -329,7 +335,19 @@ public class patientPharmacyController {
 
         if(sell){
             System.out.println("Sprzedaje leki");
+            String content="";
+            if(Locale.getDefault().getDisplayLanguage()=="polski"){
+                content="Sprzedawca: MedApp Sp.Z.O.O\nKupujący: "+PatientController.getCurr_patient().first_name+" "+PatientController.getCurr_patient().last_name+"\n\nNazwa\tIlość\tCena\n\n";
+            }else{
+                content="Seller: MedApp Sp.Z.O.O\nBuyer: "+PatientController.getCurr_patient().first_name+" "+PatientController.getCurr_patient().last_name+"\n\nName\tAmount\tPrice\n\n";
+            }
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+            fileChooser.getExtensionFilters().add(extFilter);
+
             for(int i=0; i<medicinesModelShopList.getMedicinesFxObservableList().size(); i++){
+                content+=medicinesModelShopList.getMedicinesFxObservableList().get(i).getName()+"\t"+medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity()+"\t"+medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity()*medicinesModelShopList.getMedicinesFxObservableList().get(i).getPrice()+"\n";
                 medicinesModelShopList.getMedicinesFxObservableList().get(i).setQuantity(medicinesModelShopList.getMedicinesFxObservableList().get(i).getQuantity()-medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity());
                 medicinesModelShopList.getMedicinesFxObservableList().get(i).setSold(medicinesModelShopList.getMedicinesFxObservableList().get(i).getSold()+medicinesModelShopList.getMedicinesFxObservableList().get(i).getShopQuantity());
             }
@@ -339,7 +357,24 @@ public class patientPharmacyController {
             medicinesModelShopList.sellMed(c);
             patientPrescriptionList.clear();
             medicinesModelShopList.getMedicinesFxObservableList().clear();
+            if(Locale.getDefault().getDisplayLanguage()=="polski"){
+                content+="\n\nSuma: "+totalPrice.getText()+" PLN";
+            }else{
+                content+="\n\nTotal: "+totalPrice.getText()+" PLN";
+            }
             totalPrice.setText("0.00");
+
+            try{
+                File file = fileChooser.showSaveDialog(null);
+                PrintWriter writer;
+                writer = new PrintWriter(file);
+                writer.println(content);
+                writer.close();
+            }catch (FileNotFoundException ex){
+                System.out.println(ex);
+            }catch(RuntimeException ex){
+                System.out.println(ex);
+            }
         }
     }
 }

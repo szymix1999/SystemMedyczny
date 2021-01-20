@@ -30,7 +30,7 @@
                         <TableView fx:id="medicinesTab" editable="true" maxWidth="1240.0" minWidth="1240.0" prefWidth="1240.0" GridPane.rowIndex="1">
                           <columns>
                               <TableColumn fx:id="idColumn" editable="false" prefWidth="30.0" text="%id" />
-                            <TableColumn fx:id="nameColumn" onEditCommit="#OnEditCommitName" prefWidth="304.0" text="%name" />
+                            <TableColumn fx:id="nameColumn" onEditCommit="#OnEditCommitName" prefWidth="304.0" text="%drugName" />
                             <TableColumn fx:id="priceColumn" onEditCommit="#OnEditCommitPrice" prefWidth="75.0" text="%price" />
                               <TableColumn fx:id="prescriptionColumn" onEditCommit="#OnEditCommitPrescription" prefWidth="110.0" text="%prescription" />
                               <TableColumn fx:id="quantityColumn" onEditCommit="#OnEditCommitQuantity" prefWidth="90.0" text="%quantity" />

@@ -39,7 +39,7 @@
             <TableView fx:id="medicinesTab" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="idColumn" prefWidth="54.0" text="%id" />
-                  <TableColumn fx:id="nameColumn" prefWidth="659.0" text="%name" />
+                  <TableColumn fx:id="nameColumn" prefWidth="659.0" text="%drugName" />
                   <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="69.0" text="%price" />
                   <TableColumn fx:id="prescriptionColumn" prefWidth="127.0" text="%prescription" />
                   <TableColumn fx:id="quantityColumn" prefWidth="110.0" text="%quantity" />

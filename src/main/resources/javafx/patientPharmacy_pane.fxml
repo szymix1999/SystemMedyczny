@@ -30,7 +30,7 @@
                   <TableView fx:id="medicinesShopTab" editable="true" prefHeight="488.0" prefWidth="1280.0" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="idShopColumn" editable="false" prefWidth="34.0" text="%id" />
-                        <TableColumn fx:id="nameShopColumn" editable="false" prefWidth="63.0" text="%name" />
+                        <TableColumn fx:id="nameShopColumn" editable="false" prefWidth="63.0" text="%drugName" />
                         <TableColumn fx:id="priceShopColumn" editable="false" minWidth="0.0" prefWidth="55.0" text="%price" />
                         <TableColumn fx:id="availabilityShopColumn" editable="false" prefWidth="93.0" text="%availability" />
                         <TableColumn fx:id="quantityShopColumn" onEditCommit="#OnEditCommitShopQuantity" prefWidth="77.0" text="%quantity" />
@@ -75,7 +75,7 @@
                   <TableView fx:id="medicinesTab" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="idColumn" editable="false" prefWidth="39.0" text="%id" />
-                      <TableColumn fx:id="nameColumn" minWidth="5.0" prefWidth="125.0" text="%name" />
+                      <TableColumn fx:id="nameColumn" minWidth="5.0" prefWidth="125.0" text="%drugName" />
                       <TableColumn fx:id="priceColumn" prefWidth="71.0" text="%price" />
                         <TableColumn fx:id="prescriptionColumn" prefWidth="103.0" text="%prescription" />
                         <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="%quantity" />
