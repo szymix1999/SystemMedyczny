@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Administration.PersonalPane">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="profile_bg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Administration.PersonalPane">
     <top>
-      <HBox spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox blendMode="DIFFERENCE" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#back" prefHeight="64.0" prefWidth="100.0" text="%return">
                <HBox.margin>
@@ -23,7 +28,7 @@
       </HBox>
     </top>
    <bottom>
-      <HBox prefHeight="18.0" prefWidth="400.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <HBox blendMode="DIFFERENCE" prefHeight="18.0" prefWidth="400.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#refresh_btn" prefHeight="54.0" prefWidth="78.0" styleClass="refresh" stylesheets="@../images/style.css" />
             <TextArea fx:id="select_profil" editable="false" focusTraversable="false" prefHeight="38.0" prefWidth="947.0" />
@@ -34,19 +39,16 @@
          </BorderPane.margin>
       </HBox>
    </bottom>
-   <left>
-      <TableView fx:id="table_view" prefHeight="592.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+   <right>
+
+   </right>
+   <center>
+      <TableView fx:id="table_view" blendMode="MULTIPLY" prefHeight="592.0" prefWidth="1157.0" styleClass="profile_bg" stylesheets="@../images/style.css" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="name_list" prefWidth="224.00000303983688" text="%name" />
           <TableColumn fx:id="surname_list" minWidth="0.0" prefWidth="119.99998474121094" text="%surname" />
             <TableColumn fx:id="post_list" prefWidth="255.20001220703125" text="%post" />
         </columns>
       </TableView>
-   </left>
-   <right>
-
-   </right>
-   <right>
-      <VBox prefHeight="592.0" prefWidth="601.0" BorderPane.alignment="CENTER" />
-   </right>
+   </center>
 </BorderPane>

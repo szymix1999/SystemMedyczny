@@ -37,3 +37,8 @@
  -fx-background-image: url('refresh.png');
  -fx-background-size: 100% 100%;
 }
+
+.profile_bg {
+ -fx-background-image: url('backgrounds/profile_pane.png');
+ -fx-background-size: 100% 100%;
+}

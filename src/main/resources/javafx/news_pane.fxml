@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="profile_bg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Administration.NewsPane">
+    <top>
+        <HBox blendMode="DIFFERENCE" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#back" prefHeight="64.0" prefWidth="100.0" text="%return">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </HBox.margin>
+                </Button>
+                <VBox prefHeight="90.0" prefWidth="530.0">
+                    <fx:include fx:id="topMenu" source="bar.fxml" />
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+   <center>
+      <TableView fx:id="tableView" blendMode="MULTIPLY" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="visitName" prefWidth="256.79998475313187" text="%nameVisit" />
+          <TableColumn fx:id="visitDate" minWidth="0.0" prefWidth="212.80003356933594" text="%visitDate" />
+            <TableColumn fx:id="amount" prefWidth="75.0" text="%amount" />
+            <TableColumn prefWidth="356.79998779296875" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <GridPane blendMode="DIFFERENCE" prefHeight="59.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="663.799951171875" minWidth="10.0" prefWidth="658.1999755859375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.800048828125" minWidth="10.0" prefWidth="144.60002441406243" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.5999633789064" minWidth="10.0" prefWidth="271.79998779296875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="695.5999755859376" minWidth="10.0" prefWidth="206.2000732421875" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#discard" prefHeight="40.0" prefWidth="133.0" text="%discard" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Button>
+            <TextField fx:id="amountField" promptText="%giveAmount" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button fx:id="ok_btn" mnemonicParsing="false" onAction="#ok" prefHeight="40.0" prefWidth="204.0" text="%ok" GridPane.columnIndex="3" />
+            <TextArea fx:id="selected" editable="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="662.0" />
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>

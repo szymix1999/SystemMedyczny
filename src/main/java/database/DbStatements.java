@@ -306,6 +306,18 @@ public class DbStatements {
         preparedStmt.execute();
     }
 
+    public static float getVisitPaid(Connection conn) throws SQLException {
+        String query = "SELECT paid FROM visits WHERE paid>0";
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+
+        ResultSet r = preparedStmt.executeQuery();
+        float sum=0;
+        while(r.next()){
+            sum += r.getFloat(1);
+        }
+        return sum;
+    }
+
     public static void updateVisitName(Connection conn, int id, String old_name, String new_name) throws SQLException {
         String query = "update visits set visit_name = ?, change_name = ? where id = ?";
 
@@ -334,6 +346,23 @@ public class DbStatements {
         PreparedStatement preparedStmt = conn.prepareStatement(query);
         preparedStmt.setFloat(1, cost);
         preparedStmt.setInt(2, id);
+
+        preparedStmt.execute();
+    }
+
+    public static ResultSet getUnacceptedVisit(Connection conn) throws SQLException {
+        String query = "SELECT id, visit_name, visit_date FROM visits WHERE paid<0";
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+
+        ResultSet r = preparedStmt.executeQuery();
+        return r;
+    }
+
+    public static void deleteUnacceptedVisit(Connection conn, int id) throws SQLException {
+        String query = "DELETE FROM visits WHERE id=?";
+
+        PreparedStatement preparedStmt = conn.prepareStatement(query);
+        preparedStmt.setInt(1,id);
 
         preparedStmt.execute();
     }

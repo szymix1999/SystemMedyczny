@@ -89,6 +89,7 @@ public class InventoryPane {
         disposal.setText(String.valueOf(disposed));
         orderDrugs.setText(String.valueOf(ordered));
         soldDrugs.setText(String.valueOf(sold));
+        visits.setText(String.valueOf(DbStatements.getVisitPaid(db)));
 
         labels = new ArrayList<Pair<String, String>>();
 
@@ -122,6 +123,9 @@ public class InventoryPane {
 
         labels.add(new Pair<>(l.getText(),t.getText()));
         boxList.getChildren().add(t);
+
+        descript.clear();
+        money.clear();
     }
 
 
@@ -173,9 +177,12 @@ public class InventoryPane {
         doc.add(paragraph);
         doc.add(paragraph1);
         doc.close();
+
         generate_btn.setBorder(new Border(new BorderStroke(Color.GREEN, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
 
 
     }
+
+
 }

@@ -21,23 +21,33 @@ public class AdministrationPane {
     private Button hire;
     @FXML
     private Button staff;
+    @FXML
+    private Button news;
+    @FXML
+    private Button register;
+    @FXML
+    private Button inventory;
 
     Connection db;
 
     @FXML
     private void initialize() throws SQLException {
         db = DbConnector.connect();
-        switch (DbStatements.type){
-            case 3 :
-                postLabel.setText(App.getString("accountant"));
-                break;
-            case 5 :
-                postLabel.setText(App.getString("manager"));
-                break;
-            case 6 :
-                postLabel.setText(App.getString("receptionist"));
-                break;
+
+        if(DbStatements.type==3) {
+            postLabel.setText(App.getString("accountant"));
+            register.setDisable(true);
+            news.setDisable(true);
+            hire.setDisable(true);
+        }else if(DbStatements.type==5) {
+            postLabel.setText(App.getString("manager"));
+        }else if(DbStatements.type==6){
+            postLabel.setText(App.getString("receptionist"));
+            inventory.setDisable(true);
+            staff.setDisable(true);
+            hire.setDisable(true);
         }
+
         name.setText(DbStatements.getPersonelName(db, DbStatements.getIdPersonel(db,DbStatements.id)));
     }
 

@@ -38,10 +38,11 @@ public class PersonalPane {
     @FXML
     private void initialize() throws SQLException {
         db = DbConnector.connect();
-        table_view.setItems(getPesonObservableList());
+        table_view.setItems(getPersonObservableList());
         name_list.setCellValueFactory(cellData ->cellData.getValue().nameProperty());
         surname_list.setCellValueFactory(cellData ->cellData.getValue().surnameProperty());
         post_list.setCellValueFactory(cellData ->cellData.getValue().postProperty());
+
         table_view.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Person>() {
             @Override
             public void changed(ObservableValue<? extends Person> observableValue, Person person, Person t1) {
@@ -74,7 +75,7 @@ public class PersonalPane {
         App.setRoot("personel_profil");
     }
 
-    private ObservableList<Person> getPesonObservableList() throws SQLException {
+    private ObservableList<Person> getPersonObservableList() throws SQLException {
         ObservableList<Person> list = FXCollections.observableArrayList();
         ArrayList<String> arrList = DbStatements.getPersonel(db);
 
