@@ -33,7 +33,7 @@ public class SignUpVisitController {
             ResultSet rs = DbStatements.getOnlyDoctors(PatientController.c);
             while(rs.next()) {
                 ResultSet rsP = DbStatements.getDoctorData(PatientController.c, rs.getInt("id"));
-                System.out.println("Doctor id: " + rs.getInt("id"));
+                //System.out.println("Doctor id: " + rs.getInt("id"));
                 while(rsP.next()) {
                     DoctorsController.Doctor d = new DoctorsController.Doctor(rsP.getInt("id"), rsP.getString("first_name"),
                             rsP.getString("last_name"), rsP.getString("profession"));
@@ -45,11 +45,12 @@ public class SignUpVisitController {
         }
 
         choiceBoxDoctor.setItems(doctorsList);
+        if(doctorsList.size() > 0) choiceBoxDoctor.setValue(doctorsList.get(0));
     }
 
     @FXML
     private void sendSignVisit() {
-        if(FTxtName.getText().equals("") && choiceBoxDoctor.getValue() != null && FTxtDate.getText().equals("")) {
+        if(!FTxtName.getText().equals("") &&  choiceBoxDoctor.getValue() != null && !FTxtDate.getText().equals("")) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
             try {
@@ -60,6 +61,17 @@ public class SignUpVisitController {
                         FTxtName.getText(), null, sqlDate, null, 0, -1);
 
                 System.out.println("Visit added.");
+
+                FTxtDate.clear();
+                FTxtName.clear();
+                choiceBoxDoctor.setValue(doctorsList.get(0));
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information \"" + App.getString("visits") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("VisitAdded"));
+
+                alert.showAndWait();
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } catch (ParseException ex) {
