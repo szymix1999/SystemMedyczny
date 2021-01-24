@@ -525,7 +525,7 @@ public class ApothecaryController{
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information Dialog \"" + App.getString("prescription") + "\"");
                         alert.setHeaderText(null);
-                        alert.setContentText(App.getString("noPrescription"));
+                        alert.setContentText(App.getString("noPrescriptionApothecary"));
                         alert.showAndWait();
                         sell=false;
                     }
