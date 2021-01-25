@@ -50,7 +50,7 @@ public class SignUpVisitController {
 
     @FXML
     private void sendSignVisit() {
-        if(!FTxtName.getText().equals("") &&  choiceBoxDoctor.getValue() != null && !FTxtDate.getText().equals("")) {
+        if(!FTxtName.getText().equals("") && choiceBoxDoctor.getValue() != null && !FTxtDate.getText().equals("")) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
             try {

@@ -25,7 +25,7 @@ public class ReferralController {
 
     @FXML
     private void addReferral() {
-        if(ATxtReferralContents.getText().equals("") && FTxtReferralDate.getText().equals("") && source != null) {
+        if(!ATxtReferralContents.getText().equals("") && !FTxtReferralDate.getText().equals("") && source != null) {
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             try {

@@ -32,10 +32,12 @@ public class LoginController {
 
 
     @FXML
-    private void log_in() {
-        if(c == null)
-            c = DbConnector.connect();
+    private void initialize() {
+        c = DbConnector.connect();
+    }
 
+    @FXML
+    private void log_in() {
         System.out.println("Login: " + userLoginField.getText() + " | Password: " + userPassField.getText());
         try {
             if((userLoginField.getText() != null && !userLoginField.getText().isEmpty() &&
@@ -92,9 +94,6 @@ public class LoginController {
 
     @FXML
     private void send_reg() {   //metoda po kliknieciu Create w Register
-        if(c == null)
-            c = DbConnector.connect();
-
         if(FTxtUsername.getText() != "" && FTxtPassword.getText() != "" && FTxtToken.getText() != "") {
             try {
                 if(DbStatements.getIdUser(c,FTxtToken.getText())!=0) {
