@@ -307,7 +307,8 @@ public class patientPharmacyController {
     @FXML
     private void buyButtonOnAction() throws SQLException {
         List<PatientController.Prescription> patientPrescriptionListMinus=new ArrayList<PatientController.Prescription>();
-        boolean exists=false, sell=true;
+        boolean exists=true, sell=true;
+        String medicines="";
         for(int i=0; i<medicinesModelShopList.getMedicinesFxObservableList().size(); i++){
             if(medicinesModelShopList.getMedicinesFxObservableList().get(i).isPrescription()){
                 exists=false;
@@ -322,15 +323,18 @@ public class patientPharmacyController {
                     }
                 }
                 if(!exists){
-                    //tutaj wyświetli błąd i nie pozwoli sprzedać
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Dialog \"" + App.getString("prescription") + "\"");
-                    alert.setHeaderText(null);
-                    alert.setContentText(App.getString("noPrescription"));
-                    alert.showAndWait();
-                    sell=false;
+                    medicines+=medicinesModelShopList.getMedicinesFxObservableList().get(i).getName()+", ";
                 }
             }
+        }
+        if(!exists){
+            //tutaj wyświetli błąd i nie pozwoli sprzedać
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog \"" + App.getString("prescription") + "\"");
+            alert.setHeaderText(null);
+            alert.setContentText(App.getString("noPrescription")+medicines);
+            alert.showAndWait();
+            sell=false;
         }
 
         if(sell){

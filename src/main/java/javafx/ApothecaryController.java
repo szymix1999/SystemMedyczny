@@ -409,7 +409,7 @@ public class ApothecaryController{
             this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setSold(this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getSold()-Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
             System.out.println("Zmieniono Returns: "+medicinesFxIntegerCellEditEvent.getNewValue());
             this.medicinesModelList.editTable(c);
-        }else if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())<Integer.parseInt(medicinesFxIntegerCellEditEvent.getOldValue()) && Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())>0){
+        }else if(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())<Integer.parseInt(medicinesFxIntegerCellEditEvent.getOldValue()) && Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())>=0){
             this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setQuantity(this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getQuantity()-(Integer.parseInt(medicinesFxIntegerCellEditEvent.getOldValue())-Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())));
             this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setSold(this.medicinesModelList.getMedicinesFxObjectPropertyEdit().getSold()+(Integer.parseInt(medicinesFxIntegerCellEditEvent.getOldValue())-Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue())));
             this.medicinesModelList.getMedicinesFxObjectPropertyEdit().setReturns(Integer.parseInt(medicinesFxIntegerCellEditEvent.getNewValue()));
@@ -495,7 +495,8 @@ public class ApothecaryController{
     @FXML
     private void sellButtonOnAction() throws SQLException {
         List<PatientController.Prescription> patientPrescriptionListMinus=new ArrayList<PatientController.Prescription>();
-        boolean exists=false, sell=false;
+        boolean exists=true, sell=false;
+        String medicines="";
         if(patient.id==-2 || userNameField.getText()==""){
             sell=true;
         }else if(patient.id==-1) {
@@ -521,15 +522,18 @@ public class ApothecaryController{
                         }
                     }
                     if(!exists){
-                        //tutaj wyświetli błąd i nie pozwoli sprzedać
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Information Dialog \"" + App.getString("prescription") + "\"");
-                        alert.setHeaderText(null);
-                        alert.setContentText(App.getString("noPrescriptionApothecary"));
-                        alert.showAndWait();
-                        sell=false;
+                        medicines+=medicinesModelShopList.getMedicinesFxObservableList().get(i).getName()+", ";
                     }
                 }
+            }
+            if(!exists){
+                //tutaj wyświetli błąd i nie pozwoli sprzedać
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog \"" + App.getString("prescription") + "\"");
+                alert.setHeaderText(null);
+                alert.setContentText(App.getString("noPrescriptionApothecary")+medicines);
+                alert.showAndWait();
+                sell=false;
             }
         }
         if(sell){
