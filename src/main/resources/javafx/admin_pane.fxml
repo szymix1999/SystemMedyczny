@@ -4,47 +4,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="601.0" prefWidth="815.0" styleClass="adminbg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <VBox fx:id="userList" prefHeight="58.0" prefWidth="815.0">
-            <fx:include fx:id="topMenu" source="bar.fxml" />
-        </VBox>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="454.0" prefWidth="795.0" VBox.vgrow="ALWAYS">
-            <children>
-                <VBox layoutX="83.0" layoutY="24.0" prefHeight="477.0" prefWidth="524.0">
-                    <children>
-                        <HBox prefHeight="39.0" prefWidth="524.0">
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%usersList" wrappingWidth="243.228515625">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </HBox>
-                        <HBox prefHeight="300.0" prefWidth="688.0">
-                            <children>
-                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <ListView prefHeight="300.0" prefWidth="249.0" />
-                                    </children>
-                                </HBox>
-                                <VBox prefHeight="300.0" prefWidth="178.0">
-                                    <children>
-                                        <CheckBox mnemonicParsing="false" text="%permission1" />
-                                        <CheckBox mnemonicParsing="false" text="%permission2" />
-                                        <CheckBox mnemonicParsing="false" text="%permission3" />
-                                        <CheckBox mnemonicParsing="false" text="%permission4" />
-                                        <CheckBox mnemonicParsing="false" text="%userBan" />
-                                        <Button mnemonicParsing="false" text="%deleteUser" />
-                                        <Button mnemonicParsing="false" text="%changePassword" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </HBox>
-                    </children>
-                </VBox>
-            </children>
-        </AnchorPane>
-    </children>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="832.0" styleClass="profile_bg" stylesheets="@../images/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.AdminController">
+   <children>
+      <ListView fx:id="listUsers" layoutX="14.0" layoutY="169.0" onMouseClicked="#displaySelected" prefHeight="368.0" prefWidth="292.0" />
+      <Button fx:id="deleteUsers" layoutX="323.0" layoutY="317.0" mnemonicParsing="false" onAction="#deleteUserFromList" prefHeight="25.0" prefWidth="178.0" text="Usuń użytkownika" />
+      <Button fx:id="banButton" layoutX="323.0" layoutY="359.0" mnemonicParsing="false" onAction="#banUser" prefHeight="25.0" prefWidth="178.0" text="Zablokuj użytkownika" />
+      <Text layoutX="37.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista użytkowników" wrappingWidth="246.13671875">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <TextField fx:id="screen" alignment="TOP_CENTER" layoutX="331.0" layoutY="453.0" mouseTransparent="true" prefHeight="39.0" prefWidth="481.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <VBox blendMode="EXCLUSION" prefHeight="0.0" prefWidth="551.0" BorderPane.alignment="CENTER">
+         <fx:include fx:id="topMenu" source="bar.fxml" />
+      </VBox>
+      <Button fx:id="adminButton" layoutX="320.0" layoutY="240.0" mnemonicParsing="false" onAction="#administartionPermission" prefHeight="25.0" prefWidth="178.0" text="Uprawnienia Administracyjne" />
+      <Button fx:id="doctorButton" layoutX="323.0" layoutY="279.0" mnemonicParsing="false" onAction="#doctorPermission" prefHeight="25.0" prefWidth="178.0" text="Uprawnienia Lekarskie" />
+   </children>
+</AnchorPane>
